@@ -12,7 +12,7 @@ Welcome to the repository containing my professional curriculum vitae. I am an A
 ## 📄 PDF CV
 
 - [English Version (PDF)](https://pvbang.github.io/cv/files/cv-en.pdf)  
-- [Vietnamese Version (PDF)](https://pvbang.github.io/files/cv-vi.pdf)  
+- [Vietnamese Version (PDF)](https://pvbang.github.io/cv/files/cv-vi.pdf)  
 
 ---
 
