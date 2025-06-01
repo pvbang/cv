@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phan Văn Bằng - AI Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 10pt; /* Smaller base font size for PDF */
+    }
+
+    .section-title-custom {
+      display: inline-block; /* Ensures border-bottom only spans the text width */
+      font-weight: 700; /* bold */
+      color: #1f2937; /* text-gray-900 */
+      border-bottom-width: 1px; /* border-b */
+      border-color: #3b82f6; /* border-blue-600 */
+      padding-bottom: 0.25rem; /* pb-1 */
+      margin-bottom: 0.5rem; /* mb-2 */
+      font-size: 0.875rem; /* text-sm */
+      line-height: 1.25rem; /* text-sm */
+    }
+
+    /* Icon sizes for lists and contact */
+    .contact-icon {
+      width: 0.75rem; /* w-3 */
+      height: 0.75rem; /* h-3 */
+      margin-right: 0.375rem; /* mr-1.5 */
+    }
+    .list-icon {
+      width: 0.75rem; /* w-3 */
+      height: 0.75rem; /* h-3 */
+      color: #3b82f6; /* text-blue-600 */
+      margin-top: 0.125rem; /* mt-0.5 */
+      margin-right: 0.375rem; /* mr-1.5 */
+      flex-shrink: 0;
+    }
+
+    /* Ensure Tailwind's responsive classes apply in print */
+    @media print {
+      body {
+        font-size: 9pt !important; /* Fine-tune for PDF */
+        color: #000 !important; /* Ensure text is black for print */
+        margin: 0;
+        padding: 0;
+      }
+      .bg-gray-100 {
+        background-color: #fff !important;
+      }
+      .shadow-xl {
+        box-shadow: none !important;
+      }
+      .resume-container { /* Target the main white box */
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0.4in !important; /* Ensure padding for print, adjust as needed */
+        border-radius: 0 !important;
+      }
+
+      /* Force grid for print if browser defaults to block */
+      .md\:grid { display: grid !important; }
+      .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+      .md\:col-span-1 { grid-column: span 1 / span 1 !important; }
+      .md\:col-span-2 { grid-column: span 2 / span 2 !important; }
+
+      a { color: #000 !important; text-decoration: none !important; }
+      .text-blue-700, .text-blue-600, .text-blue-500 { color: #000 !important; }
+      .text-gray-900, .text-gray-800, .text-gray-700, .text-gray-600 { color: #000 !important; }
+      .border-blue-600 { border-color: #000 !important; }
+      .marker\:text-blue-500::marker { color: #000 !important; }
+      .list-icon { color: #000 !important; } /* Make list icons black for print */
+      .contact-icon { color: #000 !important; } /* Make contact icons black for print */
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800 text-xs leading-snug">
+  <div class="resume-container mx-auto max-w-3xl bg-white rounded-lg shadow-xl p-3 sm:p-4 my-4">
+    <header class="text-center mb-3 pb-2 border-b border-gray-300">
+      <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900 tracking-tight">PHAN VĂN BẰNG</h1>
+      <p class="text-sm sm:text-base text-blue-600 font-medium">AI Engineer | Backend Developer</p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-3">
+      <aside class="md:col-span-1 space-y-2 pr-2 md:border-r md:border-gray-200">
+        <section id="contact">
+          <h2 class="section-title-custom">LIÊN HỆ</h2>
+          <div class="mt-1 space-y-1 text-xs">
+            <a href="tel:0964196652" class="flex items-center text-blue-700 hover:text-blue-900 group">
+              <svg xmlns="http://www.w3.org/2000/svg" class="contact-icon text-blue-500 group-hover:text-blue-700" viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
+              +84 96 419 6652
+            </a>
+            <a href="mailto:pvbang23092002@gmail.com" class="flex items-center text-blue-700 hover:text-blue-900 group">
+              <svg xmlns="http://www.w3.org/2000/svg" class="contact-icon text-blue-500 group-hover:text-blue-700" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+              pvbang23092002@gmail.com
+            </a>
+            <a href="https://github.com/pvbang" target="_blank" rel="noopener noreferrer" class="flex items-center text-blue-700 hover:text-blue-900 group">
+              <svg xmlns="http://www.w3.org/2000/svg" class="contact-icon text-blue-500 group-hover:text-blue-700" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.419 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.008-.867-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.152-1.107-1.459-1.107-1.459-.904-.618.068-.606.068-.606 1.002.07 1.531 1.027 1.531 1.027.89 1.529 2.336 1.088 2.903.83.091-.644.349-1.088.635-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.09.39-1.984 1.029-2.68a3.61 3.61 0 01.097-2.643s.837-.268 2.75-.987c.83-.227 1.71-.34 2.583-.34.873 0 1.753.113 2.583.34 1.913.719 2.75 0 2.75 0 .21.67.33 1.34.097 2.643.64.696 1.029 1.59 1.029 2.68 0 3.841-2.339 4.686-4.566 4.935.359.307.678.915.678 1.846 0 1.334-.012 2.413-.012 2.742 0 .268.18.579.688.481C20.137 20.16 23 16.413 23 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+              github.com/pvbang
+            </a>
+            <a href="https://linkedin.com/in/pvbang" target="_blank" rel="noopener noreferrer" class="flex items-center text-blue-700 hover:text-blue-900 group">
+              <svg xmlns="http://www.w3.org/2000/svg" class="contact-icon text-blue-600 group-hover:text-blue-800" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.564c0-1.325-.028-3.044-1.852-3.044-1.853 0-2.136 1.445-2.136 2.955v5.653H9.109V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 6.879v6.232zM5.337 7.433a2.062 2.062 0 01-2.064-2.065c0-1.136.928-2.063 2.064-2.063 1.136 0 2.064.927 2.064 2.063 0 1.136-.928 2.065-2.064 2.065zm-.007 13.012H2.288V9h3.042v11.445zM22.227 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.456C23.208 24 24 23.227 24 22.271V1.729C24 .774 23.208 0 22.227 0z" /></svg>
+              linkedin.com/in/pvbang
+            </a>
+            <a href="https://pvbang.github.io/cv/index.html" target="_blank" rel="noopener noreferrer" class="flex items-center text-blue-700 hover:text-blue-900 group">
+              <svg xmlns="http://www.w3.org/2000/svg" class="contact-icon text-blue-500 group-hover:text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /> </svg>
+              pvbang.github.io/cv (CV Trực tuyến)
+            </a>
+          </div>
+        </section>
+
+        <section class="mt-2">
+          <h2 class="section-title-custom">KỸ NĂNG CHUYÊN MÔN</h2>
+          <div class="mt-1 space-y-1 text-xs text-gray-700">
+            <div>
+              <h4 class="font-semibold text-gray-800">Ngôn ngữ lập trình:</h4>
+              <p>Python, JavaScript & TypeScript, C#, Java, C++, C</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Frameworks & Thư viện:</h4>
+              <p>LangChain, FastAPI, Flask, Streamlit, Spring Boot, Laravel, ExpressJS, React, React Native, Unity</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Cơ sở dữ liệu:</h4>
+              <p>Vector DB (Qdrant, Faiss, Chroma), SQL (MySQL, SQLite), NoSQL (MongoDB, Firebase), Graph DB (Neo4j)</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">AI/ML & Xử lý ảnh:</h4>
+              <p>Prompt Engineering, LLM Fine-tuning, RAG, Agentic Systems (Tool Calling, MCP), ComfyUI Workflows</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Kiến trúc & Hệ thống:</h4>
+              <p>Microservices, Thiết kế RESTful API, Docker, Quản lý VPS (Ubuntu, Linux)</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">DevOps & CI/CD:</h4>
+              <p>AWS (S3, EC2), Cloudflare, Vercel, GitHub Actions</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-gray-800">Công cụ & Quy trình:</h4>
+              <p>Git, N8N Automation, Data Crawling/Scraping, Unit Testing</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mt-2">
+          <h2 class="section-title-custom">HỌC VẤN</h2>
+          <div class="mt-1 space-y-0.5 text-xs text-gray-700">
+            <h3 class="text-xs font-semibold text-gray-900">Kỹ sư Công nghệ Thông tin</h3>
+            <div class="flex justify-between text-gray-600 italic">
+              <span>VKU, Đà Nẵng</span>
+              <span>2020 - 2025</span>
+            </div>
+              <p class="text-gray-600 italic">Trường Đại học Công nghệ Thông tin và Truyền thông Việt - Hàn</p>
+          </div>
+        </section>
+
+        <section class="mt-2">
+          <h2 class="section-title-custom">KỸ NĂNG MỀM</h2>
+          <div class="mt-1 space-y-1 text-xs text-gray-700">
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="list-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <span><span class="font-semibold text-gray-800">Làm việc nhóm & Hợp tác:</span> Chủ động chia sẻ kiến thức.</span>
+            </div>
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="list-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <span><span class="font-semibold text-gray-800">Điều phối nhóm:</span> Phân công nhiệm vụ, theo dõi tiến độ.</span>
+            </div>
+              <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="list-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <span><span class="font-semibold text-gray-800">Phân tích & Giải quyết vấn đề:</span> Giải pháp có hệ thống, sáng tạo.</span>
+            </div>
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="list-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <span><span class="font-semibold text-gray-800">Giao tiếp:</span> Tương tác rõ ràng về kỹ thuật và phi kỹ thuật.</span>
+            </div>
+            <div class="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" class="list-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+              <span><span class="font-semibold text-gray-800">Học hỏi liên tục:</span> Chủ động cập nhật kỹ năng về AI & lập trình.</span>
+            </div>
+          </div>
+        </section>
+      </aside>
+
+      <main class="md:col-span-2 space-y-2 pl-2">
+        <section>
+          <h2 class="section-title-custom">TÓM TẮT</h2>
+          <div class="mt-1 space-y-1 text-xs text-gray-700">
+            <p>
+              AI Engineer & Backend Developer (2+ năm kinh nghiệm backend, 1+ năm AI). Thành thạo thiết kế, xây dựng, triển khai các giải pháp AI tiên tiến (chatbot RAG, Agentic Systems, Tool Calling, ComfyUI image workflows). Chủ động nghiên cứu & áp dụng công nghệ mới để tối ưu hiệu suất, bảo mật, khả năng mở rộng.
+            </p>
+            <div class="space-y-0.5 pt-1">
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="list-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <p><span class="font-semibold text-gray-800">Mục tiêu ngắn hạn:</span> Vị trí AI Engineer, phát triển AI đột phá, xử lý dữ liệu, tối ưu hệ thống cho các dự án giá trị cao.</p>
+              </div>
+              <div class="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="list-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <p><span class="font-semibold text-gray-800">Mục tiêu dài hạn:</span> Chuyên gia AI hàng đầu, dẫn dắt đổi mới, phát triển AI tiên phong mang lại lợi thế cho công ty & lợi ích cộng đồng.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mt-2">
+          <h2 class="section-title-custom">KINH NGHIỆM LÀM VIỆC</h2>
+          <div class="mt-1 space-y-3 text-xs text-gray-700">
+            <div class="space-y-1">
+              <div class="flex flex-col sm:flex-row justify-between sm:items-baseline">
+                <h3 class="text-sm font-semibold text-gray-900">AI Engineer | Backend Developer</h3>
+                <span class="text-gray-600 italic text-xs">06/2023 - Hiện tại</span>
+              </div>
+              <div class="text-xs text-blue-700 font-medium">MekongAI</div>
+              <div class="mt-1 space-y-1.5">
+                <div>
+                  <div class="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="list-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <span class="font-semibold text-gray-800">Phát triển và Triển khai Giải pháp AI:</span>
+                  </div>
+                  <ul class="ml-3 mt-0.5 space-y-0.5 list-disc list-inside marker:text-blue-500">
+                    <li>Triển khai kiến trúc Retrieval-Augmented Generation (RAG) cho chatbot, cải thiện độ chính xác truy xuất thông tin <span class="font-medium">15-20%</span> & giảm thời gian phản hồi xuống <span class="font-medium">&lt;2s</span>.</li>
+                    <li>Xây dựng Agentic Systems (Tool Calling, MCP) tự động hóa <span class="font-medium">&gt;8 quy trình nghiệp vụ phức tạp</span>, tiết kiệm <span class="font-medium">~5-7 giờ/tuần</span> cho mỗi thành viên.</li>
+                    <li>Áp dụng kỹ thuật MCP tối ưu luồng xử lý thông tin của Agent, đạt tốc độ thực thi nhanh hơn <span class="font-medium">~20%</span> trong thử nghiệm.</li>
+                    <li>Tinh chỉnh Prompt Engineering, tăng tỷ lệ giải quyết vấn đề thành công của LLM thêm <span class="font-medium">20%</span> & đảm bảo tính nhất quán nội dung.</li>
+                    <li>Phát triển chatbot AI chuyên biệt (Luật, Mạng xã hội, Xe cộ) sử dụng LangChain, LLMs (RAG, Agent), nhận phản hồi tích cực.</li>
+                  </ul>
+                </div>
+                <div class="mt-1">
+                  <div class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="list-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <span class="font-semibold text-gray-800">Huấn luyện và Tối ưu Mô hình AI:</span>
+                  </div>
+                  <ul class="ml-3 mt-0.5 space-y-0.5 list-disc list-inside marker:text-blue-500">
+                    <li>Fine-tuning LLM trên tập dữ liệu để tiếp thu kiến thức mới và điều chỉnh phương pháp phản hồi phù hợp ngữ cảnh.</li>
+                    <li>Huấn luyện mô hình LoRA (AI-Toolkit, Flux) tạo ảnh chất lượng cao, giảm thời gian tạo ảnh thủ công <span class="font-medium">30%</span>.</li>
+                  </ul>
+                </div>
+                <div class="mt-1">
+                  <div class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="list-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <span class="font-semibold text-gray-800">Phát triển Backend và Quản lý Cơ sở dữ liệu:</span>
+                  </div>
+                  <ul class="ml-3 mt-0.5 space-y-0.5 list-disc list-inside marker:text-blue-500">
+                    <li>Phát triển RESTful API hiệu năng cao (FastAPI) với thời gian phản hồi <span class="font-medium">&lt;200ms</span>, hỗ trợ <span class="font-medium">800 reqs/phút</span>.</li>
+                    <li>Triển khai & tối ưu Vector DB (Qdrant) & Graph DB (Neo4j) cho <span class="font-medium">2 dự án AI chủ chốt</span>.</li>
+                    <li>Quản lý CSDL SQL (MySQL) & NoSQL (MongoDB), đảm bảo toàn vẹn dữ liệu & hiệu suất ổn định.</li>
+                  </ul>
+                </div>
+                <div class="mt-1">
+                  <div class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="list-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <span class="font-semibold text-gray-800">Công nghệ Xử lý Ảnh AI (ComfyUI):</span>
+                  </div>
+                  <ul class="ml-3 mt-0.5 space-y-0.5 list-disc list-inside marker:text-blue-500">
+                    <li>Xây dựng & quản lý <span class="font-medium">&gt;20 ComfyUI workflows phức tạp</span> (Tạo ảnh, FaceSwap, VTO, v.v.), xử lý <span class="font-medium">300-400 ảnh/ngày</span>.</li>
+                    <li>Triển khai Web Sockets tích hợp ComfyUI workflow & tạo API cho frontend.</li>
+                  </ul>
+                </div>
+                <div class="mt-1">
+                  <div class="flex items-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="list-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    <span class="font-semibold text-gray-800">Quản lý Hạ tầng và Tự động hóa:</span>
+                  </div>
+                  <ul class="ml-3 mt-0.5 space-y-0.5 list-disc list-inside marker:text-blue-500">
+                    <li>Quản trị VPS (Ubuntu, Linux) cho Local LLM, Training, Testing.</li>
+                    <li>Sử dụng N8N tự động hóa <span class="font-medium">&gt;5 workflows lặp lại</span> (RAG, tích hợp ứng dụng, tác vụ dữ liệu).</li>
+                    <li>Quản lý hosting, domain (Hostinger), CDN (Cloudflare) cho subdomain, tốc độ & bảo mật.</li>
+                  </ul>
+                </div>
+              </div>
+              </div>
+          </div>
+        </section>
+      </main>
+    </div>
+      <!-- <footer class="mt-4 pt-2 border-t border-gray-300 text-center text-xs text-gray-500">
+        <p>Cập nhật lần cuối: Tháng 6 năm 2025</p>
+      </footer> -->
+  </div>
+</body>
+</html>
