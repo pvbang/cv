@@ -44,9 +44,8 @@ Passionate about crafting intelligent AI-driven systems and robust, high-perform
 
 ## 📄 My Full CV
 
-* [English Version (Online)](https://pvbang.github.io/cv/index.html)
-* [Vietnamese Version (Online)](https://pvbang.github.io/cv/index-vi.html)
-
+* [English Version (Online)](https://pvbang.github.io/cv/index.html) | [PDF](https://pvbang.github.io/cv/files/cv-en.pdf)
+* [Vietnamese Version (Online)](https://pvbang.github.io/cv/index-vi.html) | [PDF](https://pvbang.github.io/cv/files/cv-vi.pdf)
 ---
 
 ## 📫 Let's Connect!
