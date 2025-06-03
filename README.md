@@ -8,7 +8,7 @@ Passionate about crafting intelligent AI-driven systems and robust, high-perform
 🚀 **My Core Focus:**
 
 * 🤖 **AI Engineering:**
-    * Retrieval-Augmented Generation (RAG) & Agentic Systems (Tool Calling, MCP)
+    * Retrieval-Augmented Generation (RAG) & Agentic Systems (Tool Calling, CrewAI, MCP)
     * LLM Fine-tuning & Prompt Engineering
     * Advanced Image Processing (ComfyUI Workflows, LoRA Model Training)
     * Vector Databases (Qdrant, Faiss, Chroma)
