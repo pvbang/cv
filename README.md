@@ -25,7 +25,7 @@ Passionate about crafting intelligent AI-driven systems and robust, high-perform
 * **Programming Languages:** `Python` `JavaScript & TypeScript` `C#` `Java` `C++` `C`
 * **Frameworks & Libraries:** `LangChain` `FastAPI` `Flask` `Streamlit` `Spring Boot` `Laravel` `ExpressJS` `React` `React Native` `Unity`
 * **Databases:** `Vector DB (Qdrant, Faiss, Chroma)` `SQL (MySQL, SQLite)` `NoSQL (MongoDB, Firebase)` `Graph DB (Neo4j)`
-* **AI/ML & Image Processing:** `Prompt Engineering` `LLM Fine-tuning` `RAG` `Agentic Systems (Tool Calling, Model Context Protocol - MCP)` `ComfyUI Workflows`
+* **AI/ML & Image Processing:** `Prompt Engineering` `LLM Fine-tuning` `RAG` `Agentic Systems (Tool Calling, CrewAI, Model Context Protocol - MCP)` `ComfyUI Workflows`
 * **Architecture & Systems:** `Microservices` `RESTful API Design` `Docker` `VPS Management (Ubuntu, Linux)`
 * **DevOps & CI/CD:** `AWS (S3, EC2)` `Cloudflare` `Vercel` `GitHub Actions`
 * **Tools & Processes:** `Git` `N8N Automation` `Data Crawling/Scraping` `Unit Testing`
