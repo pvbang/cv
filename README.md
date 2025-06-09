@@ -1,7 +1,7 @@
 # 👋 Hi, I'm Phan Van Bang
 ## AI Engineer & Backend Developer
 
-Passionate about crafting intelligent AI-driven systems and robust, high-performance backend solutions. Currently innovating at **MekongAI**.
+Passionate about crafting intelligent AI-driven systems and robust, high-performance backend solutions. 
 
 ---
 
@@ -23,10 +23,10 @@ Passionate about crafting intelligent AI-driven systems and robust, high-perform
 🛠️ **Tech Stack Highlights:**
 
 * **Programming Languages:** `Python` `JavaScript & TypeScript` `C#` `Java` `C++` `C`
-* **Frameworks & Libraries:** `LangChain` `FastAPI` `Flask` `Streamlit` `Spring Boot` `Laravel` `ExpressJS` `React` `React Native` `Unity`
+* **Frameworks & Libraries:** `LangChain` `LlamaIndex` `FastAPI` `Flask` `Streamlit` `Spring Boot` `Laravel` `ExpressJS` `React` `React Native` `Unity`
 * **Databases:** `Vector DB (Qdrant, Faiss, Chroma)` `SQL (MySQL, SQLite)` `NoSQL (MongoDB, Firebase)` `Graph DB (Neo4j)`
-* **AI/ML & Image Processing:** `Prompt Engineering` `LLM Fine-tuning` `RAG` `Agentic Systems (Tool Calling, CrewAI, Model Context Protocol - MCP)` `ComfyUI Workflows`
-* **Architecture & Systems:** `Microservices` `RESTful API Design` `Docker` `VPS Management (Ubuntu, Linux)`
+* **AI/ML & Image Processing:** `LLM` `Prompt Engineering` `LLM Fine-tuning` `RAG` `Agentic Systems (Tool Calling, CrewAI, Model Context Protocol - MCP)` `ComfyUI Workflows` `Tesseract` `Diffusion Model` `ComfyUI Workflows` `HuggingFace` `vLLM` `Ollama` `LlamaCPP`
+* **Architecture & Systems:** `Microservices` `RESTful API Design` `Docker` `VPS Management (Ubuntu, Linux)` `Google Colab` `Jupyter`
 * **DevOps & CI/CD:** `AWS (S3, EC2)` `Cloudflare` `Vercel` `GitHub Actions`
 * **Tools & Processes:** `Git` `N8N Automation` `Data Crawling/Scraping` `Unit Testing`
 
@@ -44,8 +44,8 @@ Passionate about crafting intelligent AI-driven systems and robust, high-perform
 
 ## 📄 My Full CV
 
-* [English Version (Online)](https://pvbang.github.io/cv/index.html) | [PDF](https://pvbang.github.io/cv/files/phanvanbang-cv-en.pdf)
-* [Vietnamese Version (Online)](https://pvbang.github.io/cv/index-vi.html) | [PDF](https://pvbang.github.io/cv/files/phanvanbang-cv-vi.pdf)
+* [Online](https://pvbang.github.io/cv/index.html) | [PDF](https://pvbang.github.io/cv/files/AI-Engineer-PhanVanBang.pdf)
+
 ---
 
 ## 📫 Let's Connect!
