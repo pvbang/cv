@@ -396,7 +396,7 @@ Vietnam-Korea University of Information and Communication Technology (VKU)
 
 ## 💼 Experience
 
-**AI Engineer** @ [MekongAI](https://mekongai.com) · _Jun 2023 — Present_
+**AI Engineer** @ [MekongAI](https://mekongai.com) · _Jun 2023 - Present_
 
 > Architecting and building production-grade AI platforms with multi-agent orchestration, voice AI, and IoT integration across 8+ business domains (Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media, Content Generation).
 
