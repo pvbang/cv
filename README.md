@@ -41,13 +41,16 @@ specialization:
   - Voice AI (Full-Duplex, <500ms latency)
   - IoT Integration with MCP Protocol
   - Continual Learning Systems (XSkill)
+  - Computer Vision & NLP
 
 highlights:
   - Built multi-agent system with 94+ MCP tools
-  - 500+ daily AI conversations in production
+  - 500+ daily AI conversations with 85% autonomous resolution
+  - 92% answer accuracy across 10,000+ knowledge documents
   - 80% reduction in content creation time
   - 35% improved retrieval accuracy with GraphRAG
   - 1000+ concurrent connections across multi-channel
+  - 99.5% uptime across all services
 ```
 
 <!-- Animated Divider -->
@@ -65,6 +68,14 @@ highlights:
 ![RAG](https://img.shields.io/badge/RAG_&_GraphRAG-00B4D8?style=flat-square&logo=elasticsearch&logoColor=white)
 ![Multi-Agent](https://img.shields.io/badge/Multi--Agent_Orchestration-7B2FF7?style=flat-square&logo=robot&logoColor=white)
 ![Swarm Intelligence](https://img.shields.io/badge/Swarm_Intelligence-FF9F1C?style=flat-square&logo=hive&logoColor=white)
+![ReAct](https://img.shields.io/badge/ReAct_Reasoning_Loop-E63946?style=flat-square&logo=atom&logoColor=white)
+![Deep Analysis](https://img.shields.io/badge/Deep_Analysis_Engine-4B0082?style=flat-square&logo=microscope&logoColor=white)
+![Self-Reflection](https://img.shields.io/badge/Self--Reflection_&_Critic_Agent-FF6B6B?style=flat-square&logo=mirror&logoColor=white)
+![Autonomous Goal](https://img.shields.io/badge/Autonomous_Goal_Engine-2EC4B6?style=flat-square&logo=target&logoColor=white)
+![Smart Routing](https://img.shields.io/badge/Smart_Model_Routing-FF9F1C?style=flat-square&logo=route&logoColor=white)
+![Dreaming Engine](https://img.shields.io/badge/Dreaming_Engine-7B2FF7?style=flat-square&logo=moon&logoColor=white)
+![Tree Search](https://img.shields.io/badge/Tree_Search_Planning-00B4D8?style=flat-square&logo=tree&logoColor=white)
+![Ontology](https://img.shields.io/badge/Ontology_Auto--Generation-6C63FF?style=flat-square&logo=diagram&logoColor=white)
 ![MCP Protocol](https://img.shields.io/badge/MCP_Protocol_(94+_tools)-2EC4B6?style=flat-square&logo=protocol&logoColor=white)
 ![Continual Learning](https://img.shields.io/badge/Continual_Learning_(XSkill)-E63946?style=flat-square&logo=bookstack&logoColor=white)
 ![ComfyUI](https://img.shields.io/badge/ComfyUI_Workflows-000000?style=flat-square&logo=stability-ai&logoColor=white)
@@ -81,6 +92,31 @@ highlights:
 ![TTS](https://img.shields.io/badge/TTS_(OpenAI/Fish/ElevenLabs)-FF6B6B?style=flat-square&logo=soundcloud&logoColor=white)
 ![VAD](https://img.shields.io/badge/Voice_Activity_Detection-00B4D8?style=flat-square&logo=waveform&logoColor=white)
 ![Full-Duplex](https://img.shields.io/badge/Full--Duplex_Voice_Chat-2EC4B6?style=flat-square&logo=webrtc&logoColor=white)
+
+</details>
+
+<details open>
+<summary><b>👁️ Computer Vision</b></summary>
+<br/>
+
+![Face Similarity](https://img.shields.io/badge/Face_Similarity_API-E63946?style=flat-square&logo=opencv&logoColor=white)
+![PaddleOCR-VL](https://img.shields.io/badge/PaddleOCR--VL-0062B0?style=flat-square&logo=paddlepaddle&logoColor=white)
+![SAM3](https://img.shields.io/badge/SAM3-0467DF?style=flat-square&logo=meta&logoColor=white)
+![Stable Diffusion](https://img.shields.io/badge/Stable_Diffusion-000000?style=flat-square&logo=stability-ai&logoColor=white)
+![ComfyUI](https://img.shields.io/badge/ComfyUI-412991?style=flat-square&logo=stability-ai&logoColor=white)
+![Face Fusion](https://img.shields.io/badge/Face_Fusion-FF6F61?style=flat-square&logo=face&logoColor=white)
+![Image Pipelines](https://img.shields.io/badge/Image_Generation_Pipelines-7B2FF7?style=flat-square&logo=image&logoColor=white)
+
+</details>
+
+<details open>
+<summary><b>📝 NLP</b></summary>
+<br/>
+
+![spaCy](https://img.shields.io/badge/spaCy_(Vietnamese_+_English)-09A3D5?style=flat-square&logo=spacy&logoColor=white)
+![BGE Embeddings](https://img.shields.io/badge/BGE_Embeddings-FF9F1C?style=flat-square&logo=vector&logoColor=white)
+![Tesseract OCR](https://img.shields.io/badge/Tesseract_Vietnamese_OCR-4285F4?style=flat-square&logo=google&logoColor=white)
+![Text Chunking](https://img.shields.io/badge/Text_Chunking_Strategies-2EC4B6?style=flat-square&logo=text&logoColor=white)
 
 </details>
 
@@ -107,6 +143,11 @@ highlights:
 ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
 ![LlamaIndex](https://img.shields.io/badge/LlamaIndex-7B2FF7?style=flat-square&logo=llama&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![CrewAI](https://img.shields.io/badge/CrewAI-FF6B6B?style=flat-square&logo=robot&logoColor=white)
+![AutoGen](https://img.shields.io/badge/AutoGen-0078D4?style=flat-square&logo=microsoft&logoColor=white)
+![Unsloth](https://img.shields.io/badge/Unsloth-FF9F1C?style=flat-square&logo=lightning&logoColor=white)
+![TorchRL](https://img.shields.io/badge/TorchRL-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![llama-cpp](https://img.shields.io/badge/llama--cpp--python-000000?style=flat-square&logo=llama&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![React Native](https://img.shields.io/badge/React_Native-61DAFB?style=flat-square&logo=react&logoColor=black)
@@ -126,9 +167,10 @@ highlights:
 ![FAISS](https://img.shields.io/badge/FAISS-0467DF?style=flat-square&logo=meta&logoColor=white)
 ![Chroma](https://img.shields.io/badge/ChromaDB-FF6F61?style=flat-square&logo=chroma&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
-![Neo4j](https://img.shields.io/badge/Neo4j-4581C3?style=flat-square&logo=neo4j&logoColor=white)
+![Neo4j](https://img.shields.io/badge/Neo4j_(Graph_DB)-4581C3?style=flat-square&logo=neo4j&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
 
 </details>
@@ -143,7 +185,11 @@ highlights:
 ![Nginx](https://img.shields.io/badge/Nginx-009639?style=flat-square&logo=nginx&logoColor=white)
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
-![Celery](https://img.shields.io/badge/Celery-37814A?style=flat-square&logo=celery&logoColor=white)
+![RunPod](https://img.shields.io/badge/RunPod_(GPU_Serverless)-6C63FF?style=flat-square&logo=cloud&logoColor=white)
+![Celery](https://img.shields.io/badge/Celery_+_Redis-37814A?style=flat-square&logo=celery&logoColor=white)
+![Docker Hub](https://img.shields.io/badge/Docker_Hub-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Let's Encrypt](https://img.shields.io/badge/Let's_Encrypt_SSL-003A70?style=flat-square&logo=letsencrypt&logoColor=white)
+![Multi-stage Docker](https://img.shields.io/badge/Multi--stage_Docker_Builds-2496ED?style=flat-square&logo=docker&logoColor=white)
 
 </details>
 
@@ -155,10 +201,15 @@ highlights:
 ![WebSocket](https://img.shields.io/badge/WebSocket-010101?style=flat-square&logo=socket.io&logoColor=white)
 ![SSE](https://img.shields.io/badge/SSE_Streaming-FF6B6B?style=flat-square&logo=lightning&logoColor=white)
 ![REST API](https://img.shields.io/badge/RESTful_API-009688?style=flat-square&logo=fastapi&logoColor=white)
+![MCP Protocol](https://img.shields.io/badge/MCP_(Client_+_Server_+_OAuth_2.1_PKCE)-2EC4B6?style=flat-square&logo=protocol&logoColor=white)
+![MQTT](https://img.shields.io/badge/MQTT_(IoT)-660066?style=flat-square&logo=mqtt&logoColor=white)
+![OpenAI API](https://img.shields.io/badge/OpenAI--Compatible_API-412991?style=flat-square&logo=openai&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![N8N](https://img.shields.io/badge/N8N_Automation-EA4B71?style=flat-square&logo=n8n&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)
 ![PaddleOCR](https://img.shields.io/badge/PaddleOCR-0062B0?style=flat-square&logo=paddlepaddle&logoColor=white)
+![Binance API](https://img.shields.io/badge/Binance_API-F0B90B?style=flat-square&logo=binance&logoColor=black)
+![Data Crawling](https://img.shields.io/badge/Data_Crawling/Scraping-FF6F61?style=flat-square&logo=spider&logoColor=white)
 
 </details>
 
@@ -189,10 +240,10 @@ highlights:
 
 - 94+ MCP tools with Swarm Intelligence
 - XSkill continual learning engine
-- 500+ daily conversations in production
-- 13 security layers
+- ReAct reasoning loop & Deep Analysis Engine
+- Self-Reflection, Critic Agent & Dreaming Engine
+- 500+ daily conversations, 85% autonomous resolution
 - Multi-channel: WebSocket, Telegram, Discord, Slack, WhatsApp, Email
-- 1000+ concurrent connections
 
 </td>
 <td width="50%">
@@ -205,6 +256,7 @@ highlights:
 - Automated OCR pipeline for content extraction
 - 80% reduction in content creation time
 - RAG-powered intelligent Q&A generation
+- 1000+ quiz questions with human-level quality
 - Scalable async processing with Celery
 
 </td>
@@ -232,8 +284,64 @@ highlights:
 
 - Hardware-integrated AI voice assistant
 - MCP protocol for IoT device control
-- Low-latency edge inference
+- Low-latency edge inference (<500ms)
 - Multi-LLM routing for task optimization
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 👔 AI Recruitment Platform
+**AI-Powered Recruitment with NLP Matching**
+
+`FastAPI` `Qdrant` `spaCy` `OCR` `AWS S3`
+
+- CV parsing with Vietnamese NLP pipeline
+- Job-candidate matching via vector similarity
+- spaCy Vietnamese + English dual NLP
+- Automated skill extraction & ranking
+
+</td>
+<td width="50%">
+
+### ✍️ AI Content Generator
+**Multi-Platform Content Generation**
+
+`CrewAI` `Streamlit` `Qdrant` `RAG` `Multi-LLM`
+
+- Multi-agent pipeline (Research → Write → Edit → Publish)
+- RAG-based brand voice learning
+- Auto-generate for Facebook, Instagram, TikTok
+- Content quality scoring & optimization
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🎬 MekongAI TikVault
+**AI Video/Photo Analysis Platform**
+
+`FastAPI` `React 19` `MongoDB` `Gemini AI`
+
+- AI-powered video/photo analysis with Google Gemini
+- Content categorization & trend detection
+- Engagement prediction for social media
+- Multi-modal content understanding
+
+</td>
+<td width="50%">
+
+### 📈 Real-time Crypto Monitor
+**Automated Trading Signal System**
+
+`Streamlit` `Binance API` `Telegram Bot` `TA`
+
+- Real-time cryptocurrency monitoring
+- Technical analysis (MA crossover signals)
+- Automated Telegram alerts for trading signals
+- Multi-exchange data aggregation
 
 </td>
 </tr>
@@ -250,13 +358,16 @@ highlights:
 |--------|-------|
 | 🛠️ MCP Tools Built | **94+** |
 | 💬 Daily AI Conversations | **500+** |
-| 🖼️ Images Generated/Month | **5,000+** |
+| ✅ Autonomous Resolution Rate | **85%+** |
+| 🎯 RAG Answer Accuracy | **92%** |
 | ⚡ Voice Latency | **<500ms** |
 | 🔗 Concurrent Connections | **1,000+** |
 | 📈 Retrieval Accuracy Improvement | **+35%** |
 | ⏱️ Content Creation Time Reduction | **-80%** |
+| 📄 Knowledge Documents | **10,000+** |
 | 🎨 ComfyUI Workflows | **20+** |
-| 👥 Team Size Managed | **4-6 engineers** |
+| 🏢 Business Domains | **8+** |
+| ⬆️ Service Uptime | **99.5%** |
 
 </div>
 
@@ -292,7 +403,7 @@ Vietnam-Korea University of Information and Communication Technology (VKU)
 
 **AI Engineer** @ [MekongAI](https://mekongai.com) · _Jun 2023 — Present_
 
-> Architecting and building production-grade AI platforms with multi-agent orchestration, voice AI, and IoT integration. Leading a team of 4-6 engineers.
+> Architecting and building production-grade AI platforms with multi-agent orchestration, voice AI, and IoT integration across 8+ business domains (Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media, Content Generation).
 
 <!-- Animated Divider -->
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">
