@@ -378,12 +378,7 @@ highlights:
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=pvbang&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6C63FF&icon_color=6C63FF&text_color=FFFFFF" width="49%" alt="GitHub Stats"/>
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=pvbang&theme=tokyonight&hide_border=true&background=0D1117&ring=6C63FF&fire=FF6B6B&currStreakLabel=6C63FF" width="49%" alt="GitHub Streak"/>
-
-<br/><br/>
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=pvbang&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=6C63FF&text_color=FFFFFF&langs_count=10" width="45%" alt="Top Languages"/>
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=pvbang&theme=tokyonight&hide_border=true&background=0D1117&ring=6C63FF&fire=FF6B6B&currStreakLabel=6C63FF" width="60%" alt="GitHub Streak"/>
 
 </div>
 
