@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>CV World — Phan Van Bang</title>
+<meta name="description" content="Khám phá CV của Phan Van Bang (AI Engineer) trong một thế giới Minecraft chơi được ngay trên trình duyệt.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%235fa83a'/%3E%3Crect y='5' width='16' height='11' fill='%2386592d'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="gl"></canvas>
+
+<!-- Loading -->
+<div id="loading"><div class="ld-box"><div class="ld-logo">&lt;PVB/&gt;</div><div class="ld-title">CV WORLD</div><div class="ld-bar"><i id="ldBar"></i></div><div id="ldTxt" class="ld-txt">Đang dựng thế giới…</div></div></div>
+
+<!-- Menu bắt đầu -->
+<div id="menu" class="hidden">
+  <div class="menu-card">
+    <div class="m-badge">Interactive CV</div>
+    <h1>CV <span>WORLD</span></h1>
+    <p class="m-sub">Khám phá hồ sơ của <b>Phan Van Bang</b> — AI Engineer — bằng cách chơi một thế giới Minecraft.</p>
+    <div class="m-goals">
+      <div><i>🏛️</i>6 công trình = 6 phần của CV</div>
+      <div><i>💎</i>12 Knowledge Shard để thu thập</div>
+      <div><i>🗣️</i>4 NPC kể chuyện</div>
+      <div><i>🏆</i>Thành tựu &amp; hộ chiếu CV</div>
+    </div>
+    <button id="btnPlay" class="btn-main">▶ BẮT ĐẦU KHÁM PHÁ</button>
+    <div class="m-row">
+      <button id="btnTour" class="btn-ghost">🚀 Tham quan nhanh (tự động bay)</button>
+      <a class="btn-ghost" href="../index.html">📄 Xem CV dạng trang</a>
+    </div>
+    <div class="m-keys">
+      <span><kbd>W A S D</kbd> di chuyển</span><span><kbd>Space</kbd> nhảy · bấm đúp để bay</span><span><kbd>Chuột trái</kbd> đào</span><span><kbd>Chuột phải</kbd> đặt / tương tác</span>
+      <span><kbd>E</kbd> tương tác</span><span><kbd>C</kbd> CV Compendium</span><span><kbd>M</kbd> bản đồ</span><span><kbd>T</kbd> dịch chuyển nhanh</span><span><kbd>1-9</kbd> chọn khối</span><span><kbd>Esc</kbd> tạm dừng</span>
+    </div>
+  </div>
+</div>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="crosshair"></div>
+  <div id="topLeft">
+    <div class="chip" id="locChip">📍 <b id="locName">Spawn Plaza</b></div>
+    <div class="chip" id="timeChip">🕒 <b id="timeTxt">06:00</b></div>
+  </div>
+  <div id="topRight">
+    <div class="chip prog" title="Hộ chiếu CV: khu vực đã ghé thăm"><span>🧭</span><b id="visitTxt">0/6</b></div>
+    <div class="chip prog" title="Knowledge Shard"><span>💎</span><b id="shardTxt">0/12</b></div>
+    <button id="btnMap" class="chip btn">🗺️ <b>M</b></button>
+    <button id="btnCV" class="chip btn">📄 <b>C</b></button>
+    <button id="btnSound" class="chip btn" aria-label="Âm thanh">🔊</button>
+  </div>
+  <div id="questBox"><div class="q-title">NHIỆM VỤ</div><div id="questTxt"></div></div>
+  <div id="minimap"><canvas id="mm" width="160" height="160"></canvas><div id="mmN">N</div></div>
+  <div id="hint"></div>
+  <div id="toasts"></div>
+  <div id="hotbar"></div>
+  <div id="waterOverlay"></div>
+</div>
+
+<!-- Panel nội dung -->
+<div id="panel" class="hidden" role="dialog" aria-modal="true">
+  <div class="pn-card" id="pnCard">
+    <button class="pn-x" id="pnClose" aria-label="Đóng">✕</button>
+    <div class="pn-head"><div class="pn-ic" id="pnIc"></div><div><div class="pn-kicker" id="pnKicker"></div><h2 id="pnTitle"></h2></div></div>
+    <div class="pn-body" id="pnBody"></div>
+    <div class="pn-foot"><span id="pnNav"></span><span class="pn-esc">Nhấn <kbd>Esc</kbd> hoặc <kbd>E</kbd> để đóng</span></div>
+  </div>
+</div>
+
+<!-- Hội thoại NPC -->
+<div id="dialog" class="hidden"><div class="dl-name" id="dlName"></div><div class="dl-text" id="dlText"></div><div class="dl-next">▼ <kbd>E</kbd> / click để tiếp</div></div>
+
+<!-- Bản đồ lớn + Teleport -->
+<div id="bigmap" class="hidden"><div class="bm-card"><button class="pn-x" id="bmClose">✕</button><h3>BẢN ĐỒ &amp; DỊCH CHUYỂN NHANH</h3><canvas id="bmc" width="520" height="520"></canvas><div id="bmList"></div></div></div>
+
+<!-- Compendium -->
+<div id="compendium" class="hidden"><div class="cp-card"><button class="pn-x" id="cpClose">✕</button>
+  <h3>📄 CV COMPENDIUM</h3>
+  <div class="cp-sub">Toàn bộ hồ sơ — mở khoá dần khi bạn khám phá. Bạn cũng có thể tải CV bất cứ lúc nào.</div>
+  <div id="cpList"></div>
+  <div class="cp-actions"><a class="btn-main sm" href="../files/PhanVanBang_AIEngineer_CV.pdf" target="_blank" rel="noopener">⬇ Tải CV (PDF)</a><a class="btn-ghost" href="mailto:phanvanbang.id@gmail.com">✉ Liên hệ</a></div>
+</div></div>
+
+<!-- Pause -->
+<div id="pause" class="hidden"><div class="menu-card sm"><h2>ĐÃ TẠM DỪNG</h2><button id="btnResume" class="btn-main">▶ TIẾP TỤC</button><button id="btnCompendium" class="btn-ghost">📄 CV Compendium</button><button id="btnMapP" class="btn-ghost">🗺️ Bản đồ</button><a class="btn-ghost" href="../index.html">⬅ Về trang CV</a><div class="m-keys small"><span>Nhấn <kbd>Esc</kbd> để tiếp tục</span></div></div></div>
+
+<!-- Kết thúc / chúc mừng -->
+<div id="finale" class="hidden"><div class="menu-card"><div class="m-badge">🏆 Hoàn thành</div><h1>CẢM ƠN <span>BẠN!</span></h1><p class="m-sub" id="finTxt"></p><div class="fin-actions"><a class="btn-main" href="mailto:phanvanbang.id@gmail.com">✉ Liên hệ Phan Van Bang</a><a class="btn-ghost" href="../files/PhanVanBang_AIEngineer_CV.pdf" target="_blank" rel="noopener">⬇ Tải CV (PDF)</a><button class="btn-ghost" id="btnFinClose">Tiếp tục chơi</button></div></div></div>
+
+<!-- Điều khiển cảm ứng -->
+<div id="touch" class="hidden">
+  <div id="joy"><i id="joyK"></i></div>
+  <div id="tBtns"><button id="tJump">⬆</button><button id="tAct">E</button><button id="tBreak">⛏</button><button id="tPlace">▣</button><button id="tMenu">☰</button></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="cvdata.js"></script>
+<script src="world.js"></script>
+<script src="engine.js"></script>
+<script src="player.js"></script>
+<script src="entities.js"></script>
+<script src="audio.js"></script>
+<script src="ui.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
