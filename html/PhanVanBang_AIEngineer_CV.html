@@ -48,6 +48,7 @@
     .contact span + span::before { content: "|"; color: var(--rule); margin: 0 6px; }
 
     section { margin-top: 11px; }
+    h2 { break-after: avoid; }
     h2 {
       font-size: 10pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
       color: var(--ink); border-bottom: 1.5px solid var(--accent); padding-bottom: 2px; margin-bottom: 5px;
@@ -62,7 +63,7 @@
     li { position: relative; padding-left: 12px; margin-bottom: 2.5px; }
     li::before { content: "•"; position: absolute; left: 1px; color: var(--accent); font-weight: 700; }
 
-    .skills { display: grid; grid-template-columns: 92px 1fr; gap: 2.5px 10px; }
+    .skills { display: grid; grid-template-columns: 112px 1fr; gap: 2.5px 10px; }
     .skills dt { font-weight: 700; color: var(--ink); }
 
     .proj { margin-bottom: 6px; break-inside: avoid; }
@@ -90,7 +91,7 @@
 
     <section>
       <h2>Summary</h2>
-      <p>AI Engineer with 3+ years building production LLM systems at MekongAI: multi-agent orchestration, RAG/GraphRAG, voice AI and IoT, delivered end to end (FastAPI, React, Docker, AWS) across 8+ business domains. Author of the open-source <a href="https://github.com/pvbang/nexus">Nexus</a> multi-agent platform (190+ MCP tools, 218 test files).</p>
+      <p>AI Engineer with 3+ years shipping LLM products end to end (FastAPI, React, Docker, AWS): multi-agent systems, RAG, voice AI and IoT. Full-time at MekongAI (2023&ndash;2026), now freelancing. Also builds games, trading tools and AI video pipelines. Author of the open-source <a href="https://github.com/pvbang/nexus">Nexus</a> multi-agent platform (190+ MCP tools, 218 test files).</p>
     </section>
 
     <section>
@@ -108,26 +109,43 @@
         <dd>React, Next.js, Zustand, Tailwind CSS</dd>
         <dt>DevOps</dt>
         <dd>Docker Compose, AWS (EC2, S3), GitHub Actions, Nginx, RunPod (GPU serverless), Pytest</dd>
-        <dt>Also</dt>
-        <dd>C#, Java, Go, Playwright, n8n</dd>
+        <dt>Mobile / Games</dt>
+        <dd>Unity (C#, 2D/3D), React Native, Android (Java, Firebase), Flutter, C++ / OpenGL</dd>
+        <dt>Web</dt>
+        <dd>Laravel, Node.js / Express, Spring Boot (Servlet/JSP), Angular, Blockchain (Truffle, IPFS)</dd>
+        <dt>Trading</dt>
+        <dd>MQL5 Expert Advisors, Binance API, technical-analysis signal systems</dd>
+        <dt>Content / Media</dt>
+        <dd>AI video production (script, image, TTS, FFmpeg, CapCut), copywriting and brand-voice content, ComfyUI image workflows</dd>
+        <dt>Programming</dt>
+        <dd>Python, TypeScript/JavaScript, C#, Java, PHP, C/C++, Go</dd>
       </dl>
     </section>
 
     <section>
       <h2>Work Experience</h2>
       <div class="row">
-        <div><span class="title">AI Engineer</span> &middot; <span class="org">MekongAI</span></div>
-        <span class="date">06/2023 &ndash; Present</span>
+        <div><span class="title">Freelance AI &amp; Software Engineer</span></div>
+        <span class="date">08/2026 &ndash; Present</span>
       </div>
       <ul>
-        <li>Architected <b>MekongAI Nexus</b>, a multi-agent orchestration platform (FastAPI, React 19, PostgreSQL + pgvector, Redis) with 190+ MCP tools and structured agent debate (challenge, rebuttal, synthesis); serves 500+ conversations/day at 85%+ autonomous resolution.</li>
-        <li>Built a hybrid RAG pipeline (vector + full-text + graph with RRF fusion) with GraphRAG memory: 92% answer accuracy over 10,000+ documents and +35% retrieval accuracy versus a vector-only baseline.</li>
-        <li>Designed layered agent memory (L0&ndash;L3) and an XSkill continual-learning loop (skills, experiences, trajectory compression into SFT data), plus a background memory-consolidation job.</li>
-        <li>Hardened the agent runtime for production: circuit breaker and provider fallback across 8+ LLM backends, task checkpoint and auto-resume, command / SSRF / exfiltration guards, secret redaction, and 218 automated test files.</li>
-        <li>Shipped <b>Knowlympic</b>: PaddleOCR pipeline plus LLM question generation that cut content creation time by 80% for 3 English language centers.</li>
-        <li>Built <b>MetaHuman</b> voice platform (full-duplex Whisper STT, streaming TTS, VAD) at &lt;500 ms response latency; connected ESP32 voice bots to the same backend via MCP and MQTT.</li>
-        <li>Delivered computer-vision and GenAI services: 20+ ComfyUI workflows (5,000+ images/month), a face-similarity API, and SAM3 / PaddleOCR-VL on RunPod GPU serverless.</li>
-        <li>Fine-tuned Llama 3.1 (8B/70B) with Unsloth (LoRA/QLoRA) on trajectory-compressed SFT data; delivered 56+ AI projects across Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media and Content Generation.</li>
+        <li>Build AI products for clients end to end: LangGraph diagnostic assistant for the automotive-repair domain (RAG, SSE streaming, S3 backup and restore) and YouTube video automation.</li>
+        <li>Open-sourced <a href="https://github.com/pvbang/nexus">Nexus</a> (multi-agent platform) and published small dev tools (<a href="https://github.com/pvbang/mcp-prune">mcp-prune</a>, <a href="https://github.com/pvbang/sentinel-scan">sentinel-scan</a>).</li>
+      </ul>
+
+      <div class="row" style="margin-top:7px">
+        <div><span class="title">AI Engineer</span> &middot; <span class="org">MekongAI</span></div>
+        <span class="date">06/2023 &ndash; 07/2026</span>
+      </div>
+      <ul>
+        <li>Architected <b>MekongAI Nexus</b>, a multi-agent orchestration platform (FastAPI, React 19, PostgreSQL + pgvector, Redis) with 190+ MCP tools and structured agent debate (challenge, rebuttal, synthesis).</li>
+        <li>Built a hybrid RAG pipeline (vector + full-text + graph, RRF fusion) with GraphRAG memory; in internal evaluations it outperformed a vector-only baseline on retrieval accuracy.</li>
+        <li>Designed layered agent memory (L0&ndash;L3), a continual-learning loop (skills, experiences, trajectory compression into SFT data) and a background memory-consolidation job.</li>
+        <li>Hardened the runtime for production: circuit breaker and provider fallback across 8+ LLM backends, task checkpoint and auto-resume, command / SSRF / exfiltration guards, secret redaction, 218 automated test files.</li>
+        <li>Shipped <b>Knowlympic</b>: PaddleOCR pipeline plus LLM question generation that cut content-creation time for 3 English language centers (roughly 80% by internal estimate).</li>
+        <li>Built the <b>MetaHuman</b> voice platform (Whisper STT, streaming TTS, VAD) with sub-second voice response; connected ESP32 voice bots to the same backend via MCP and MQTT.</li>
+        <li>Delivered computer-vision and GenAI services: 20+ ComfyUI workflows, a face-similarity API, SAM3 and PaddleOCR-VL on RunPod GPU serverless.</li>
+        <li>Fine-tuned Llama 3.1 (8B/70B) with Unsloth (LoRA/QLoRA) on trajectory-compressed SFT data; delivered 50+ projects across Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media and Content Generation.</li>
       </ul>
     </section>
 
@@ -182,6 +200,17 @@
           <li><a href="https://github.com/pvbang/sentinel-scan">sentinel-scan</a>: zero-dependency static scanner for JS/TS (hardcoded secrets, eval/exec sinks, weak crypto).</li>
         </ul>
       </div>
+    </section>
+
+    <section>
+      <h2>Games, Mobile &amp; Web Projects</h2>
+      <ul>
+        <li><b>Eternal Odyssey</b>: Unity 3D action RPG built in a team of two (5 playable classes, weapon tiers, EXP and PvE/PvP design); plus a Unity 2D platformer and a C++/OpenGL racing game.</li>
+        <li><b>Android chat app</b> (Java, Firebase, Jitsi Meet): messaging, image/video sharing, voice and video calls, voice search; 5 stars on GitHub.</li>
+        <li><b>React Native apps</b>: Vocab Master (English learning with OpenAI/Google AI), TransVoiceHub (speech-to-text, translation, text-to-speech), a math-solver app and "The Escape" game with a Node.js API.</li>
+        <li><b>Web apps</b>: Laravel shoe shop and restaurant management systems, Java client-server meeting app (screen share, chat), Angular + Truffle + IPFS blockchain demo.</li>
+        <li><b>Chrome extension</b> and <b>Capture2Text</b>: select or capture text on screen, then summarize, translate or answer with an LLM, with results copied to the clipboard.</li>
+      </ul>
     </section>
 
     <section class="edu">

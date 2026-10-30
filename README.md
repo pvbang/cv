@@ -19,7 +19,7 @@
 <br/>
 
 [![CV Online](https://img.shields.io/badge/📄_CV_Online-View_Here-6C63FF?style=for-the-badge)](https://pvbang.github.io/cv/index.html)
-[![CV PDF](https://img.shields.io/badge/📥_CV_PDF-Download-FF6B6B?style=for-the-badge)](https://pvbang.github.io/cv/files/AI-Engineer-PhanVanBang.pdf)
+[![CV PDF](https://img.shields.io/badge/📥_CV_PDF-Download-FF6B6B?style=for-the-badge)](https://pvbang.github.io/cv/files/PhanVanBang_AIEngineer_CV.pdf)
 
 </div>
 
@@ -33,24 +33,22 @@ name: Phan Van Bang
 role: AI Engineer
 location: Da Nang, Vietnam
 experience: 3+ years professional
-company: MekongAI
+company: Freelance (previously MekongAI, 06/2023 - 07/2026)
 
 specialization:
   - Multi-Agent Orchestration & Structured Agent Debate
   - RAG & GraphRAG Pipelines
-  - Voice AI (Full-Duplex, <500ms latency)
+  - Voice AI (STT, streaming TTS, VAD)
   - IoT Integration with MCP Protocol
   - Continual Learning Systems (XSkill)
   - Computer Vision & NLP
 
 highlights:
-  - Built multi-agent system with 190+ MCP tools
-  - 500+ daily AI conversations with 85% autonomous resolution
-  - 92% answer accuracy across 10,000+ knowledge documents
-  - 80% reduction in content creation time
-  - 35% improved retrieval accuracy with GraphRAG
-  - 1000+ concurrent connections across multi-channel
-  - 99.5% uptime across all services
+  - Open-source multi-agent platform with 190+ MCP tools (github.com/pvbang/nexus)
+  - Hybrid RAG + GraphRAG memory (vector + full-text + graph, RRF fusion)
+  - 218 automated test files, circuit breaker + provider fallback across 8+ LLM backends
+  - Delivered 50+ projects across 8+ domains: AI, games, mobile, web, trading, video
+  - Commercial MQL5 trading EA, AI YouTube video studio, LangGraph repair assistant
 ```
 
 <!-- Animated Divider -->
@@ -68,7 +66,7 @@ highlights:
 ![RAG](https://img.shields.io/badge/RAG_&_GraphRAG-00B4D8?style=flat-square&logo=elasticsearch&logoColor=white)
 ![Multi-Agent](https://img.shields.io/badge/Multi--Agent_Orchestration-7B2FF7?style=flat-square&logo=robot&logoColor=white)
 ![Agent Debate](https://img.shields.io/badge/Structured_Agent_Debate-FF9F1C?style=flat-square&logo=hive&logoColor=white)
-![ReAct](https://img.shields.io/badge/ReAct_Reasoning_Loop-E63946?style=flat-square&logo=atom&logoColor=white)
+![Reasoning Loop](https://img.shields.io/badge/Agentic_Reasoning_Loop-E63946?style=flat-square&logo=atom&logoColor=white)
 ![Deep Analysis](https://img.shields.io/badge/Deep_Analysis_Engine-4B0082?style=flat-square&logo=microscope&logoColor=white)
 ![Self-Reflection](https://img.shields.io/badge/Self--Reflection_&_Critic_Agent-FF6B6B?style=flat-square&logo=mirror&logoColor=white)
 ![Autonomous Goal](https://img.shields.io/badge/Autonomous_Goal_Engine-2EC4B6?style=flat-square&logo=target&logoColor=white)
@@ -240,9 +238,9 @@ highlights:
 
 - 190+ MCP tools with structured agent debate
 - XSkill continual learning engine
-- ReAct reasoning loop & Deep Analysis Engine
+- multi-step reasoning loop & Deep Analysis Engine
 - Self-Reflection, Critic Agent & Dreaming Engine
-- 500+ daily conversations, 85% autonomous resolution
+- 9 chat channels, circuit breaker + provider fallback, 218 test files
 - Multi-channel: WebSocket, Telegram, Discord, Slack, WhatsApp, Email
 
 </td>
@@ -254,9 +252,8 @@ highlights:
 `FastAPI` `React` `Celery + Redis` `Qdrant` `PaddleOCR`
 
 - Automated OCR pipeline for content extraction
-- 80% reduction in content creation time
+- Cut content-creation time for 3 English language centers
 - RAG-powered intelligent Q&A generation
-- 1000+ quiz questions with human-level quality
 - Scalable async processing with Celery
 
 </td>
@@ -270,7 +267,7 @@ highlights:
 `FastAPI` `React` `PostgreSQL` `Whisper STT` `Fish Audio`
 
 - Personality engine with 3-tier memory system
-- Full-duplex voice chat (<500ms latency)
+- Streaming voice chat with sub-second response
 - VAD + streaming TTS pipeline
 - Multi-persona management
 
@@ -284,7 +281,7 @@ highlights:
 
 - Hardware-integrated AI voice assistant
 - MCP protocol for IoT device control
-- Low-latency edge inference (<500ms)
+- Low-latency voice interaction on ESP32
 - Multi-LLM routing for task optimization
 
 </td>
@@ -350,24 +347,19 @@ highlights:
 <!-- Animated Divider -->
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">
 
-## 📊 Production Metrics
+## 📊 Engineering Facts (verifiable in the open-source repo)
 
 <div align="center">
 
-| Metric | Value |
-|--------|-------|
-| 🛠️ MCP Tools Built | **190+** |
-| 💬 Daily AI Conversations | **500+** |
-| ✅ Autonomous Resolution Rate | **85%+** |
-| 🎯 RAG Answer Accuracy | **92%** |
-| ⚡ Voice Latency | **<500ms** |
-| 🔗 Concurrent Connections | **1,000+** |
-| 📈 Retrieval Accuracy Improvement | **+35%** |
-| ⏱️ Content Creation Time Reduction | **-80%** |
-| 📄 Knowledge Documents | **10,000+** |
-| 🎨 ComfyUI Workflows | **20+** |
-| 🏢 Business Domains | **8+** |
-| ⬆️ Service Uptime | **99.5%** |
+| Fact | Value |
+|------|-------|
+| 🛠️ MCP tools in Nexus | **190+** (68 tool modules) |
+| 🧪 Automated test files | **218** |
+| 🔌 REST endpoint modules | **25** |
+| 🗃️ DB migrations | **19** |
+| 💬 Chat channels | **9** |
+| 🤖 LLM backends with fallback | **8+** |
+| 📉 mcp-prune token reduction | **-73.8%** (bundled fixture) |
 
 </div>
 
@@ -396,7 +388,9 @@ Vietnam-Korea University of Information and Communication Technology (VKU)
 
 ## 💼 Experience
 
-**AI Engineer** @ [MekongAI](https://mekongai.com) · _Jun 2023 - Present_
+**Freelance AI & Software Engineer** · _Aug 2026 - Present_
+
+**AI Engineer** @ [MekongAI](https://mekongai.com) · _Jun 2023 - Jul 2026_
 
 > Architecting and building production-grade AI platforms with multi-agent orchestration, voice AI, and IoT integration across 8+ business domains (Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media, Content Generation).
 

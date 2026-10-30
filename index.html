@@ -302,6 +302,18 @@
             .timeline-line { left: 12px; }
             .timeline-dot { left: 6px; width: 12px; height: 12px; }
         }
+        #scroll-top {
+            position: fixed; right: 20px; bottom: 20px; z-index: 60;
+            width: 44px; height: 44px; border-radius: 9999px;
+            display: flex; align-items: center; justify-content: center;
+            color: #22d3ee; background: rgba(10,10,15,.85);
+            border: 1px solid rgba(34,211,238,.35); backdrop-filter: blur(8px);
+            box-shadow: 0 0 20px rgba(34,211,238,.2); cursor: pointer;
+            opacity: 0; visibility: hidden; transform: translateY(12px);
+            transition: opacity .3s, transform .3s, visibility .3s, background .2s;
+        }
+        #scroll-top.show { opacity: 1; visibility: visible; transform: none; }
+        #scroll-top:hover { background: rgba(34,211,238,.15); }
     </style>
 </head>
 <body class="antialiased">
@@ -361,10 +373,19 @@
         <div class="orb w-64 h-64 bg-pink-500 top-1/3 right-1/4" style="animation-delay: 4s;"></div>
 
         <div class="relative z-10 text-center max-w-4xl mx-auto">
+            <!-- Avatar -->
+            <div class="mx-auto mb-6 w-32 h-32 sm:w-40 sm:h-40 rounded-full p-1 bg-gradient-to-br from-cyan-400 via-purple-500 to-pink-500 shadow-[0_0_40px_rgba(34,211,238,0.35)]">
+                <picture>
+                    <source srcset="atsets/images/avatar-480.webp" type="image/webp">
+                    <img src="atsets/images/avatar-480.jpg" alt="Phan Van Bang - AI Engineer" width="480" height="480" fetchpriority="high"
+                         class="w-full h-full rounded-full object-cover border-4 border-[#0a0a0f]">
+                </picture>
+            </div>
+
             <!-- Status Badge -->
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 text-sm">
                 <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                <span class="text-gray-400">Available for opportunities</span>
+                <span class="text-gray-400">Open to full-time roles &amp; freelance projects</span>
             </div>
 
             <!-- Name -->
@@ -435,8 +456,8 @@
                 <!-- Summary -->
                 <p class="text-gray-400 text-lg leading-relaxed  mb-12">
                     AI Engineer with <span class="text-white font-medium">3+ years</span> of professional experience and
-                    <span class="text-cyan-400 font-medium">56+ AI projects</span> spanning Multi-Agent Systems, RAG pipelines,
-                    Voice AI, IoT, Computer Vision, Trading, and Social Media Analytics. Built production-grade AI platforms including
+                    <span class="text-cyan-400 font-medium">50+ projects</span> spanning Multi-Agent Systems, RAG pipelines,
+                    Voice AI, IoT, Computer Vision, Game Development, Trading Automation and AI Video Production. Built production-grade AI platforms including
                     a multi-agent orchestration system with <span class="text-cyan-400 font-medium">190+ MCP tools</span>,
                     structured agent debate, and continual learning capabilities across <span class="text-white font-medium">8+ business domains</span>.
                 </p>
@@ -452,11 +473,11 @@
                         <div class="text-sm text-gray-500">MCP Tools Built</div>
                     </div>
                     <div class="stat-card glass-card rounded-xl p-6 text-center">
-                        <div class="text-3xl md:text-4xl font-bold gradient-text-blue font-mono mb-1">500+</div>
-                        <div class="text-sm text-gray-500">Daily Conversations</div>
+                        <div class="text-3xl md:text-4xl font-bold gradient-text-blue font-mono mb-1">9</div>
+                        <div class="text-sm text-gray-500">Chat Channels Supported</div>
                     </div>
                     <div class="stat-card glass-card rounded-xl p-6 text-center">
-                        <div class="text-3xl md:text-4xl font-bold gradient-text-blue font-mono mb-1">56+</div>
+                        <div class="text-3xl md:text-4xl font-bold gradient-text-blue font-mono mb-1">50+</div>
                         <div class="text-sm text-gray-500">AI Projects</div>
                     </div>
                 </div>
@@ -483,8 +504,7 @@
                             <h3 class="text-lg font-semibold text-white">Long-term Goal</h3>
                         </div>
                         <p class="text-gray-400 leading-relaxed">
-                            Evolve into a Senior AI Engineer / Tech Lead role, driving AI architecture decisions, mentoring team
-                            members, and contributing to open-source AI communities.
+                            Grow into a Senior AI Engineer / Tech Lead role, driving AI architecture decisions, mentoring teammates, and continuing to publish open-source AI tooling.
                         </p>
                     </div>
                 </div>
@@ -539,7 +559,7 @@
                             <span class="skill-badge" style="border-color: rgba(168,85,247,0.4); color: #a855f7;">RAG & GraphRAG</span>
                             <span class="skill-badge" style="border-color: rgba(168,85,247,0.4); color: #a855f7;">Multi-Agent Orchestration</span>
                             <span class="skill-badge" style="border-color: rgba(168,85,247,0.4); color: #a855f7;">Structured Agent Debate</span>
-                            <span class="skill-badge" style="border-color: rgba(168,85,247,0.4); color: #a855f7;">ReAct Reasoning Loop</span>
+                            <span class="skill-badge" style="border-color: rgba(168,85,247,0.4); color: #a855f7;">Agentic Reasoning Loop</span>
                             <span class="skill-badge">Deep Analysis Engine</span>
                             <span class="skill-badge">Self-Reflection & Critic Agent</span>
                             <span class="skill-badge">Autonomous Goal Engine</span>
@@ -697,6 +717,77 @@
                         </div>
                     </div>
 
+                    <div class="glass-card rounded-xl p-6 md:p-8">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-9 h-9 rounded-lg bg-violet-400/10 flex items-center justify-center">
+                                <i class="fas fa-gamepad text-violet-400 text-sm"></i>
+                            </div>
+                            <h3 class="font-semibold text-white">Game &amp; Mobile Development</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge">Unity 3D / 2D</span>
+                                <span class="skill-badge">C#</span>
+                                <span class="skill-badge">C++ / OpenGL</span>
+                                <span class="skill-badge">React Native</span>
+                                <span class="skill-badge">Android (Java)</span>
+                                <span class="skill-badge">Flutter</span>
+                                <span class="skill-badge">Firebase</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-9 h-9 rounded-lg bg-lime-400/10 flex items-center justify-center">
+                                <i class="fas fa-globe text-lime-400 text-sm"></i>
+                            </div>
+                            <h3 class="font-semibold text-white">Web Development</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge">Laravel / PHP</span>
+                                <span class="skill-badge">Node.js / Express</span>
+                                <span class="skill-badge">Spring Boot / Servlet-JSP</span>
+                                <span class="skill-badge">Angular</span>
+                                <span class="skill-badge">Next.js</span>
+                                <span class="skill-badge">Blockchain (Truffle, IPFS)</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-9 h-9 rounded-lg bg-emerald-400/10 flex items-center justify-center">
+                                <i class="fas fa-chart-line text-emerald-400 text-sm"></i>
+                            </div>
+                            <h3 class="font-semibold text-white">Trading &amp; Automation</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge">MQL5 Expert Advisors</span>
+                                <span class="skill-badge">Risk Management Design</span>
+                                <span class="skill-badge">Binance API</span>
+                                <span class="skill-badge">Technical-Analysis Signals</span>
+                                <span class="skill-badge">N8N</span>
+                                <span class="skill-badge">Chrome Extensions</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8">
+                        <div class="flex items-center gap-3 mb-5">
+                            <div class="w-9 h-9 rounded-lg bg-red-400/10 flex items-center justify-center">
+                                <i class="fas fa-clapperboard text-red-400 text-sm"></i>
+                            </div>
+                            <h3 class="font-semibold text-white">Content, Video &amp; Copywriting</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge">AI Video Production</span>
+                                <span class="skill-badge">Scriptwriting</span>
+                                <span class="skill-badge">Copywriting &amp; Brand Voice</span>
+                                <span class="skill-badge">FFmpeg</span>
+                                <span class="skill-badge">CapCut</span>
+                                <span class="skill-badge">TTS / Voiceover</span>
+                                <span class="skill-badge">Caption &amp; Thumbnail Design</span>
+                                <span class="skill-badge">ComfyUI Image Workflows</span>
+                        </div>
+                    </div>
+
                     <!-- Development Tools -->
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="glass-card rounded-xl p-6 md:p-8">
@@ -726,7 +817,7 @@
                                 <span class="skill-badge">N8N Automation</span>
                                 <span class="skill-badge">Data Crawling/Scraping</span>
                                 <span class="skill-badge">Playwright</span>
-                                <span class="skill-badge">Unit Testing</span>
+                                <span class="skill-badge">Pytest (218 test files in Nexus)</span>
                                 <span class="skill-badge">PaddleOCR</span>
                                 <span class="skill-badge">Bonito (Data Synthesis)</span>
                                 <span class="skill-badge">PyInstaller</span>
@@ -754,6 +845,37 @@
                 <div class="relative pl-12 md:pl-16">
                     <div class="timeline-line"></div>
 
+                    <div class="relative pb-8">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card rounded-xl p-6 md:p-8 ml-4">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                                <div>
+                                    <h3 class="text-xl md:text-2xl font-bold text-white">Freelance AI &amp; Software Engineer</h3>
+                                    <p class="text-cyan-400 font-medium">Self-employed</p>
+                                </div>
+                                <span class="font-mono text-sm text-gray-500 mt-2 md:mt-0">08/2026 - Present</span>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex gap-3">
+                                    <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
+                                    <span class="text-gray-400">Built an <span class="text-white font-medium">AI vehicle-repair assistant</span> for a client: LangGraph agent with a 5-layer pipeline (reasoning, search, evaluation, answer, verification), MongoDB + Qdrant retrieval with citations, SSE streaming, one-command bootstrap and S3 backup/restore with checksum verification.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
+                                    <span class="text-gray-400">Built <span class="text-white font-medium">M-Auto</span>, an AI YouTube studio: LLM scripts, AI images, TTS, FFmpeg rendering (Ken Burns, transitions, karaoke captions) with an AI quality critic that re-runs weak stages.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
+                                    <span class="text-gray-400">Developed and sell <span class="text-white font-medium">B. Nexus Quantum</span>, an 11-module MQL5 trading Expert Advisor with a public landing page and licensing.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
+                                    <span class="text-gray-400">Open-sourced the <a href="https://github.com/pvbang/nexus" target="_blank" rel="noopener noreferrer" class="text-white font-medium hover:text-cyan-400">Nexus multi-agent platform</a> and published dev tools (mcp-prune, sentinel-scan, rail-probe) plus a Next.js AI SaaS starter kit.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
                     <div class="relative pb-2">
                         <div class="timeline-dot"></div>
 
@@ -764,21 +886,21 @@
                                     <h3 class="text-xl md:text-2xl font-bold text-white">AI Engineer</h3>
                                     <p class="text-cyan-400 font-medium">MekongAI</p>
                                 </div>
-                                <span class="font-mono text-sm text-gray-500 mt-2 md:mt-0">06/2023 - Present</span>
+                                <span class="font-mono text-sm text-gray-500 mt-2 md:mt-0">06/2023 - 07/2026</span>
                             </div>
 
                             <ul class="space-y-4">
                                 <li class="flex gap-3">
                                     <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
-                                    <span class="text-gray-400">Built and maintained <span class="text-cyan-400 font-mono">56+</span> AI projects spanning <span class="text-white font-medium">8+ business domains</span> (Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media, Content Generation).</span>
+                                    <span class="text-gray-400">Built and maintained <span class="text-cyan-400 font-mono">50+</span> AI projects spanning <span class="text-white font-medium">8+ business domains</span> (Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media, Content Generation).</span>
                                 </li>
                                 <li class="flex gap-3">
                                     <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
-                                    <span class="text-gray-400">Architected and deployed a <span class="text-white font-medium">Multi-Agent Orchestration System</span> with <span class="text-cyan-400 font-mono">190+ MCP tools</span>, supporting dynamic function routing, structured multi-agent debate (challenge, rebuttal, synthesis), and XSkill continual learning - processing <span class="text-cyan-400 font-mono">500+</span> daily conversations with <span class="text-cyan-400 font-mono">85%+</span> autonomous resolution rate.</span>
+                                    <span class="text-gray-400">Architected and deployed a <span class="text-white font-medium">Multi-Agent Orchestration System</span> with <span class="text-cyan-400 font-mono">190+ MCP tools</span>, supporting dynamic function routing, structured multi-agent debate (challenge, rebuttal, synthesis), and XSkill continual learning - handling customer conversations across 9 channels (Telegram, Discord, Slack, WhatsApp, Email and more).</span>
                                 </li>
                                 <li class="flex gap-3">
                                     <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
-                                    <span class="text-gray-400">Developed <span class="text-white font-medium">MekongAI Nexus core agent system</span> with ReAct reasoning loop, Deep Analysis Engine, Self-Reflection, Critic Agent, Autonomous Goal Engine, and Tree Search Planning.</span>
+                                    <span class="text-gray-400">Developed <span class="text-white font-medium">MekongAI Nexus core agent system</span> with a multi-step reasoning loop, Deep Analysis Engine, Self-Reflection, Critic Agent, Autonomous Goal Engine, and Tree Search Planning.</span>
                                 </li>
                                 <li class="flex gap-3">
                                     <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
@@ -786,11 +908,11 @@
                                 </li>
                                 <li class="flex gap-3">
                                     <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
-                                    <span class="text-gray-400">Designed and built a <span class="text-white font-medium">production RAG pipeline</span> with hybrid search (semantic + keyword + reranking), GraphRAG for relational knowledge, and multi-modal document processing - achieving <span class="text-cyan-400 font-mono">92%</span> answer accuracy across <span class="text-cyan-400 font-mono">10,000+</span> knowledge documents.</span>
+                                    <span class="text-gray-400">Designed and built a <span class="text-white font-medium">production RAG pipeline</span> with hybrid search (semantic + keyword + reranking), GraphRAG for relational knowledge, and multi-modal document processing - indexed over large internal knowledge bases and evaluated against a vector-only baseline.</span>
                                 </li>
                                 <li class="flex gap-3">
                                     <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
-                                    <span class="text-gray-400">Developed <span class="text-white font-medium">Full-Duplex Voice AI system</span> integrating Whisper STT, custom TTS (Fish Audio/ElevenLabs), and VAD with <span class="text-cyan-400 font-mono">&lt;500ms</span> latency - deployed on IoT devices (ESP32) for real-time conversational AI.</span>
+                                    <span class="text-gray-400">Developed <span class="text-white font-medium">Full-Duplex Voice AI system</span> integrating Whisper STT, custom TTS (Fish Audio/ElevenLabs), and VAD with sub-second response time - deployed on IoT devices (ESP32) for real-time conversational AI.</span>
                                 </li>
                                 <li class="flex gap-3">
                                     <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
@@ -810,15 +932,15 @@
                                 </li>
                                 <li class="flex gap-3">
                                     <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
-                                    <span class="text-gray-400">Built <span class="text-white font-medium">AI-powered learning platform</span> with automated content generation using ComfyUI workflows and LLM pipelines - producing <span class="text-cyan-400 font-mono">1000+</span> quiz questions and educational content items with human-level quality.</span>
+                                    <span class="text-gray-400">Built <span class="text-white font-medium">AI-powered learning platform</span> with automated content generation using ComfyUI workflows and LLM pipelines - generating large question banks and learning content that cut authoring time for 3 English language centers.</span>
                                 </li>
                                 <li class="flex gap-3">
                                     <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
-                                    <span class="text-gray-400">Implemented <span class="text-white font-medium">microservices architecture</span> using FastAPI, Docker Compose, Celery + Redis for async task processing, WebSocket for real-time communication, and SSE for streaming responses - with SSE streaming and a Docker Compose deployment.</span>
+                                    <span class="text-gray-400">Implemented <span class="text-white font-medium">microservices architecture</span> using FastAPI, Docker Compose, Celery + Redis for async task processing, WebSocket for real-time communication, and SSE for streaming responses, shipped as a Docker Compose deployment.</span>
                                 </li>
                                 <li class="flex gap-3">
                                     <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 flex-shrink-0"></i>
-                                    <span class="text-gray-400">Managed full DevOps lifecycle: AWS deployment (EC2, S3), Docker containerization, CI/CD via GitHub Actions, Nginx reverse proxy, and VPS management for <span class="text-cyan-400 font-mono">99.5%</span> uptime across all services.</span>
+                                    <span class="text-gray-400">Managed full DevOps lifecycle: AWS deployment (EC2, S3), Docker containerization, CI/CD via GitHub Actions, Nginx reverse proxy, and VPS management with health checks, metrics and automatic restarts across services.</span>
                                 </li>
                             </ul>
                         </div>
@@ -853,7 +975,7 @@
                             <p class="text-sm text-gray-500 mb-2 font-medium">Multi-Agent Orchestration System</p>
                             <p class="text-gray-400 text-sm leading-relaxed mb-4">
                                 Production multi-agent platform with 190+ MCP tools, structured agent debate, XSkill continual learning,
-                                dynamic routing, and context-aware orchestration handling 500+ daily conversations.
+                                dynamic routing, layered memory and context-aware orchestration across 9 chat channels.
                             </p>
                             <div class="flex flex-wrap gap-1.5">
                                 <span class="text-xs px-2 py-1 rounded bg-cyan-400/10 text-cyan-400 font-mono">Python</span>
@@ -878,7 +1000,7 @@
                             <p class="text-sm text-gray-500 mb-2 font-medium">AI Learning Content Platform</p>
                             <p class="text-gray-400 text-sm leading-relaxed mb-4">
                                 Automated educational content generation using ComfyUI workflows and LLM pipelines,
-                                producing 1000+ quiz questions with RAG-powered knowledge retrieval and quality validation.
+                                generating large question banks with RAG-powered knowledge retrieval and quality validation.
                             </p>
                             <div class="flex flex-wrap gap-1.5">
                                 <span class="text-xs px-2 py-1 rounded bg-purple-400/10 text-purple-400 font-mono">Python</span>
@@ -926,7 +1048,7 @@
                             <p class="text-sm text-gray-500 mb-2 font-medium">IoT Voice Assistant</p>
                             <p class="text-gray-400 text-sm leading-relaxed mb-4">
                                 Hardware voice assistant on ESP32 with real-time STT/TTS, LLM integration via WebSocket,
-                                VAD for natural conversation flow, and &lt;500ms end-to-end latency.
+                                VAD for natural conversation flow, and sub-second end-to-end response.
                             </p>
                             <div class="flex flex-wrap gap-1.5">
                                 <span class="text-xs px-2 py-1 rounded bg-green-400/10 text-green-400 font-mono">ESP32</span>
@@ -1028,6 +1150,158 @@
                                 <span class="text-xs px-2 py-1 rounded bg-emerald-400/10 text-emerald-400 font-mono">Binance API</span>
                                 <span class="text-xs px-2 py-1 rounded bg-emerald-400/10 text-emerald-400 font-mono">Telegram Bot</span>
                                 <span class="text-xs px-2 py-1 rounded bg-emerald-400/10 text-emerald-400 font-mono">TA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8 relative overflow-hidden">
+                        <span class="project-number">09</span>
+                        <div class="relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fas fa-car text-sky-400"></i>
+                                <span class="text-xs font-mono text-gray-500 uppercase tracking-wider">Client Project</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">AI Vehicle-Repair Assistant</h3>
+                            <p class="text-sm text-gray-500 mb-2 font-medium">LangGraph Diagnostic Agent</p>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">5-layer agent pipeline (reasoning, search, evaluation, answer, verification) answering multi-DTC repair queries with cited references; SSE streaming, S3 backups with SHA-256 verification.</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs px-2 py-1 rounded bg-sky-400/10 text-sky-400 font-mono">LangGraph</span>
+                                <span class="text-xs px-2 py-1 rounded bg-sky-400/10 text-sky-400 font-mono">FastAPI</span>
+                                <span class="text-xs px-2 py-1 rounded bg-sky-400/10 text-sky-400 font-mono">MongoDB</span>
+                                <span class="text-xs px-2 py-1 rounded bg-sky-400/10 text-sky-400 font-mono">Qdrant</span>
+                                <span class="text-xs px-2 py-1 rounded bg-sky-400/10 text-sky-400 font-mono">AWS S3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8 relative overflow-hidden">
+                        <span class="project-number">10</span>
+                        <div class="relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fas fa-film text-red-400"></i>
+                                <span class="text-xs font-mono text-gray-500 uppercase tracking-wider">AI Video</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">M-Auto</h3>
+                            <p class="text-sm text-gray-500 mb-2 font-medium">AI YouTube Video Studio</p>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">Idea-to-upload pipeline: niche-aware scripts, AI images, TTS, FFmpeg rendering with Ken Burns, xfade transitions and karaoke captions, plus an AI quality critic.</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs px-2 py-1 rounded bg-red-400/10 text-red-400 font-mono">Python</span>
+                                <span class="text-xs px-2 py-1 rounded bg-red-400/10 text-red-400 font-mono">Streamlit</span>
+                                <span class="text-xs px-2 py-1 rounded bg-red-400/10 text-red-400 font-mono">FFmpeg</span>
+                                <span class="text-xs px-2 py-1 rounded bg-red-400/10 text-red-400 font-mono">Edge-TTS</span>
+                                <span class="text-xs px-2 py-1 rounded bg-red-400/10 text-red-400 font-mono">faster-whisper</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8 relative overflow-hidden">
+                        <span class="project-number">11</span>
+                        <div class="relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fas fa-chart-simple text-emerald-400"></i>
+                                <span class="text-xs font-mono text-gray-500 uppercase tracking-wider">Trading</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3"><a href="https://b-nexus-quantum.vercel.app" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">B. Nexus Quantum</a></h3>
+                            <p class="text-sm text-gray-500 mb-2 font-medium">MetaTrader 5 Expert Advisor</p>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">Commercial 11-module MQL5 EA: 21 entry modes, 18-layer weighted signal scoring, multi-layer risk controls, dashboard and licensing, sold with a landing page.</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs px-2 py-1 rounded bg-emerald-400/10 text-emerald-400 font-mono">MQL5</span>
+                                <span class="text-xs px-2 py-1 rounded bg-emerald-400/10 text-emerald-400 font-mono">Risk Mgmt</span>
+                                <span class="text-xs px-2 py-1 rounded bg-emerald-400/10 text-emerald-400 font-mono">Vercel</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8 relative overflow-hidden">
+                        <span class="project-number">12</span>
+                        <div class="relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fas fa-shield-halved text-orange-400"></i>
+                                <span class="text-xs font-mono text-gray-500 uppercase tracking-wider">Open Source</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3"><a href="https://github.com/pvbang" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">mcp-prune / sentinel-scan / rail-probe</a></h3>
+                            <p class="text-sm text-gray-500 mb-2 font-medium">Developer Tools</p>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">mcp-prune cuts MCP tool-schema tokens by 73.8% on its fixture; sentinel-scan is a zero-dependency JS/TS security scanner; rail-probe classifies API liveness (auth-blocked vs absent).</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs px-2 py-1 rounded bg-orange-400/10 text-orange-400 font-mono">Node.js</span>
+                                <span class="text-xs px-2 py-1 rounded bg-orange-400/10 text-orange-400 font-mono">CLI</span>
+                                <span class="text-xs px-2 py-1 rounded bg-orange-400/10 text-orange-400 font-mono">npm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8 relative overflow-hidden">
+                        <span class="project-number">13</span>
+                        <div class="relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fas fa-gamepad text-violet-400"></i>
+                                <span class="text-xs font-mono text-gray-500 uppercase tracking-wider">Game Dev</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Eternal Odyssey</h3>
+                            <p class="text-sm text-gray-500 mb-2 font-medium">Unity 3D Action RPG</p>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">Team-of-two Unity RPG: 5 classes with elemental skills, tiered weapons, EXP progression, PvE/PvP and boss design. Also a Unity 2D platformer and a C++/OpenGL racing game.</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs px-2 py-1 rounded bg-violet-400/10 text-violet-400 font-mono">Unity</span>
+                                <span class="text-xs px-2 py-1 rounded bg-violet-400/10 text-violet-400 font-mono">C#</span>
+                                <span class="text-xs px-2 py-1 rounded bg-violet-400/10 text-violet-400 font-mono">C++</span>
+                                <span class="text-xs px-2 py-1 rounded bg-violet-400/10 text-violet-400 font-mono">OpenGL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8 relative overflow-hidden">
+                        <span class="project-number">14</span>
+                        <div class="relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fas fa-mobile-screen text-teal-400"></i>
+                                <span class="text-xs font-mono text-gray-500 uppercase tracking-wider">Mobile</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3"><a href="https://github.com/pvbang/android-chat-app" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">Android Chat &amp; React Native Apps</a></h3>
+                            <p class="text-sm text-gray-500 mb-2 font-medium">Messaging, Learning &amp; Voice Apps</p>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">Android chat with image/video sharing and Jitsi voice/video calls (Firebase); Vocab Master English-learning app with OpenAI; TransVoiceHub (speech-to-text, translation, TTS).</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs px-2 py-1 rounded bg-teal-400/10 text-teal-400 font-mono">Java</span>
+                                <span class="text-xs px-2 py-1 rounded bg-teal-400/10 text-teal-400 font-mono">Firebase</span>
+                                <span class="text-xs px-2 py-1 rounded bg-teal-400/10 text-teal-400 font-mono">React Native</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8 relative overflow-hidden">
+                        <span class="project-number">15</span>
+                        <div class="relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fas fa-globe text-lime-400"></i>
+                                <span class="text-xs font-mono text-gray-500 uppercase tracking-wider">Web</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">Laravel, Java &amp; Blockchain Web Apps</h3>
+                            <p class="text-sm text-gray-500 mb-2 font-medium">Shop, Restaurant, Meeting &amp; Blockchain demos</p>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">Laravel shoe shop and restaurant manager, Java client-server meeting app with screen sharing, and an Angular + Truffle + IPFS blockchain demo.</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs px-2 py-1 rounded bg-lime-400/10 text-lime-400 font-mono">Laravel</span>
+                                <span class="text-xs px-2 py-1 rounded bg-lime-400/10 text-lime-400 font-mono">PHP</span>
+                                <span class="text-xs px-2 py-1 rounded bg-lime-400/10 text-lime-400 font-mono">Java</span>
+                                <span class="text-xs px-2 py-1 rounded bg-lime-400/10 text-lime-400 font-mono">Angular</span>
+                                <span class="text-xs px-2 py-1 rounded bg-lime-400/10 text-lime-400 font-mono">Truffle</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-xl p-6 md:p-8 relative overflow-hidden">
+                        <span class="project-number">16</span>
+                        <div class="relative">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fas fa-pen-nib text-fuchsia-400"></i>
+                                <span class="text-xs font-mono text-gray-500 uppercase tracking-wider">Content &amp; Copywriting</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-3">AI Copywriting &amp; Social Content</h3>
+                            <p class="text-sm text-gray-500 mb-2 font-medium">Brand-Voice Content Systems</p>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">Multi-agent pipelines that research, write, edit and publish Facebook/Instagram/TikTok content in a learned brand voice; TikTok/YouTube video analysis with Gemini (script breakdown, hook and virality review).</p>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="text-xs px-2 py-1 rounded bg-fuchsia-400/10 text-fuchsia-400 font-mono">CrewAI</span>
+                                <span class="text-xs px-2 py-1 rounded bg-fuchsia-400/10 text-fuchsia-400 font-mono">Gemini</span>
+                                <span class="text-xs px-2 py-1 rounded bg-fuchsia-400/10 text-fuchsia-400 font-mono">RAG</span>
+                                <span class="text-xs px-2 py-1 rounded bg-fuchsia-400/10 text-fuchsia-400 font-mono">Copywriting</span>
                             </div>
                         </div>
                     </div>
@@ -1372,6 +1646,19 @@
                 }
             });
         });
+    </script>
+    <button id="scroll-top" type="button" aria-label="Back to top" title="Back to top"><i class="fas fa-chevron-up"></i></button>
+    <script>
+        (function () {
+            var b = document.getElementById('scroll-top');
+            function toggle() { b.classList.toggle('show', window.scrollY > 400); }
+            window.addEventListener('scroll', toggle, { passive: true });
+            toggle();
+            b.addEventListener('click', function () {
+                var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+            });
+        })();
     </script>
 </body>
 </html>

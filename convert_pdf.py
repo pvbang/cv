@@ -12,8 +12,8 @@ from playwright.async_api import async_playwright
 
 
 async def convert():
-    html_path = Path(__file__).parent / "html" / "AI-Engineer-PhanVanBang.html"
-    pdf_path = Path(__file__).parent / "files" / "AI-Engineer-PhanVanBang.pdf"
+    html_path = Path(__file__).parent / "html" / "PhanVanBang_AIEngineer_CV.html"
+    pdf_path = Path(__file__).parent / "files" / "PhanVanBang_AIEngineer_CV.pdf"
 
     if not html_path.exists():
         print(f"ERROR: HTML file not found: {html_path}")
