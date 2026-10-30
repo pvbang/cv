@@ -6,7 +6,7 @@
 <br/>
 
 <!-- Subtitle -->
-<img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=500&size=18&duration=4000&pause=1000&color=A8A8A8&center=true&vCenter=true&random=false&width=700&height=30&lines=Building+production-grade+AI+platforms+with+94%2B+MCP+tools+%26+Swarm+Intelligence" alt="Subtitle" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=500&size=18&duration=4000&pause=1000&color=A8A8A8&center=true&vCenter=true&random=false&width=700&height=30&lines=Building+production-grade+AI+platforms+with+190%2B+MCP+tools+%26+Structured+Agent+Debate" alt="Subtitle" />
 
 <br/><br/>
 
@@ -14,7 +14,7 @@
 [![Email](https://img.shields.io/badge/Email-phanvanbang.id%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:phanvanbang.id@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-pvbang-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/pvbang)
 [![GitHub](https://img.shields.io/badge/GitHub-pvbang-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pvbang)
-[![Phone](https://img.shields.io/badge/Phone-+84_96_419_6652-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](tel:+84964196652)
+[![Phone](https://img.shields.io/badge/Phone-+84_329_958_001-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](tel:+84329958001)
 
 <br/>
 
@@ -32,11 +32,11 @@
 name: Phan Van Bang
 role: AI Engineer
 location: Da Nang, Vietnam
-experience: 2+ years professional
+experience: 3+ years professional
 company: MekongAI
 
 specialization:
-  - Multi-Agent Orchestration & Swarm Intelligence
+  - Multi-Agent Orchestration & Structured Agent Debate
   - RAG & GraphRAG Pipelines
   - Voice AI (Full-Duplex, <500ms latency)
   - IoT Integration with MCP Protocol
@@ -44,7 +44,7 @@ specialization:
   - Computer Vision & NLP
 
 highlights:
-  - Built multi-agent system with 94+ MCP tools
+  - Built multi-agent system with 190+ MCP tools
   - 500+ daily AI conversations with 85% autonomous resolution
   - 92% answer accuracy across 10,000+ knowledge documents
   - 80% reduction in content creation time
@@ -67,7 +67,7 @@ highlights:
 ![Fine-tuning](https://img.shields.io/badge/Fine--tuning_(LoRA/QLoRA)-FF6F61?style=flat-square&logo=pytorch&logoColor=white)
 ![RAG](https://img.shields.io/badge/RAG_&_GraphRAG-00B4D8?style=flat-square&logo=elasticsearch&logoColor=white)
 ![Multi-Agent](https://img.shields.io/badge/Multi--Agent_Orchestration-7B2FF7?style=flat-square&logo=robot&logoColor=white)
-![Swarm Intelligence](https://img.shields.io/badge/Swarm_Intelligence-FF9F1C?style=flat-square&logo=hive&logoColor=white)
+![Agent Debate](https://img.shields.io/badge/Structured_Agent_Debate-FF9F1C?style=flat-square&logo=hive&logoColor=white)
 ![ReAct](https://img.shields.io/badge/ReAct_Reasoning_Loop-E63946?style=flat-square&logo=atom&logoColor=white)
 ![Deep Analysis](https://img.shields.io/badge/Deep_Analysis_Engine-4B0082?style=flat-square&logo=microscope&logoColor=white)
 ![Self-Reflection](https://img.shields.io/badge/Self--Reflection_&_Critic_Agent-FF6B6B?style=flat-square&logo=mirror&logoColor=white)
@@ -76,7 +76,7 @@ highlights:
 ![Dreaming Engine](https://img.shields.io/badge/Dreaming_Engine-7B2FF7?style=flat-square&logo=moon&logoColor=white)
 ![Tree Search](https://img.shields.io/badge/Tree_Search_Planning-00B4D8?style=flat-square&logo=tree&logoColor=white)
 ![Ontology](https://img.shields.io/badge/Ontology_Auto--Generation-6C63FF?style=flat-square&logo=diagram&logoColor=white)
-![MCP Protocol](https://img.shields.io/badge/MCP_Protocol_(94+_tools)-2EC4B6?style=flat-square&logo=protocol&logoColor=white)
+![MCP Protocol](https://img.shields.io/badge/MCP_Protocol_(190+_tools)-2EC4B6?style=flat-square&logo=protocol&logoColor=white)
 ![Continual Learning](https://img.shields.io/badge/Continual_Learning_(XSkill)-E63946?style=flat-square&logo=bookstack&logoColor=white)
 ![ComfyUI](https://img.shields.io/badge/ComfyUI_Workflows-000000?style=flat-square&logo=stability-ai&logoColor=white)
 ![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=flat-square&logo=huggingface&logoColor=black)
@@ -238,7 +238,7 @@ highlights:
 
 `FastAPI` `React` `PostgreSQL + pgvector` `Redis` `Docker`
 
-- 94+ MCP tools with Swarm Intelligence
+- 190+ MCP tools with structured agent debate
 - XSkill continual learning engine
 - ReAct reasoning loop & Deep Analysis Engine
 - Self-Reflection, Critic Agent & Dreaming Engine
@@ -356,7 +356,7 @@ highlights:
 
 | Metric | Value |
 |--------|-------|
-| 🛠️ MCP Tools Built | **94+** |
+| 🛠️ MCP Tools Built | **190+** |
 | 💬 Daily AI Conversations | **500+** |
 | ✅ Autonomous Resolution Rate | **85%+** |
 | 🎯 RAG Answer Accuracy | **92%** |
