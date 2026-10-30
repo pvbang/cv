@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phan Van Bang - Content and Video Producer - CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 13mm;
+    }
+
+    :root {
+      --ink: #0f172a;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --rule: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 8.8pt;
+      line-height: 1.4;
+      color: var(--text);
+      background: #f1f5f9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 28px 36px;
+      background: #fff;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+
+    /* ---------- Header ---------- */
+    header {
+      display: flex; justify-content: space-between; align-items: flex-end; gap: 20px;
+      padding-bottom: 12px; border-bottom: 2.5px solid var(--accent);
+    }
+    h1 { font-size: 24pt; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1.05; }
+    .role { font-size: 10.5pt; font-weight: 600; color: var(--accent); margin-top: 5px; }
+    .contact { text-align: right; font-size: 8.4pt; color: var(--muted); line-height: 1.6; white-space: nowrap; }
+    .contact b { color: var(--ink); font-weight: 600; }
+
+    /* ---------- Sections ---------- */
+    section { margin-top: 12px; }
+    h2 {
+      break-after: avoid;
+      font-size: 9pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 7px; display: flex; align-items: center; gap: 10px;
+    }
+    h2::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+
+    .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .title { font-weight: 700; color: var(--ink); font-size: 9.6pt; }
+    .org { color: var(--accent); font-weight: 600; }
+    .date { color: var(--muted); font-size: 8.4pt; white-space: nowrap; font-weight: 500; }
+
+    ul { list-style: none; margin-top: 3px; }
+    li { position: relative; padding-left: 12px; margin-bottom: 2px; }
+    li::before { content: ""; position: absolute; left: 1px; top: 0.62em; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+
+    /* ---------- Skills ---------- */
+    .skills { display: grid; grid-template-columns: 96px 1fr; gap: 4px 12px; }
+    .skills dt { font-weight: 700; color: var(--ink); }
+    .skills dd { color: var(--text); }
+
+    /* ---------- Entries ---------- */
+    .job { margin-bottom: 11px; }
+    .job:last-child { margin-bottom: 0; }
+    .proj { margin-bottom: 8px; }
+    .proj li, .job li { break-inside: avoid; }
+    .proj .row { break-after: avoid; }
+    .proj:last-child { margin-bottom: 0; }
+    .proj { display: flex; flex-direction: column; }
+    .proj .tech { order: 1; }
+    .proj ul { order: 2; }
+    .tech { margin: 2px 0 0 0; font-size: 8.2pt; color: var(--muted); }
+    .tech span {
+      display: inline-block; background: var(--accent-soft); color: #1e40af;
+      border-radius: 3px; padding: 0 5px; margin: 0 3px 2px 0; font-weight: 500;
+    }
+    .edu { break-inside: avoid; }
+    li.note { color: var(--muted); font-size: 8pt; }
+    li.note::before { background: var(--muted); }
+    .page-break { break-before: page; }
+
+    .one-page { font-size: 8.6pt; line-height: 1.36; }
+    .one-page section { margin-top: 9px; }
+    .one-page .skills { gap: 2px 12px; }
+    .one-page .proj { margin-bottom: 6px; }
+
+    @media print {
+      body { background: #fff; }
+      .page { max-width: 100%; padding: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page one-page">
+
+    <header>
+      <div>
+        <h1>PHAN VAN BANG</h1>
+        <p class="role">Content Creator &middot; Copywriting, AI Video Production, YouTube</p>
+      </div>
+      <div class="contact">
+        <div><a href="mailto:phanvanbang.id@gmail.com"><b>phanvanbang.id@gmail.com</b></a></div>
+        <div><a href="tel:+84329958001">+84 329 958 001</a> &middot; Da Nang, Vietnam</div>
+        <div><a href="https://github.com/pvbang">github.com/pvbang</a> &middot; <a href="https://linkedin.com/in/pvbang">linkedin.com/in/pvbang</a></div>
+        <div><a href="https://pvbang.github.io/cv/">pvbang.github.io/cv</a></div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p>Content creator and copywriter who also builds the tools. Produces scripts, long-form articles, social posts and email sequences in Vietnamese and English, and turns them into finished videos with an AI pipeline of my own (<b>M-Auto</b>: script, images, voice-over, FFmpeg editing, captions, upload). Wrote a 20,000-word go-to-market kit for a trading product.</p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Copywriting</dt>
+        <dd>Hooks and short-form scripts, YouTube scripts, SEO blog articles, Facebook/Zalo posts, Telegram broadcasts, email sequences, landing-page copy, product listings, brand voice</dd>
+        <dt>Video</dt>
+        <dd>Script-to-video production, scene planning, Ken Burns and transitions, karaoke-style captions, thumbnails and titles, YouTube metadata, Shorts (9:16) repurposing, CapCut, FFmpeg</dd>
+        <dt>Audio</dt>
+        <dd>Voice-over with Edge-TTS, cloud TTS and zero-shot voice cloning (Chatterbox), background-music selection and ducking, word-level caption timing (Whisper)</dd>
+        <dt>AI content</dt>
+        <dd>Prompting and brand-voice systems, ComfyUI / Stable Diffusion image workflows, Gemini video analysis, CrewAI writing pipelines, quality scoring</dd>
+        <dt>Channels</dt>
+        <dd>YouTube, TikTok, Facebook, Instagram, Telegram, Zalo, email, SEO</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div class="job">
+        <div class="row">
+          <div><span class="title">Freelance Content &amp; AI Video Producer</span></div>
+          <span class="date">2026 &ndash; Present</span>
+        </div>
+        <ul>
+          <li>Produce AI-assisted YouTube content end to end (research, script, voice-over, editing, metadata, scheduled upload) and write launch content for a commercial trading product (see below).</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="row">
+          <div><span class="title">AI Engineer (content products)</span> &middot; <span class="org">MekongAI</span></div>
+          <span class="date">06/2023 &ndash; 07/2026</span>
+        </div>
+        <ul>
+          <li>Built content tools used by clients: an English-learning question generator that cut content-creation time for 3 language centers, a multi-agent writer for Facebook, Instagram and TikTok in a learned brand voice, and a video-analysis tool that breaks scripts into segments and scores hooks.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected Work</h2>
+
+      <div class="proj">
+        <div class="row"><span class="title">M-Auto &ndash; AI YouTube video studio</span></div>
+        <p class="tech"><span>Script</span><span>Images</span><span>TTS</span><span>FFmpeg</span><span>Captions</span><span>YouTube API</span></p>
+        <ul>
+          <li>Turns one idea into an upload-ready video: AI topic and hook ideas, scene-by-scene script, AI images, voice-over, editing, captions, title, description and tags, then a scheduled upload.</li>
+          <li><b>Niche profiles and personas:</b> 11 niches and 12 personas set voice, pacing, hooks, banned openings and colour palette; 3 recurring characters, 5 voices, 40 music tracks and 5 channel profiles ship as seed data.</li>
+          <li><b>Editing quality:</b> sub-pixel Ken Burns motion, crossfade transitions, word-highlighted karaoke captions, music ducking under speech, 16:9 / 9:16 / 1:1 / 4:5 output and an automatic crop of long videos into Shorts.</li>
+          <li><b>Quality critic:</b> scores script, visuals, A/V sync and captions, then regenerates the weakest stage; rule-based guards catch absolute claims and wrong-language text.</li>
+        </ul>
+      </div>
+
+      <div class="proj">
+        <div class="row"><span class="title">B. Nexus Quantum &ndash; launch and growth content</span></div>
+        <p class="tech"><span>SEO</span><span>Email</span><span>Social</span><span>Video scripts</span><span>Landing pages</span></p>
+        <ul>
+          <li>32 documents, about 20,000 words: acquisition strategy, Facebook/Zalo posts and Telegram daily broadcasts in Vietnamese, short-form hooks, YouTube scripts, SEO blog articles, a welcome-email sequence, landing-page copy, community welcome messages, the MQL5 Market product description and user guides.</li>
+        </ul>
+      </div>
+
+      <div class="proj">
+        <div class="row"><span class="title">AI Content Generator and TikVault</span></div>
+        <p class="tech"><span>CrewAI</span><span>RAG</span><span>Gemini</span><span>React</span></p>
+        <ul>
+          <li><b>Content Generator:</b> researcher, writer, editor and publisher agents learn a brand voice from sample posts and write for Facebook, Instagram and TikTok.</li>
+          <li><b>TikVault:</b> analyses TikTok/YouTube videos with Gemini into a per-segment script breakdown, hook and pacing review and a 1&ndash;10 virality score, then writes new scripts from the best references with an adjustable creativity level.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="edu">
+      <h2>Education &amp; Languages</h2>
+      <div class="row">
+        <div><span class="title">B.Eng. in Information Technology</span> &middot; Vietnam-Korea University of ICT (VKU), Da Nang</div>
+        <span class="date">2020 &ndash; 2025</span>
+      </div>
+      <ul>
+        <li>Languages: Vietnamese (native), English (professional working proficiency: technical reading and writing).</li>
+      </ul>
+    </section>
+
+  </div>
+</body>
+
+</html>

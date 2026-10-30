@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phan Van Bang - Trading Systems Developer - CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 13mm;
+    }
+
+    :root {
+      --ink: #0f172a;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --rule: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 8.8pt;
+      line-height: 1.4;
+      color: var(--text);
+      background: #f1f5f9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 28px 36px;
+      background: #fff;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+
+    /* ---------- Header ---------- */
+    header {
+      display: flex; justify-content: space-between; align-items: flex-end; gap: 20px;
+      padding-bottom: 12px; border-bottom: 2.5px solid var(--accent);
+    }
+    h1 { font-size: 24pt; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1.05; }
+    .role { font-size: 10.5pt; font-weight: 600; color: var(--accent); margin-top: 5px; }
+    .contact { text-align: right; font-size: 8.4pt; color: var(--muted); line-height: 1.6; white-space: nowrap; }
+    .contact b { color: var(--ink); font-weight: 600; }
+
+    /* ---------- Sections ---------- */
+    section { margin-top: 12px; }
+    h2 {
+      break-after: avoid;
+      font-size: 9pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 7px; display: flex; align-items: center; gap: 10px;
+    }
+    h2::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+
+    .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .title { font-weight: 700; color: var(--ink); font-size: 9.6pt; }
+    .org { color: var(--accent); font-weight: 600; }
+    .date { color: var(--muted); font-size: 8.4pt; white-space: nowrap; font-weight: 500; }
+
+    ul { list-style: none; margin-top: 3px; }
+    li { position: relative; padding-left: 12px; margin-bottom: 2px; }
+    li::before { content: ""; position: absolute; left: 1px; top: 0.62em; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+
+    /* ---------- Skills ---------- */
+    .skills { display: grid; grid-template-columns: 96px 1fr; gap: 4px 12px; }
+    .skills dt { font-weight: 700; color: var(--ink); }
+    .skills dd { color: var(--text); }
+
+    /* ---------- Entries ---------- */
+    .job { margin-bottom: 11px; }
+    .job:last-child { margin-bottom: 0; }
+    .proj { margin-bottom: 8px; }
+    .proj li, .job li { break-inside: avoid; }
+    .proj .row { break-after: avoid; }
+    .proj:last-child { margin-bottom: 0; }
+    .proj { display: flex; flex-direction: column; }
+    .proj .tech { order: 1; }
+    .proj ul { order: 2; }
+    .tech { margin: 2px 0 0 0; font-size: 8.2pt; color: var(--muted); }
+    .tech span {
+      display: inline-block; background: var(--accent-soft); color: #1e40af;
+      border-radius: 3px; padding: 0 5px; margin: 0 3px 2px 0; font-weight: 500;
+    }
+    .edu { break-inside: avoid; }
+    li.note { color: var(--muted); font-size: 8pt; }
+    li.note::before { background: var(--muted); }
+    .page-break { break-before: page; }
+
+    .one-page { font-size: 8.6pt; line-height: 1.36; }
+    .one-page section { margin-top: 9px; }
+    .one-page .skills { gap: 2px 12px; }
+    .one-page .proj { margin-bottom: 6px; }
+
+    @media print {
+      body { background: #fff; }
+      .page { max-width: 100%; padding: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page one-page">
+
+    <header>
+      <div>
+        <h1>PHAN VAN BANG</h1>
+        <p class="role">Trading Systems Developer &middot; MQL5, Algo Trading, Full-Stack</p>
+      </div>
+      <div class="contact">
+        <div><a href="mailto:phanvanbang.id@gmail.com"><b>phanvanbang.id@gmail.com</b></a></div>
+        <div><a href="tel:+84329958001">+84 329 958 001</a> &middot; Da Nang, Vietnam</div>
+        <div><a href="https://github.com/pvbang">github.com/pvbang</a> &middot; <a href="https://linkedin.com/in/pvbang">linkedin.com/in/pvbang</a></div>
+        <div><a href="https://pvbang.github.io/cv/">pvbang.github.io/cv</a></div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p>Software engineer who designs and ships algorithmic trading systems end to end. Built <b>B. Nexus Quantum</b>, a commercial MetaTrader 5 Expert Advisor of ~27,000 lines of MQL5 in 11 modules with 21 entry modes, an 18-layer scoring engine and 14+ layers of risk control, plus its licensing and payment website (Next.js, Prisma, PayOS). Comfortable moving between MQL5, Python (Binance API, Telegram bots, TA signals) and full-stack web.</p>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <dl class="skills">
+        <dt>Trading</dt>
+        <dd>MQL5 Expert Advisors and indicators (.ex5 resources), MetaTrader 5 Strategy Tester, hedging accounts, DCA / grid recovery, hedge-on-reversal, equity-curve trading, ATR / regime-adaptive sizing, XAUUSD, Forex, indices, crypto</dd>
+        <dt>Signals &amp; TA</dt>
+        <dd>SuperTrend, ADX, RSI, MACD, Bollinger / squeeze, Ichimoku, Stochastic, Donchian, smart-money concepts (BOS, order block, FVG), volume-spread analysis, multi-timeframe confirmation</dd>
+        <dt>Risk</dt>
+        <dd>Virtual balance, max-drawdown stop, profit lock, margin guard, spread-spike block, net-exposure cap, daily limits, consecutive-loss pause, persistent state across restarts</dd>
+        <dt>Python</dt>
+        <dd>Binance API, Streamlit, Telegram Bot API, n8n automation (built a real-time crypto monitor with MA-crossover signals and Telegram alerts)</dd>
+        <dt>Web &amp; Product</dt>
+        <dd>Next.js 15, React 19, TypeScript, Prisma, NextAuth, Tailwind, Zustand, Zod, PayOS webhooks (HMAC-SHA256), Vercel, license-key generation</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Work Experience</h2>
+      <div class="job">
+        <div class="row">
+          <div><span class="title">Independent Trading-Systems Developer</span></div>
+          <span class="date">2026 &ndash; Present</span>
+        </div>
+        <ul>
+          <li>Develop, document and sell <b>B. Nexus Quantum</b> (v3.47) with a listing on MQL5 Market, a public website, community channels (Telegram, Zalo) and demo accounts tracked on MyFxBook. Runs the whole loop alone: strategy and risk engine, licensing, payments, guides, presets and support.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected Projects</h2>
+
+      <div class="proj">
+        <div class="row"><span class="title">B. Nexus Quantum &ndash; MetaTrader 5 Expert Advisor</span><span class="date"><a href="https://b-nexus-quantum.vercel.app">b-nexus-quantum.vercel.app</a></span></div>
+        <ul>
+          <li><b>Architecture:</b> 11 MQL5 modules (signals, entry and DCA, position management, smart trim, adaptive recovery, equity curve, dashboard, time and news filters, utilities, scoring), ~27K lines, 500+ configurable inputs, 3 proprietary indicators embedded as resources.</li>
+          <li><b>Signal engine:</b> 21 entry modes plus up to 3 entry and 3 DCA confirmation layers; <b>SmartTrend</b> scores 18 weighted layers (multi-timeframe, trend quality, momentum, zones, market structure, volume) against an adaptive threshold with severity veto, fakeout filter and breakout detection.</li>
+          <li><b>Position logic:</b> 5-tier DCA with 8 trigger modes and 4 lot modes, two independent BUY/SELL cycles with persisted state, hedge-on-reversal, zone recovery, 15 take-profit mechanisms (trailing, momentum burst, session- and regime-aware).</li>
+          <li><b>Smart Trim and Adaptive Recovery:</b> pairs BUY and SELL positions to cut drawdown at positive net profit (multi-match, partial closes, emergency mode); a 6-component sideways-market controller brakes DCA and caps net exposure.</li>
+          <li><b>Adaptivity:</b> 4-state volatility regime classifier with 3-bar confirmation, London/NY/Asia session scaling, ATR auto-scaling of TP, DCA and SL, automatic symbol-category detection (gold, forex, JPY pairs, indices, crypto, silver, oil) with digit-normalisation safeguards.</li>
+          <li><b>Operations:</b> on-chart dashboard and control panel, heartbeat monitor, account- and expiry-bound licence check, MQL5 Market DRM compatibility.</li>
+        </ul>
+        <p class="tech"><span>MQL5</span><span>MetaTrader 5</span><span>XAUUSD</span><span>Strategy Tester</span></p>
+      </div>
+
+      <div class="proj">
+        <div class="row"><span class="title">B. Nexus Quantum website &ndash; licensing, payments and docs</span></div>
+        <ul>
+          <li>Next.js 15 / React 19 app (~19.5K lines TypeScript) with 12 Prisma models: users, orders, licences, linked trading accounts, trial requests, downloads, pricing plans, backtest images, payment webhooks and guide articles.</li>
+          <li>PayOS payment webhook verified with HMAC-SHA256 that auto-issues licence keys; account link / unlink / change API, admin dashboards for orders, licences, users and pricing, public guides, backtest gallery and pricing pages.</li>
+        </ul>
+        <p class="tech"><span>Next.js 15</span><span>React 19</span><span>Prisma</span><span>NextAuth</span><span>Zod</span><span>Vercel</span></p>
+      </div>
+    </section>
+
+    <section class="edu">
+      <h2>Education &amp; Languages</h2>
+      <div class="row">
+        <div><span class="title">B.Eng. in Information Technology</span> &middot; Vietnam-Korea University of ICT (VKU), Da Nang</div>
+        <span class="date">2020 &ndash; 2025</span>
+      </div>
+      <ul>
+        <li>Languages: Vietnamese (native), English (professional working proficiency: technical reading and writing).</li>
+        <li class="note">Trading involves risk. Backtests and demo results are not a guarantee of future performance.</li>
+      </ul>
+    </section>
+
+  </div>
+</body>
+
+</html>

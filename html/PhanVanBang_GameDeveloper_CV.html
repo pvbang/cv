@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phan Van Bang - Game Developer - CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    @page {
+      size: A4;
+      margin: 12mm 13mm;
+    }
+
+    :root {
+      --ink: #0f172a;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --rule: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 8.8pt;
+      line-height: 1.4;
+      color: var(--text);
+      background: #f1f5f9;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 28px 36px;
+      background: #fff;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+
+    /* ---------- Header ---------- */
+    header {
+      display: flex; justify-content: space-between; align-items: flex-end; gap: 20px;
+      padding-bottom: 12px; border-bottom: 2.5px solid var(--accent);
+    }
+    h1 { font-size: 24pt; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1.05; }
+    .role { font-size: 10.5pt; font-weight: 600; color: var(--accent); margin-top: 5px; }
+    .contact { text-align: right; font-size: 8.4pt; color: var(--muted); line-height: 1.6; white-space: nowrap; }
+    .contact b { color: var(--ink); font-weight: 600; }
+
+    /* ---------- Sections ---------- */
+    section { margin-top: 12px; }
+    h2 {
+      break-after: avoid;
+      font-size: 9pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 7px; display: flex; align-items: center; gap: 10px;
+    }
+    h2::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+
+    .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .title { font-weight: 700; color: var(--ink); font-size: 9.6pt; }
+    .org { color: var(--accent); font-weight: 600; }
+    .date { color: var(--muted); font-size: 8.4pt; white-space: nowrap; font-weight: 500; }
+
+    ul { list-style: none; margin-top: 3px; }
+    li { position: relative; padding-left: 12px; margin-bottom: 2px; }
+    li::before { content: ""; position: absolute; left: 1px; top: 0.62em; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+
+    /* ---------- Skills ---------- */
+    .skills { display: grid; grid-template-columns: 96px 1fr; gap: 4px 12px; }
+    .skills dt { font-weight: 700; color: var(--ink); }
+    .skills dd { color: var(--text); }
+
+    /* ---------- Entries ---------- */
+    .job { margin-bottom: 11px; }
+    .job:last-child { margin-bottom: 0; }
+    .proj { margin-bottom: 8px; }
+    .proj li, .job li { break-inside: avoid; }
+    .proj .row { break-after: avoid; }
+    .proj:last-child { margin-bottom: 0; }
+    .proj { display: flex; flex-direction: column; }
+    .proj .tech { order: 1; }
+    .proj ul { order: 2; }
+    .tech { margin: 2px 0 0 0; font-size: 8.2pt; color: var(--muted); }
+    .tech span {
+      display: inline-block; background: var(--accent-soft); color: #1e40af;
+      border-radius: 3px; padding: 0 5px; margin: 0 3px 2px 0; font-weight: 500;
+    }
+    .edu { break-inside: avoid; }
+    li.note { color: var(--muted); font-size: 8pt; }
+    li.note::before { background: var(--muted); }
+    .page-break { break-before: page; }
+
+    .one-page { font-size: 8.6pt; line-height: 1.36; }
+    .one-page section { margin-top: 9px; }
+    .one-page .skills { gap: 2px 12px; }
+    .one-page .proj { margin-bottom: 6px; }
+
+    @media print {
+      body { background: #fff; }
+      .page { max-width: 100%; padding: 0; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page one-page">
+
+    <header>
+      <div>
+        <h1>PHAN VAN BANG</h1>
+        <p class="role">Game Developer &middot; Unity, C#, Online Games</p>
+      </div>
+      <div class="contact">
+        <div><a href="mailto:phanvanbang.id@gmail.com"><b>phanvanbang.id@gmail.com</b></a></div>
+        <div><a href="tel:+84329958001">+84 329 958 001</a> &middot; Da Nang, Vietnam</div>
+        <div><a href="https://github.com/pvbang">github.com/pvbang</a> &middot; <a href="https://linkedin.com/in/pvbang">linkedin.com/in/pvbang</a></div>
+        <div><a href="https://pvbang.github.io/cv/">pvbang.github.io/cv</a></div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p>Gameplay and online-game programmer (Unity / C#) with a finished 3D action-RPG prototype, a 2D platformer and an OpenGL racing game. Built the networking layer of <b>Eternal Odyssey</b> on Firebase Realtime Database, NavMesh enemy AI, combat, inventory and quests, and connected the game to an AI lore assistant that streams answers into the in-game UI. Also writes the backend and mobile clients that games need (Node.js, React Native, Firebase).</p>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <dl class="skills">
+        <dt>Game</dt>
+        <dd>Unity 3D and 2D, C#, Animator state machines, NavMesh AI, coroutines, TextMesh Pro, Cinemachine, VFX and particle integration, custom Editor tools</dd>
+        <dt>Online</dt>
+        <dd>Firebase Auth and Realtime Database, state interpolation for remote players, synced world objects and chests, REST and streaming HTTP from Unity</dd>
+        <dt>Low level</dt>
+        <dd>C++, OpenGL / GLUT, C, operating-systems coursework</dd>
+        <dt>Mobile &amp; backend</dt>
+        <dd>React Native, Android (Java), Node.js / Express, MongoDB, Firebase</dd>
+        <dt>AI in games</dt>
+        <dd>RAG lore assistant (FastAPI, Qdrant, GPT-4o) with SSE streaming into Unity</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Selected Projects</h2>
+
+      <div class="proj">
+        <div class="row"><span class="title">Eternal Odyssey &ndash; Unity 3D action RPG (team of two)</span></div>
+        <p class="tech"><span>Unity</span><span>C#</span><span>NavMesh</span><span>Firebase Realtime DB</span><span>TextMesh Pro</span></p>
+        <ul>
+          <li><b>Scope:</b> 174 first-party C# files (about 10&ndash;13K lines) in 12 domain folders: characters, controllers, models (28 data classes and 19 enums), inventory, quests, realtime, systems and UI.</li>
+          <li><b>Online play:</b> custom Firebase sync instead of a networking SDK: login and registration, player spawn and room logic, Lerp-interpolated remote players with animation-state sync, shared world objects and chest contents.</li>
+          <li><b>Combat and enemies:</b> NavMesh patrol / chase / attack with sight and attack ranges and Animator state behaviours; enemy combo counter that picks from 7 skills with min/max damage and critical chance; player base attack, shield, projectile and area skills; a buff and debuff API on a rich attribute model (damage, health, speed, crit).</li>
+          <li><b>Systems:</b> drag-and-drop inventory with item actions, ground items and chests; quest manager, quest world and quest UI; custom Editor inspectors for quest and weapon lists.</li>
+          <li><b>AI integration:</b> in-game assistant posts player questions to a RAG API and prints the streamed answer character by character, with spoiler-aware persona prompts.</li>
+          <li><b>Design:</b> ER diagram and use-case model (StarUML) plus a game-design document: 5 elemental classes, 3-tier weapons with proc effects and EXP rewards scaled by enemy tier.</li>
+        </ul>
+      </div>
+
+      <div class="proj">
+        <div class="row"><span class="title">No Than &ndash; Unity 2D platformer (mobile and desktop)</span></div>
+        <p class="tech"><span>Unity 2D</span><span>C#</span><span>Joystick</span><span>Cinemachine</span></p>
+        <ul>
+          <li>39 scripts (~1.2K lines): physics movement with double jump and timed dash with speed boost and VFX, mobile joystick plus keyboard input, two player skills, enemies with contact damage and aimed projectiles, hearts, traps, rewards, NPC dialogue, boss-kill flow and scene transitions.</li>
+        </ul>
+      </div>
+
+      <div class="proj">
+        <div class="row"><span class="title">Racing Game &ndash; C++ and OpenGL</span><span class="date"><a href="https://github.com/pvbang/cpp-racing-game">github.com/pvbang/cpp-racing-game</a></span></div>
+        <ul>
+          <li>Endless scrolling-road racer in GLUT: randomised non-overlapping obstacle cars, collision test, score and speed levels, cloud layer and HUD. Includes a demo video.</li>
+        </ul>
+      </div>
+
+      <div class="proj">
+        <div class="row"><span class="title">The Escape &ndash; React Native game with Node.js API</span></div>
+        <ul>
+          <li>Mobile game client in React Native with its own Node.js backend (<a href="https://github.com/pvbang/react-native-game-the-escape">game</a>, <a href="https://github.com/pvbang/the-escape-api">API</a>).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="edu">
+      <h2>Education &amp; Languages</h2>
+      <div class="row">
+        <div><span class="title">B.Eng. in Information Technology</span> &middot; Vietnam-Korea University of ICT (VKU), Da Nang</div>
+        <span class="date">2020 &ndash; 2025</span>
+      </div>
+      <ul>
+        <li>Languages: Vietnamese (native), English (professional working proficiency: technical reading and writing).</li>
+      </ul>
+    </section>
+
+  </div>
+</body>
+
+</html>

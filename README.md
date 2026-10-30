@@ -6,7 +6,7 @@
 <br/>
 
 <!-- Subtitle -->
-<img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=500&size=18&duration=4000&pause=1000&color=A8A8A8&center=true&vCenter=true&random=false&width=700&height=30&lines=Building+production-grade+AI+platforms+with+190%2B+MCP+tools+%26+Structured+Agent+Debate" alt="Subtitle" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=500&size=18&duration=4000&pause=1000&color=A8A8A8&center=true&vCenter=true&random=false&width=700&height=30&lines=Open-source+multi-agent+platform%3A+236K+lines%2C+197+MCP+tool+registrations+%26+1%2C373+tests" alt="Subtitle" />
 
 <br/><br/>
 
@@ -19,7 +19,10 @@
 <br/>
 
 [![CV Online](https://img.shields.io/badge/📄_CV_Online-View_Here-6C63FF?style=for-the-badge)](https://pvbang.github.io/cv/index.html)
-[![CV PDF](https://img.shields.io/badge/📥_CV_PDF-Download-FF6B6B?style=for-the-badge)](https://pvbang.github.io/cv/files/PhanVanBang_AIEngineer_CV.pdf)
+[![CV AI Engineer](https://img.shields.io/badge/📥_AI_Engineer-PDF-FF6B6B?style=for-the-badge)](https://pvbang.github.io/cv/files/PhanVanBang_AIEngineer_CV.pdf)
+[![CV Game Developer](https://img.shields.io/badge/📥_Game_Developer-PDF-8B5CF6?style=for-the-badge)](https://pvbang.github.io/cv/files/PhanVanBang_GameDeveloper_CV.pdf)
+[![CV Trading Systems](https://img.shields.io/badge/📥_Trading_Systems-PDF-10B981?style=for-the-badge)](https://pvbang.github.io/cv/files/PhanVanBang_TradingDeveloper_CV.pdf)
+[![CV Content & Video](https://img.shields.io/badge/📥_Content_%26_Video-PDF-EF4444?style=for-the-badge)](https://pvbang.github.io/cv/files/PhanVanBang_ContentVideo_CV.pdf)
 
 </div>
 
@@ -44,11 +47,11 @@ specialization:
   - Computer Vision & NLP
 
 highlights:
-  - Open-source multi-agent platform with 190+ MCP tools (github.com/pvbang/nexus)
-  - Hybrid RAG + GraphRAG memory (vector + full-text + graph, RRF fusion)
-  - 218 automated test files, circuit breaker + provider fallback across 8+ LLM backends
-  - Delivered 50+ projects across 8+ domains: AI, games, mobile, web, trading, video
-  - Commercial MQL5 trading EA, AI YouTube video studio, LangGraph repair assistant
+  - Open-source multi-agent platform (github.com/pvbang/nexus): ~236K lines, 197 MCP tool registrations, 1,373 test functions
+  - Hybrid RAG + GraphRAG (vector + full-text + graph, RRF fusion, cross-encoder rerank)
+  - LangGraph repair assistant for a client: 6-node pipeline, hybrid dense + BM25, 3,320 test functions
+  - AI video studio M-Auto (49K lines) with a self-correcting quality critic
+  - Also: Unity online RPG, ~27K-line MQL5 trading EA with licensing website, AI copy and video production
 ```
 
 <!-- Animated Divider -->
@@ -74,7 +77,7 @@ highlights:
 ![Dreaming Engine](https://img.shields.io/badge/Dreaming_Engine-7B2FF7?style=flat-square&logo=moon&logoColor=white)
 ![Tree Search](https://img.shields.io/badge/Tree_Search_Planning-00B4D8?style=flat-square&logo=tree&logoColor=white)
 ![Ontology](https://img.shields.io/badge/Ontology_Auto--Generation-6C63FF?style=flat-square&logo=diagram&logoColor=white)
-![MCP Protocol](https://img.shields.io/badge/MCP_Protocol_(190+_tools)-2EC4B6?style=flat-square&logo=protocol&logoColor=white)
+![MCP Protocol](https://img.shields.io/badge/MCP_Protocol_(197_tool_registrations)-2EC4B6?style=flat-square&logo=protocol&logoColor=white)
 ![Continual Learning](https://img.shields.io/badge/Continual_Learning_(XSkill)-E63946?style=flat-square&logo=bookstack&logoColor=white)
 ![ComfyUI](https://img.shields.io/badge/ComfyUI_Workflows-000000?style=flat-square&logo=stability-ai&logoColor=white)
 ![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=flat-square&logo=huggingface&logoColor=black)
@@ -236,11 +239,11 @@ highlights:
 
 `FastAPI` `React` `PostgreSQL + pgvector` `Redis` `Docker`
 
-- 190+ MCP tools with structured agent debate
+- Structured debate (challenge, rebuttal, synthesis), tree-search planner, goal engine
 - XSkill continual learning engine
 - multi-step reasoning loop & Deep Analysis Engine
 - Self-Reflection, Critic Agent & Dreaming Engine
-- 9 chat channels, circuit breaker + provider fallback, 218 test files
+- 9 chat channels, circuit breaker + provider fallback, 219 test files / 1,373 test functions
 - Multi-channel: WebSocket, Telegram, Discord, Slack, WhatsApp, Email
 
 </td>
@@ -330,15 +333,68 @@ highlights:
 </td>
 <td width="50%">
 
-### 📈 Real-time Crypto Monitor
-**Automated Trading Signal System**
+### 📈 B. Nexus Quantum
+**Commercial MetaTrader 5 Expert Advisor**
 
-`Streamlit` `Binance API` `Telegram Bot` `TA`
+`MQL5` `Next.js` `Prisma` `PayOS` `Vercel`
 
-- Real-time cryptocurrency monitoring
-- Technical analysis (MA crossover signals)
-- Automated Telegram alerts for trading signals
-- Multi-exchange data aggregation
+- ~27K lines in 11 modules, 21 entry modes, 18-layer scoring
+- 5-tier DCA, dual cycles, Smart Trim, adaptive recovery, 14+ risk layers
+- Licensing and payment website with HMAC-verified webhook
+- [Website](https://b-nexus-quantum.vercel.app)
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🚗 AI Vehicle-Repair Assistant
+**LangGraph Diagnostic Agent (client project)**
+
+`LangGraph` `FastAPI` `MongoDB` `Qdrant` `AWS S3`
+
+- 6-node pipeline with 16-intent classifier and verifier retry loop
+- Hybrid dense + BM25 retrieval, LLM rerank, cited answers over SSE
+- Separate bulk-LLM lane for a 250K-item queue
+- S3 backup with SHA-256 manifest, 3,320 test functions
+
+</td>
+<td width="50%">
+
+### 🎬 M-Auto
+**AI YouTube Video Studio**
+
+`Python` `Streamlit` `FFmpeg` `faster-whisper` `YouTube API`
+
+- 10-stage idea-to-upload pipeline, 11 niche profiles, 12 personas
+- Ken Burns, xfade, word-level karaoke captions, Shorts crop
+- AI quality critic re-runs the weakest stage
+- MCP bridge so agents can drive the editor
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🎮 Eternal Odyssey
+**Unity 3D Action RPG (team of two)**
+
+`Unity` `C#` `NavMesh` `Firebase Realtime DB`
+
+- 174 first-party C# files, custom Firebase online sync
+- NavMesh enemy AI, 7-skill combos, inventory and quests
+- In-game AI lore assistant streamed over SSE
+
+</td>
+<td width="50%">
+
+### 🛠️ Open-source tools
+**mcp-prune · sentinel-scan**
+
+`Node.js` `CLI` `npm`
+
+- [mcp-prune](https://github.com/pvbang/mcp-prune): -73.8% MCP schema tokens on its fixture
+- [sentinel-scan](https://github.com/pvbang/sentinel-scan): zero-dependency JS/TS security scanner
 
 </td>
 </tr>
@@ -353,12 +409,17 @@ highlights:
 
 | Fact | Value |
 |------|-------|
-| 🛠️ MCP tools in Nexus | **190+** (68 tool modules) |
-| 🧪 Automated test files | **218** |
+| 🛠️ MCP tool registrations in Nexus | **197** across 66 modules (29 toolsets) |
+| 📦 First-party code in Nexus | **~236K lines** (150K Python + 64K TypeScript + 20K tests) |
+| 🧪 Nexus tests | **219 files / 1,373 functions** |
 | 🔌 REST endpoint modules | **25** |
 | 🗃️ DB migrations | **19** |
 | 💬 Chat channels | **9** |
-| 🤖 LLM backends with fallback | **8+** |
+| 🤖 LLM providers with fallback chain | **10+ named providers** |
+| 🚗 Repair assistant (LangGraph) | **398 test files / 3,320 test functions**, 264 API routes |
+| 🎬 M-Auto video studio | **49K lines Python**, 825 test functions |
+| 📈 B. Nexus Quantum EA | **~27K lines MQL5**, 11 modules, 21 entry modes |
+| 🎮 Eternal Odyssey (Unity) | **174 first-party C# files** |
 | 📉 mcp-prune token reduction | **-73.8%** (bundled fixture) |
 
 </div>
@@ -388,11 +449,13 @@ Vietnam-Korea University of Information and Communication Technology (VKU)
 
 ## 💼 Experience
 
-**Freelance AI & Software Engineer** · _Aug 2026 - Present_
+**Freelance AI Engineer** · _Aug 2026 - Present_
+
+> Client AI products (LangGraph repair assistant, AI video studio), open-source LLM tooling, plus a commercial MQL5 trading EA.
 
 **AI Engineer** @ [MekongAI](https://mekongai.com) · _Jun 2023 - Jul 2026_
 
-> Architecting and building production-grade AI platforms with multi-agent orchestration, voice AI, and IoT integration across 8+ business domains (Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media, Content Generation).
+> Architected a multi-agent platform and delivered AI solutions with voice AI, RAG, computer vision and IoT integration across 8+ business domains (Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media, Content Generation).
 
 <!-- Animated Divider -->
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">

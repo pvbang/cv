@@ -9,30 +9,31 @@
   <style>
     @page {
       size: A4;
-      margin: 10mm 12mm;
+      margin: 12mm 13mm;
     }
 
     :root {
-      --ink: #111827;
-      --text: #1f2937;
-      --muted: #4b5563;
-      --accent: #1d4ed8;
-      --rule: #d1d5db;
+      --ink: #0f172a;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --rule: #e2e8f0;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', Arial, sans-serif;
-      font-size: 9.2pt;
-      line-height: 1.38;
+      font-size: 8.8pt;
+      line-height: 1.4;
       color: var(--text);
-      background: #f3f4f6;
+      background: #f1f5f9;
       -webkit-font-smoothing: antialiased;
     }
 
     .page {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
       padding: 28px 36px;
       background: #fff;
@@ -40,36 +41,56 @@
 
     a { color: var(--accent); text-decoration: none; }
 
-    header { text-align: center; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
-    h1 { font-size: 20pt; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
-    .role { font-size: 10.5pt; font-weight: 600; color: var(--accent); margin-top: 1px; }
-    .contact { margin-top: 5px; font-size: 8.6pt; color: var(--muted); }
-    .contact span { white-space: nowrap; display: inline-block; }
-    .contact span + span::before { content: "|"; color: var(--rule); margin: 0 6px; }
-
-    section { margin-top: 11px; }
-    h2 { break-after: avoid; }
-    h2 {
-      font-size: 10pt; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--ink); border-bottom: 1.5px solid var(--accent); padding-bottom: 2px; margin-bottom: 5px;
+    /* ---------- Header ---------- */
+    header {
+      display: flex; justify-content: space-between; align-items: flex-end; gap: 20px;
+      padding-bottom: 12px; border-bottom: 2.5px solid var(--accent);
     }
+    h1 { font-size: 24pt; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1.05; }
+    .role { font-size: 10.5pt; font-weight: 600; color: var(--accent); margin-top: 5px; }
+    .contact { text-align: right; font-size: 8.4pt; color: var(--muted); line-height: 1.6; white-space: nowrap; }
+    .contact b { color: var(--ink); font-weight: 600; }
+
+    /* ---------- Sections ---------- */
+    section { margin-top: 12px; }
+    h2 {
+      break-after: avoid;
+      font-size: 9pt; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 7px; display: flex; align-items: center; gap: 10px;
+    }
+    h2::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
 
     .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-    .title { font-weight: 700; color: var(--ink); font-size: 9.8pt; }
+    .title { font-weight: 700; color: var(--ink); font-size: 9.6pt; }
     .org { color: var(--accent); font-weight: 600; }
-    .date { color: var(--muted); font-size: 8.6pt; white-space: nowrap; }
+    .date { color: var(--muted); font-size: 8.4pt; white-space: nowrap; font-weight: 500; }
 
     ul { list-style: none; margin-top: 3px; }
-    li { position: relative; padding-left: 12px; margin-bottom: 2.5px; }
-    li::before { content: "•"; position: absolute; left: 1px; color: var(--accent); font-weight: 700; }
+    li { position: relative; padding-left: 12px; margin-bottom: 2px; }
+    li::before { content: ""; position: absolute; left: 1px; top: 0.62em; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
 
-    .skills { display: grid; grid-template-columns: 112px 1fr; gap: 2.5px 10px; }
+    /* ---------- Skills ---------- */
+    .skills { display: grid; grid-template-columns: 96px 1fr; gap: 4px 12px; }
     .skills dt { font-weight: 700; color: var(--ink); }
+    .skills dd { color: var(--text); }
 
-    .proj { margin-bottom: 6px; break-inside: avoid; }
-    .proj .meta { color: var(--muted); font-size: 8.6pt; }
-    .tech { color: var(--muted); font-style: italic; margin-left: 12px; font-size: 8.7pt; }
+    /* ---------- Entries ---------- */
+    .job { margin-bottom: 11px; }
+    .job:last-child { margin-bottom: 0; }
+    .proj { margin-bottom: 8px; }
+    .proj li, .job li { break-inside: avoid; }
+    .proj .row { break-after: avoid; }
+    .proj:last-child { margin-bottom: 0; }
+    .proj { display: flex; flex-direction: column; }
+    .proj .tech { order: 1; }
+    .proj ul { order: 2; }
+    .tech { margin: 2px 0 0 0; font-size: 8.2pt; color: var(--muted); }
+    .tech span {
+      display: inline-block; background: var(--accent-soft); color: #1e40af;
+      border-radius: 3px; padding: 0 5px; margin: 0 3px 2px 0; font-weight: 500;
+    }
     .edu { break-inside: avoid; }
+    .page-break { break-before: page; }
 
     @media print {
       body { background: #fff; }
@@ -82,71 +103,68 @@
   <div class="page">
 
     <header>
-      <h1>PHAN VAN BANG</h1>
-      <p class="role">AI Engineer &mdash; Multi-Agent Systems, RAG, Voice AI <span style="color: var(--muted); font-weight: 400;">&middot; Da Nang, Vietnam</span></p>
-      <p class="contact">
-        <span><a href="tel:+84329958001">+84 329 958 001</a></span><span><a href="mailto:phanvanbang.id@gmail.com">phanvanbang.id@gmail.com</a></span><span><a href="https://github.com/pvbang">github.com/pvbang</a></span><span><a href="https://linkedin.com/in/pvbang">linkedin.com/in/pvbang</a></span><span><a href="https://pvbang.github.io/cv/">pvbang.github.io/cv</a></span>
-      </p>
+      <div>
+        <h1>PHAN VAN BANG</h1>
+        <p class="role">AI Engineer &middot; Multi-Agent Systems, RAG, Voice AI</p>
+      </div>
+      <div class="contact">
+        <div><a href="mailto:phanvanbang.id@gmail.com"><b>phanvanbang.id@gmail.com</b></a></div>
+        <div><a href="tel:+84329958001">+84 329 958 001</a> &middot; Da Nang, Vietnam</div>
+        <div><a href="https://github.com/pvbang">github.com/pvbang</a> &middot; <a href="https://linkedin.com/in/pvbang">linkedin.com/in/pvbang</a></div>
+        <div><a href="https://pvbang.github.io/cv/">pvbang.github.io/cv</a></div>
+      </div>
     </header>
 
     <section>
       <h2>Summary</h2>
-      <p>AI Engineer with 3+ years shipping LLM products end to end (FastAPI, React, Docker, AWS): multi-agent systems, RAG, voice AI and IoT. Full-time at MekongAI (2023&ndash;2026), now freelancing. Also builds games, trading tools and AI video pipelines. Author of the open-source <a href="https://github.com/pvbang/nexus">Nexus</a> multi-agent platform (190+ MCP tools, 218 test files).</p>
+      <p>AI Engineer with 3+ years building LLM products end to end (FastAPI, React, Docker, AWS): multi-agent systems, hybrid RAG and GraphRAG, voice AI, computer vision and LLM fine-tuning. Full-time at MekongAI (2023&ndash;2026), now freelancing for clients. Author of the open-source <a href="https://github.com/pvbang/nexus">Nexus</a> multi-agent platform: ~236K lines of first-party code, 197 MCP tool registrations across 66 modules, 1,373 test functions. Also shipped a LangGraph repair assistant with 3,300+ test functions and an AI video studio with a self-correcting quality critic.</p>
     </section>
 
     <section>
       <h2>Technical Skills</h2>
       <dl class="skills">
         <dt>AI / LLM</dt>
-        <dd>Multi-agent orchestration, RAG &amp; GraphRAG (vector + full-text + graph, RRF), MCP (client &amp; server, OAuth 2.1 PKCE), LangGraph, LangChain, LlamaIndex, CrewAI, LoRA/QLoRA fine-tuning (Unsloth), vLLM</dd>
+        <dd>Multi-agent orchestration, structured debate, tree-search planning, hybrid RAG (dense + BM25 + graph, RRF), GraphRAG, reranking, MCP (client, server, OAuth 2.1 PKCE), LangGraph, LangChain, LlamaIndex, CrewAI, LoRA/QLoRA (Unsloth), vLLM, structured outputs</dd>
         <dt>Voice &amp; Vision</dt>
-        <dd>Whisper STT, TTS (OpenAI, Fish Audio, ElevenLabs), VAD, PaddleOCR, SAM3, ComfyUI / Stable Diffusion, spaCy (vi/en)</dd>
+        <dd>Whisper / faster-whisper STT, TTS (OpenAI, Fish Audio, ElevenLabs, Edge), VAD, PaddleOCR, SAM3, ComfyUI / Stable Diffusion, Gemini multimodal, spaCy (vi + en), FFmpeg</dd>
         <dt>Backend</dt>
-        <dd>Python, TypeScript, FastAPI, SQLAlchemy + Alembic, Celery, WebSocket, SSE, MQTT, REST</dd>
+        <dd>Python, TypeScript, FastAPI, SQLAlchemy + Alembic, Celery, WebSocket, SSE, MQTT, OpenAI-compatible APIs, LiteLLM</dd>
         <dt>Data</dt>
-        <dd>PostgreSQL + pgvector, Qdrant, MongoDB, Redis, Neo4j</dd>
+        <dd>PostgreSQL + pgvector, Qdrant, Chroma, MongoDB, Redis, Neo4j, Firestore</dd>
         <dt>Frontend</dt>
-        <dd>React, Next.js, Zustand, Tailwind CSS</dd>
-        <dt>DevOps</dt>
-        <dd>Docker Compose, AWS (EC2, S3), GitHub Actions, Nginx, RunPod (GPU serverless), Pytest</dd>
-        <dt>Mobile / Games</dt>
-        <dd>Unity (C#, 2D/3D), React Native, Android (Java, Firebase), Flutter, C++ / OpenGL</dd>
-        <dt>Web</dt>
-        <dd>Laravel, Node.js / Express, Spring Boot (Servlet/JSP), Angular, Blockchain (Truffle, IPFS)</dd>
-        <dt>Trading</dt>
-        <dd>MQL5 Expert Advisors, Binance API, technical-analysis signal systems</dd>
-        <dt>Content / Media</dt>
-        <dd>AI video production (script, image, TTS, FFmpeg, CapCut), copywriting and brand-voice content, ComfyUI image workflows</dd>
-        <dt>Programming</dt>
-        <dd>Python, TypeScript/JavaScript, C#, Java, PHP, C/C++, Go</dd>
+        <dd>React 19, TypeScript, Vite, Tailwind CSS, Zustand, Streamlit (agent, chat and analysis UIs)</dd>
+        <dt>DevOps &amp; QA</dt>
+        <dd>Docker Compose, AWS (EC2, S3), Nginx, RunPod (GPU serverless), Prometheus-style metrics, Pytest, Ruff, mypy, Vitest</dd>
       </dl>
     </section>
 
     <section>
       <h2>Work Experience</h2>
-      <div class="row">
-        <div><span class="title">Freelance AI &amp; Software Engineer</span></div>
-        <span class="date">08/2026 &ndash; Present</span>
-      </div>
-      <ul>
-        <li>Build AI products for clients end to end: LangGraph diagnostic assistant for the automotive-repair domain (RAG, SSE streaming, S3 backup and restore) and YouTube video automation.</li>
-        <li>Open-sourced <a href="https://github.com/pvbang/nexus">Nexus</a> (multi-agent platform) and published small dev tools (<a href="https://github.com/pvbang/mcp-prune">mcp-prune</a>, <a href="https://github.com/pvbang/sentinel-scan">sentinel-scan</a>).</li>
-      </ul>
 
-      <div class="row" style="margin-top:7px">
-        <div><span class="title">AI Engineer</span> &middot; <span class="org">MekongAI</span></div>
-        <span class="date">06/2023 &ndash; 07/2026</span>
+      <div class="job">
+        <div class="row">
+          <div><span class="title">Freelance AI Engineer</span></div>
+          <span class="date">08/2026 &ndash; Present</span>
+        </div>
+        <ul>
+          <li>Build AI products for clients end to end: a LangGraph diagnostic assistant for automotive repair (hybrid RAG, SSE streaming, S3 backup and restore) and <b>M-Auto</b>, an AI YouTube video studio with a self-correcting quality critic.</li>
+          <li>Open-sourced <a href="https://github.com/pvbang/nexus">Nexus</a> and published LLM tooling (<a href="https://github.com/pvbang/mcp-prune">mcp-prune</a>, <a href="https://github.com/pvbang/sentinel-scan">sentinel-scan</a>).</li>
+        </ul>
       </div>
-      <ul>
-        <li>Architected <b>MekongAI Nexus</b>, a multi-agent orchestration platform (FastAPI, React 19, PostgreSQL + pgvector, Redis) with 190+ MCP tools and structured agent debate (challenge, rebuttal, synthesis).</li>
-        <li>Built a hybrid RAG pipeline (vector + full-text + graph, RRF fusion) with GraphRAG memory; in internal evaluations it outperformed a vector-only baseline on retrieval accuracy.</li>
-        <li>Designed layered agent memory (L0&ndash;L3), a continual-learning loop (skills, experiences, trajectory compression into SFT data) and a background memory-consolidation job.</li>
-        <li>Hardened the runtime for production: circuit breaker and provider fallback across 8+ LLM backends, task checkpoint and auto-resume, command / SSRF / exfiltration guards, secret redaction, 218 automated test files.</li>
-        <li>Shipped <b>Knowlympic</b>: PaddleOCR pipeline plus LLM question generation that cut content-creation time for 3 English language centers (roughly 80% by internal estimate).</li>
-        <li>Built the <b>MetaHuman</b> voice platform (Whisper STT, streaming TTS, VAD) with sub-second voice response; connected ESP32 voice bots to the same backend via MCP and MQTT.</li>
-        <li>Delivered computer-vision and GenAI services: 20+ ComfyUI workflows, a face-similarity API, SAM3 and PaddleOCR-VL on RunPod GPU serverless.</li>
-        <li>Fine-tuned Llama 3.1 (8B/70B) with Unsloth (LoRA/QLoRA) on trajectory-compressed SFT data; delivered 50+ projects across Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media and Content Generation.</li>
-      </ul>
+
+      <div class="job">
+        <div class="row">
+          <div><span class="title">AI Engineer</span> &middot; <span class="org">MekongAI</span></div>
+          <span class="date">06/2023 &ndash; 07/2026</span>
+        </div>
+        <ul>
+          <li>Architected <b>MekongAI Nexus</b>, a multi-agent platform with structured debate, layered memory, hybrid RAG + GraphRAG and a continual-learning loop (details below).</li>
+          <li>Shipped <b>Knowlympic</b> (PaddleOCR + LLM question generation, cut content-creation time for 3 English language centers) and <b>MetaHuman</b> (Whisper STT, streaming TTS, VAD, 3-tier personality memory, ESP32 voice bots over MCP and MQTT).</li>
+          <li>Built early customer-service RAG chatbots (LangChain, LlamaIndex, Chroma) with Messenger integration, intent-routed prompt chains and per-tenant knowledge bases; later TikVault, an AI recruitment platform and an AI content generator.</li>
+          <li>Delivered vision and GenAI services (20+ ComfyUI workflows, face-similarity API, SAM3, PaddleOCR-VL on RunPod) and fine-tuned Llama 3.1 (8B/70B) with LoRA/QLoRA.</li>
+          <li>Delivered AI solutions across Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media and Content Generation.</li>
+        </ul>
+      </div>
     </section>
 
     <section>
@@ -155,41 +173,49 @@
       <div class="proj">
         <div class="row"><span class="title">MekongAI Nexus &ndash; open-source multi-agent platform</span><span class="date"><a href="https://github.com/pvbang/nexus">github.com/pvbang/nexus</a></span></div>
         <ul>
-          <li>25 REST endpoint modules, 68 MCP tool modules, OpenAI-compatible API, SSE streaming, 9 chat channels (Telegram, Discord, Slack, WhatsApp, Email, ...).</li>
-          <li>Docker Compose deployment, 19 Alembic migrations, React 19 UI with live process cards for agent reasoning, debate and tool calls.</li>
+          <li><b>Orchestration:</b> Planning &rarr; Think &rarr; Discuss &rarr; Execute &rarr; Report pipeline; agents run structured debate (challenge, rebuttal, synthesis), a beam-search tree planner with LLM-as-judge scoring, goal decomposition and verification, self-reflection checkpoints and a stuck detector.</li>
+          <li><b>Memory &amp; RAG:</b> 4-layer memory (capture, atoms, scenes, persona) with a sleep-style consolidation engine; retrieval fuses vector, full-text and graph results with RRF (k=60) plus a cross-encoder reranker that degrades gracefully; experience-based continual learning (XSkill).</li>
+          <li><b>MCP:</b> client and JSON-RPC server with OAuth 2.1 + PKCE; 197 tool registrations across 66 modules in 29 toolsets, OpenAI-compatible API, 9 chat channels (Telegram, Discord, Slack, WhatsApp, Email, ...).</li>
+          <li><b>Reliability &amp; security:</b> circuit breaker + provider fallback chain across 10+ LLM providers, task checkpoint and auto-resume, SSRF and exfiltration guards, prompt-injection data marking, Redis rate limiting, authorization gate for offensive-security tools.</li>
+          <li><b>Scale:</b> ~150K lines Python + ~64K lines TypeScript (React 19, 20 routes), 25 REST endpoint modules, 19 Alembic migrations, 12-service Docker Compose, 219 test files / 1,373 test functions.</li>
         </ul>
-        <p class="tech">Python 3.12, FastAPI, React 19, TypeScript, PostgreSQL + pgvector, Redis, LiteLLM, Docker</p>
+        <p class="tech"><span>Python 3.12</span><span>FastAPI</span><span>React 19</span><span>TypeScript</span><span>PostgreSQL + pgvector</span><span>Redis</span><span>LiteLLM</span><span>Docker</span></p>
       </div>
 
       <div class="proj">
-        <div class="row"><span class="title">AI Vehicle-Repair Assistant (client project)</span></div>
+        <div class="row"><span class="title">AI Vehicle-Repair Assistant <span style="font-weight:500;color:var(--muted)">(client project)</span></span></div>
         <ul>
-          <li>LangGraph agent with a 5-layer pipeline (reasoning, search, evaluation, answer, verification) answering multi-DTC diagnostic queries with cited references, streamed over SSE.</li>
-          <li>One-command bootstrap for the full stack; MongoDB backup to S3 with SHA-256 verification and staging-first restore.</li>
+          <li>LangGraph agent with 6 nodes (reasoning, search, evaluation, rerank, answer, verification) and conditional loops: 16-intent classifier, multi-DTC extraction, a coverage check that re-searches, and a verifier that retries the answer up to twice.</li>
+          <li>Hybrid retrieval in Qdrant (1536-d dense + server-side IDF BM25 sparse vectors) with an LLM reranker that fills gaps via a tool loop; inline citations only for numbered references.</li>
+          <li>12 vehicle-data categories (specs, procedures, TSBs, wiring, labor times, ...) plus a 282-case repair-experience corpus; a separate bulk-LLM lane for a 250K-item background queue keeps chat latency and cost isolated.</li>
+          <li>SSE streaming of every pipeline step, 264 API routes, per-user token and cost ledger, Streamlit admin UI; MongoDB backup to S3 with SHA-256 manifest and staging-first restore. 105K lines of source, 398 test files / 3,320 test functions.</li>
         </ul>
-        <p class="tech">LangGraph, FastAPI, MongoDB, Qdrant, Redis, Streamlit, AWS S3, Docker</p>
-      </div>
-
-      <div class="proj">
-        <div class="row"><span class="title">AI Recruitment Platform &ndash; Vietnamese NLP matching</span></div>
-        <ul>
-          <li>CV parsing with OCR and a dual spaCy pipeline (vi + en); job-candidate matching by vector similarity.</li>
-        </ul>
-        <p class="tech">FastAPI, Qdrant, spaCy, OCR, AWS S3</p>
+        <p class="tech"><span>LangGraph</span><span>FastAPI</span><span>MongoDB</span><span>Qdrant</span><span>Redis</span><span>AWS S3</span><span>Streamlit</span><span>Docker</span></p>
       </div>
 
       <div class="proj">
         <div class="row"><span class="title">M-Auto &ndash; AI YouTube video studio</span></div>
         <ul>
-          <li>Idea-to-upload pipeline: LLM scripts, image and TTS generation, FFmpeg rendering (Ken Burns, xfade, karaoke captions) with an AI quality critic that re-runs weak stages.</li>
+          <li>10-stage pipeline (topic, script, scenes, images, audio, video, metadata, quality, publish) with dependency-aware invalidation; LLM client with provider and model fallback and truncated-JSON repair.</li>
+          <li><b>AI quality critic</b> scores script, visual diversity, A/V sync and captions, then re-runs the weakest stage; deterministic guardrails for claims, language policy and clip duration.</li>
+          <li>FFmpeg render engine (sub-pixel Ken Burns, xfade chains, karaoke captions from word-level Whisper timestamps, BGM ducking, 4 aspect ratios), DepthFlow 2.5D parallax, YouTube resumable upload with crash recovery, MCP bridge so agents can drive the editor. 49K lines Python, 825 test functions.</li>
         </ul>
-        <p class="tech">Python, Streamlit, FFmpeg, Edge-TTS, faster-whisper</p>
+        <p class="tech"><span>Python</span><span>Streamlit</span><span>FFmpeg</span><span>faster-whisper</span><span>Edge-TTS</span><span>YouTube Data API</span><span>MCP</span></p>
       </div>
 
       <div class="proj">
-        <div class="row"><span class="title">B. Nexus Quantum &ndash; MetaTrader 5 trading EA (commercial)</span><span class="date"><a href="https://b-nexus-quantum.vercel.app">b-nexus-quantum.vercel.app</a></span></div>
+        <div class="row"><span class="title">TikVault &ndash; AI video analysis and script generation</span></div>
         <ul>
-          <li>11-module MQL5 Expert Advisor: 21 entry modes, 18-layer weighted signal scoring, multi-layer risk controls, licensing; sold with a public landing page.</li>
+          <li>Uploads or downloads (yt-dlp) TikTok/YouTube videos, sends them to Gemini and parses a Pydantic-validated JSON report: per-segment script breakdown, hook, pacing, technical audit and a 1&ndash;10 virality score; a generator then writes new scripts from analysed references with a creativity-to-temperature control.</li>
+          <li>FastAPI + MongoDB backend with a range-request video proxy; React 19, Vite 7, Tailwind 4 and Recharts dashboard.</li>
+        </ul>
+      </div>
+
+      <div class="proj">
+        <div class="row"><span class="title">Customer-service RAG chatbot and game-lore assistant</span></div>
+        <ul>
+          <li><b>Multi-tenant chatbot:</b> per-tenant Chroma stores, 7-class intent detection and entity extraction chained into routed prompts, order capture into Firestore, Messenger webhook with quick replies.</li>
+          <li><b>Eternal Odyssey assistant:</b> upload pipeline for 14+ file types (unstructured loaders, Vietnamese OCR), Qdrant retrieval and GPT-4o answers streamed over SSE, with spoiler-aware persona prompts.</li>
         </ul>
       </div>
 
@@ -203,20 +229,19 @@
     </section>
 
     <section>
-      <h2>Games, Mobile &amp; Web Projects</h2>
+      <h2>More AI Projects</h2>
       <ul>
-        <li><b>Eternal Odyssey</b>: Unity 3D action RPG built in a team of two (5 playable classes, weapon tiers, EXP and PvE/PvP design); plus a Unity 2D platformer and a C++/OpenGL racing game.</li>
-        <li><b>Android chat app</b> (Java, Firebase, Jitsi Meet): messaging, image/video sharing, voice and video calls, voice search; 5 stars on GitHub.</li>
-        <li><b>React Native apps</b>: Vocab Master (English learning with OpenAI/Google AI), TransVoiceHub (speech-to-text, translation, text-to-speech), a math-solver app and "The Escape" game with a Node.js API.</li>
-        <li><b>Web apps</b>: Laravel shoe shop and restaurant management systems, Java client-server meeting app (screen share, chat), Angular + Truffle + IPFS blockchain demo.</li>
-        <li><b>Chrome extension</b> and <b>Capture2Text</b>: select or capture text on screen, then summarize, translate or answer with an LLM, with results copied to the clipboard.</li>
+        <li><b>AI Recruitment Platform</b>: CV parsing with OCR and a dual spaCy pipeline (vi + en); job-candidate matching by vector similarity (FastAPI, Qdrant, AWS S3).</li>
+        <li><b>AI Content Generator</b>: CrewAI pipeline (research, write, edit, publish) with RAG-based brand-voice learning for Facebook, Instagram and TikTok.</li>
+        <li><b>ESP32 AI voice bot</b>: hardware voice assistant controlling IoT devices through MCP and MQTT, with multi-LLM routing.</li>
+        <li><b>Capture2Text / Chrome extension</b>: capture on-screen text, then summarize, translate or answer with an LLM. <b>Vocab Master</b> and <b>TransVoiceHub</b> (React Native): LLM-powered English learning, speech-to-text, translation and TTS.</li>
       </ul>
     </section>
 
     <section class="edu">
       <h2>Education &amp; Languages</h2>
       <div class="row">
-        <div><span class="title">B.Eng. in Information Technology</span> &middot; Vietnam-Korea University of Information and Communication Technology (VKU), Da Nang</div>
+        <div><span class="title">B.Eng. in Information Technology</span> &middot; Vietnam-Korea University of ICT (VKU), Da Nang</div>
         <span class="date">2020 &ndash; 2025</span>
       </div>
       <ul>
