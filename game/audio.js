@@ -1,4 +1,4 @@
-/* CV World — âm thanh tổng hợp bằng WebAudio (không cần file) */
+/* CV World — synthesized WebAudio sound (no files needed) */
 (function () {
     'use strict';
     const A = { ctx: null, muted: false, master: null, music: null };
@@ -44,11 +44,13 @@
             case 'achv': [523, 659, 784, 1047].forEach((f, i) => tone(f, 0.25, 'triangle', 0.13, i * 0.1)); break;
             case 'portal': tone(120, 0.7, 'sawtooth', 0.08, 0, 600); tone(180, 0.7, 'sine', 0.08, 0.05, 900); break;
             case 'splash': noise(0.25, 0.2, 400); break;
+            case 'hurt': noise(0.1, 0.18, 300); tone(260, 0.12, 'sawtooth', 0.07, 0, 150); break;
+            case 'mobdie': tone(300, 0.3, 'sawtooth', 0.08, 0, 70); noise(0.2, 0.15, 250); break;
             case 'click': tone(700, 0.04, 'square', 0.05); break;
         }
     };
 
-    /* nhạc nền ambient: pad + arpeggio pentatonic chậm */
+    /* ambient music: pad + slow pentatonic arpeggio */
     A.startMusic = function () {
         if (!A.ctx) return;
         const scale = [261.6, 293.7, 329.6, 392, 440, 523.2, 587.3, 659.3];

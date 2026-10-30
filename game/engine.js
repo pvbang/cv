@@ -1,4 +1,4 @@
-/* CV World — renderer: chunk mesher (AO), ngày/đêm, raycast voxel. Cần three.js r128 (global THREE). */
+/* CV World — renderer: chunk mesher (AO), day/night, voxel raycast. Requires three.js r128 (global THREE). */
 (function () {
     'use strict';
     const W = window.CVW, B = W.B, DEF = W.DEF;
@@ -8,7 +8,7 @@
     const E = { chunks: [], dirty: new Set(), time: 0.12, dayLen: 600, fastTime: false };
     window.CVE = E;
 
-    /* mặt: [dx,dy,dz], 4 đỉnh (góc), shade, tile pick */
+    /* face: [dx,dy,dz], 4 vertices (corners), shade, tile pick */
     const FACES = [
         { d: [0, 1, 0], k: 'top', s: 1.0, v: [[0, 1, 1], [1, 1, 1], [1, 1, 0], [0, 1, 0]] },
         { d: [0, -1, 0], k: 'bottom', s: 0.5, v: [[0, 0, 0], [1, 0, 0], [1, 0, 1], [0, 0, 1]] },
@@ -21,22 +21,36 @@
 
     function isOpaque(id) { return id !== 0 && DEF[id].opaque; }
 
-    function newBuf() { return { p: [], c: [], u: [], i: [], n: 0 }; }
+    function newBuf() { return { p: [], c: [], u: [], i: [], s: [], n: 0 }; }
 
     function buildChunk(cx, cz) {
-        const bufs = { solid: newBuf(), cut: newBuf(), water: newBuf(), glow: newBuf() };
+        const bufs = { solid: newBuf(), cut: newBuf(), water: newBuf(), glow: newBuf(), sway: newBuf() };
         const x0 = cx * CS - W.OX, z0 = cz * CS - W.OZ;
         const T = 1 / W.COLS, PAD = 0.0005;
         for (let y = 0; y < W.SY; y++) for (let lz = 0; lz < CS; lz++) for (let lx = 0; lx < CS; lx++) {
             const x = x0 + lx, z = z0 + lz, id = W.get(x, y, z);
             if (!id) continue;
             const df = DEF[id];
-            const buf = df.liquid ? bufs.water : (df.light ? bufs.glow : (df.cutout ? bufs.cut : bufs.solid));
+            if (df.cross) {      // plants: two crossed quads, top vertices sway in the wind
+                const b = bufs.sway, tile = df.side, tx = (tile % W.COLS) * T, ty = 1 - (Math.floor(tile / W.COLS) + 1) * T;
+                const Q = [[[0, 0, 0], [1, 0, 1], [1, 1, 1], [0, 1, 0]], [[1, 0, 0], [0, 0, 1], [0, 1, 1], [1, 1, 0]]];
+                Q.forEach(q => {
+                    const base = b.n;
+                    for (let v = 0; v < 4; v++) {
+                        b.p.push(lx + q[v][0] + cx * CS, y + q[v][1], lz + q[v][2] + cz * CS);
+                        b.c.push(0.95, 0.95, 0.95); b.s.push(q[v][1] ? 0.14 : 0);
+                        b.u.push(tx + UVS[v][0] * T + (UVS[v][0] ? -PAD : PAD), ty + UVS[v][1] * T + (UVS[v][1] ? -PAD : PAD));
+                    }
+                    b.i.push(base, base + 1, base + 2, base, base + 2, base + 3); b.n += 4;
+                });
+                continue;
+            }
+            const buf = df.liquid ? bufs.water : (df.light ? bufs.glow : (df.sway ? bufs.sway : (df.cutout ? bufs.cut : bufs.solid)));
             for (let f = 0; f < 6; f++) {
                 const F = FACES[f], nx = x + F.d[0], ny = y + F.d[1], nz = z + F.d[2];
                 const nid = W.get(nx, ny, nz);
-                if (df.liquid) { if (f !== 0 || nid !== 0) continue; }   // nước: chỉ vẽ mặt trên khi phía trên là không khí
-                else if (nid === id && df.cutout && id !== B.LEAVES) continue;
+                if (df.liquid) { if (f !== 0 || nid !== 0) continue; }   // water: only draw the top face when the block above is air
+                else if (nid === id && df.cutout && id !== B.LEAVES && id !== B.SPRUCE) continue;
                 else if (isOpaque(nid)) continue;
                 const tile = df[F.k], tx = (tile % W.COLS) * T, ty = 1 - (Math.floor(tile / W.COLS) + 1) * T;
                 const base = buf.n;
@@ -44,7 +58,7 @@
                     const vv = F.v[v];
                     let px = lx + vv[0], py = y + vv[1], pz = lz + vv[2];
                     if (df.liquid && vv[1] === 1) py -= 0.12;
-                    buf.p.push(px + cx * CS, py, pz + cz * CS);   // toạ độ chunk-space; E.group dịch về toạ độ logic
+                    buf.p.push(px + cx * CS, py, pz + cz * CS);   // chunk-space coordinates; E.group shifts them back to logical coordinates
                     // AO
                     let shade = F.s;
                     if (!df.light && !df.liquid) {
@@ -57,6 +71,7 @@
                         shade *= 0.55 + ao * 0.15;
                     }
                     buf.c.push(shade, shade, shade);
+                    if (buf === bufs.sway) buf.s.push(0.05);
                     buf.u.push(tx + UVS[v][0] * T + (UVS[v][0] ? -PAD : PAD), ty + UVS[v][1] * T + (UVS[v][1] ? -PAD : PAD));
                 }
                 buf.i.push(base, base + 1, base + 2, base, base + 2, base + 3);
@@ -72,6 +87,7 @@
         g.setAttribute('position', new THREE.Float32BufferAttribute(buf.p, 3));
         g.setAttribute('color', new THREE.Float32BufferAttribute(buf.c, 3));
         g.setAttribute('uv', new THREE.Float32BufferAttribute(buf.u, 2));
+        if (buf.s.length) g.setAttribute('sw', new THREE.Float32BufferAttribute(buf.s, 1));
         g.setIndex(buf.i);
         g.computeBoundingSphere();
         const m = new THREE.Mesh(g, mat);
@@ -83,7 +99,7 @@
         const k = cx + cz * NCX, old = E.chunks[k];
         if (old) old.meshes.forEach(m => { E.group.remove(m); m.geometry.dispose(); });
         const b = buildChunk(cx, cz), meshes = [];
-        [[b.solid, E.mats.solid], [b.cut, E.mats.cut], [b.water, E.mats.water], [b.glow, E.mats.glow]].forEach(p => {
+        [[b.solid, E.mats.solid], [b.cut, E.mats.cut], [b.water, E.mats.water], [b.glow, E.mats.glow], [b.sway, E.mats.sway]].forEach(p => {
             const m = toMesh(p[0], p[1]);
             if (m) { if (p[1] === E.mats.water) m.renderOrder = 2; E.group.add(m); meshes.push(m); }
         });
@@ -110,42 +126,80 @@
         r.setSize(window.innerWidth, window.innerHeight);
         E.renderer = r;
         E.scene = new THREE.Scene();
-        E.camera = new THREE.PerspectiveCamera(72, window.innerWidth / window.innerHeight, 0.05, 220);
+        E.camera = new THREE.PerspectiveCamera(72, window.innerWidth / window.innerHeight, 0.05, 260);
         E.camera.rotation.order = 'YXZ';
         E.scene.add(E.camera);
         E.group = new THREE.Group();
-        E.group.position.set(-W.OX, 0, -W.OZ);        // chunk vertex dùng toạ độ [0,SX); dịch về toạ độ logic
+        E.group.position.set(-W.OX, 0, -W.OZ);        // chunk vertices use [0,SX) coordinates; shift back to logical coordinates
         E.scene.add(E.group);
 
         const atlas = W.buildAtlas();
         const tex = new THREE.CanvasTexture(atlas);
         tex.magFilter = THREE.NearestFilter; tex.minFilter = THREE.NearestFilter; tex.generateMipmaps = false;
         E.atlas = atlas; E.tex = tex;
+        E.uTime = { value: 0 };
+        const hook = (mat, sway) => {
+            mat.onBeforeCompile = sh => {
+                sh.uniforms.uTime = E.uTime;
+                sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\n' + (sway ? 'attribute float sw;\n' : '') + 'uniform float uTime;')
+                    .replace('#include <begin_vertex>', '#include <begin_vertex>\n' + (sway
+                        ? 'float ph = uTime * 1.6 + position.x * 0.6 + position.z * 0.45; transformed.x += sin(ph) * sw; transformed.z += cos(ph * 0.8) * sw * 0.7;'
+                        : 'transformed.y += (sin(uTime * 1.3 + position.x * 0.9 + position.z * 0.7) + sin(uTime * 0.9 - position.x * 0.5 + position.z * 1.1)) * 0.035;'));
+            };
+            return mat;
+        };
         E.mats = {
             solid: new THREE.MeshBasicMaterial({ map: tex, vertexColors: true }),
             cut: new THREE.MeshBasicMaterial({ map: tex, vertexColors: true, transparent: true, alphaTest: 0.5, side: THREE.DoubleSide }),
-            water: new THREE.MeshBasicMaterial({ map: tex, vertexColors: true, transparent: true, opacity: 0.68, depthWrite: false }),
+            water: hook(new THREE.MeshBasicMaterial({ map: tex, vertexColors: true, transparent: true, opacity: 0.68, depthWrite: false }), false),
+            sway: hook(new THREE.MeshBasicMaterial({ map: tex, vertexColors: true, transparent: true, alphaTest: 0.5, side: THREE.DoubleSide }), true),
             glow: new THREE.MeshBasicMaterial({ map: tex, vertexColors: true })
         };
-        E.scene.fog = new THREE.Fog(0x9ad0ff, 50, 140);
+        E.scene.fog = new THREE.Fog(0x9ad0ff, 70, 175);
         E.scene.background = new THREE.Color(0x9ad0ff);
 
-        // outline block đang nhắm
+        // outline of the targeted block
         const eg = new THREE.EdgesGeometry(new THREE.BoxGeometry(1.002, 1.002, 1.002));
         E.outline = new THREE.LineSegments(eg, new THREE.LineBasicMaterial({ color: 0x00ffff }));
         E.outline.visible = false; E.scene.add(E.outline);
 
-        // sao ban đêm
+        // block-breaking crack overlay (10 stages in one strip texture)
+        const cc = document.createElement('canvas'); cc.width = 160; cc.height = 16;
+        const cg = cc.getContext('2d'); let seed = 7;
+        const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+        const cells = []; for (let i = 0; i < 256; i++) cells.push(i);
+        for (let i = cells.length - 1; i > 0; i--) { const j = (rnd() * (i + 1)) | 0; const t = cells[i]; cells[i] = cells[j]; cells[j] = t; }
+        for (let st = 0; st < 10; st++) {
+            const n = Math.floor((st + 1) * 17);
+            for (let k = 0; k < n; k++) { const c = cells[k]; cg.fillStyle = 'rgba(0,0,0,' + (0.45 + (k % 3) * 0.12) + ')'; cg.fillRect(st * 16 + (c % 16), (c / 16) | 0, 1, 1); }
+        }
+        const ct = new THREE.CanvasTexture(cc); ct.magFilter = THREE.NearestFilter; ct.minFilter = THREE.NearestFilter; ct.generateMipmaps = false;
+        ct.repeat.set(0.1, 1); ct.wrapS = THREE.ClampToEdgeWrapping;
+        E.crackTex = ct;
+        E.crack = new THREE.Mesh(new THREE.BoxGeometry(1.004, 1.004, 1.004), new THREE.MeshBasicMaterial({ map: ct, transparent: true, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }));
+        E.crack.visible = false; E.scene.add(E.crack);
+
+        // placement preview ("ghost" block): translucent cube + bright edges
+        E.ghost = new THREE.Group();
+        E.ghostFill = new THREE.Mesh(new THREE.BoxGeometry(0.98, 0.98, 0.98), new THREE.MeshBasicMaterial({ color: 0x66ffcc, transparent: true, opacity: 0.28, depthWrite: false }));
+        E.ghostEdge = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(1.001, 1.001, 1.001)), new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.9 }));
+        E.ghost.add(E.ghostFill); E.ghost.add(E.ghostEdge); E.ghost.visible = false; E.scene.add(E.ghost);
+
+        // first-person hand: the held tool/block (children of the camera)
+        E.hand = new THREE.Group(); E.hand.renderOrder = 999; E.camera.add(E.hand);
+        E.setHand(null);
+
+        // night stars
         const sp = [];
         for (let i = 0; i < 500; i++) {
-            const a = Math.random() * Math.PI * 2, b = Math.acos(Math.random() * 0.95 + 0.05), R = 180;
+            const a = Math.random() * Math.PI * 2, b = Math.acos(Math.random() * 0.95 + 0.05), R = 220;
             sp.push(Math.cos(a) * Math.sin(b) * R, Math.cos(b) * R, Math.sin(a) * Math.sin(b) * R);
         }
         const sg = new THREE.BufferGeometry(); sg.setAttribute('position', new THREE.Float32BufferAttribute(sp, 3));
         E.stars = new THREE.Points(sg, new THREE.PointsMaterial({ color: 0xffffff, size: 1.6, sizeAttenuation: false, transparent: true, opacity: 0, fog: false }));
         E.scene.add(E.stars);
 
-        // mặt trời + trăng (billboard đơn giản)
+        // sun + moon (simple billboards)
         function disc(col, s) {
             const m = new THREE.Mesh(new THREE.PlaneGeometry(s, s), new THREE.MeshBasicMaterial({ color: col, fog: false, depthWrite: false }));
             m.renderOrder = -1; E.scene.add(m); return m;
@@ -156,25 +210,70 @@
         for (let cz = 0; cz < NCZ; cz++) for (let cx = 0; cx < NCX; cx++) E.rebuildChunk(cx, cz);
     };
 
+    /* ---------- held item ---------- */
+    const handMat = (map, o) => new THREE.MeshBasicMaterial(Object.assign({ map, transparent: true, alphaTest: 0.5, depthTest: false, fog: false, side: THREE.DoubleSide }, o || {}));
+    E.setHand = function (item) {
+        const H = E.hand; while (H.children.length) { const m = H.children[0]; H.remove(m); m.geometry.dispose(); }
+        const I = window.CVI; let mesh;
+        if (I && I.isTool(item)) {
+            const tx = new THREE.CanvasTexture(I.icon(item)); tx.magFilter = THREE.NearestFilter; tx.minFilter = THREE.NearestFilter; tx.generateMipmaps = false;
+            mesh = new THREE.Mesh(new THREE.PlaneGeometry(0.4, 0.4), handMat(tx));
+            mesh.userData.base = { p: [0.26, -0.2, -0.62], r: [0.1, -0.35, -0.1] };
+        } else if (I && I.isBlock(item)) {
+            const tx = new THREE.CanvasTexture(I.icon(item)); tx.magFilter = THREE.NearestFilter; tx.minFilter = THREE.NearestFilter; tx.generateMipmaps = false;
+            mesh = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.2, 0.2), handMat(tx, { transparent: false, alphaTest: 0 }));
+            mesh.userData.base = { p: [0.28, -0.24, -0.6], r: [0.15, 0.7, 0] };
+        } else {   // empty hand: bare arm
+            mesh = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.1, 0.4), new THREE.MeshBasicMaterial({ color: 0xe8b98a, depthTest: false, fog: false }));
+            mesh.userData.base = { p: [0.28, -0.24, -0.5], r: [0.1, -0.15, 0] };
+        }
+        mesh.renderOrder = 999; mesh.frustumCulled = false; H.add(mesh);
+        E.handBase = mesh.userData.base;
+    };
+    /* sw = swing progress 1 -> 0, walk = 1 while walking (gentle bob) */
+    E.updateHand = function (dt, sw, walk) {
+        const m = E.hand && E.hand.children[0]; if (!m || !E.handBase) return;
+        E.handBob = (E.handBob || 0) + dt * (walk ? 9 : 1.6);
+        const b = E.handBase, s = Math.sin((1 - sw) * Math.PI) * (sw > 0 ? 1 : 0), bob = Math.sin(E.handBob) * (walk ? 0.018 : 0.006);
+        m.position.set(b.p[0] - s * 0.12, b.p[1] + bob - s * 0.08, b.p[2] - s * 0.1);
+        m.rotation.set(b.r[0] - s * 1.0, b.r[1], b.r[2] - s * 0.35);
+    };
+
+    /* crack overlay: stage 0..9, or -1 to hide */
+    E.setCrack = function (x, y, z, stage) {
+        if (stage < 0) { E.crack.visible = false; return; }
+        E.crackTex.offset.x = Math.min(9, stage) * 0.1;
+        E.crack.position.set(x + 0.5, y + 0.5, z + 0.5); E.crack.visible = true;
+    };
+    /* placement preview: show at cell (x,y,z); air=true when floating (no supporting block) */
+    E.setGhost = function (x, y, z, air) {
+        if (x === null) { E.ghost.visible = false; return; }
+        E.ghost.visible = true; E.ghost.position.set(x + 0.5, y + 0.5, z + 0.5);
+        E.ghostFill.material.color.setHex(air ? 0x7fb2ff : 0x66ffcc);
+        E.ghostEdge.material.color.setHex(air ? 0xbfd8ff : 0xffffff);
+    };
+    E.fov = 72;
+    E.setFov = function (f) { if (Math.abs(f - E.camera.fov) > 0.05) { E.camera.fov = f; E.camera.updateProjectionMatrix(); } };
+
     E.resize = function () {
         E.renderer.setSize(window.innerWidth, window.innerHeight);
         E.camera.aspect = window.innerWidth / window.innerHeight; E.camera.updateProjectionMatrix();
     };
 
-    /* ---------- ngày / đêm ---------- */
+    /* ---------- day / night ---------- */
     const SKY_DAY = new THREE.Color(0x8fcaff), SKY_DUSK = new THREE.Color(0xff9a5c), SKY_NIGHT = new THREE.Color(0x070b1c);
     const _c = new THREE.Color();
     E.updateSky = function (camPos) {
-        const t = E.time;                              // 0..1, 0.25 = trưa? định nghĩa: 0=bình minh, 0.25=trưa, 0.5=hoàng hôn, 0.75=nửa đêm
+        const t = E.time;                              // 0..1: 0 = sunrise, 0.25 = noon, 0.5 = sunset, 0.75 = midnight
         const ang = t * Math.PI * 2;
-        const sunH = Math.sin(ang);                    // >0: ban ngày
+        const sunH = Math.sin(ang);                    // >0: daytime
         let day = Math.max(0, Math.min(1, sunH * 2.2 + 0.25));
         const dusk = Math.max(0, 1 - Math.abs(sunH) * 3.2) * (sunH > -0.3 ? 1 : 0);
         _c.copy(SKY_NIGHT).lerp(SKY_DAY, day).lerp(SKY_DUSK, dusk * 0.55);
         E.scene.background.copy(_c); E.scene.fog.color.copy(_c);
         const lum = 0.5 + day * 0.5;
         const tint = 1 - dusk * 0.12;
-        ['solid', 'cut', 'water'].forEach(k => E.mats[k].color.setRGB(lum * tint, lum * (1 - dusk * 0.05), lum * (0.72 + day * 0.28)));
+        ['solid', 'cut', 'water', 'sway'].forEach(k => E.mats[k].color.setRGB(lum * tint, lum * (1 - dusk * 0.05), lum * (0.72 + day * 0.28)));
         E.mats.glow.color.setRGB(1, 1, 1);
         E.stars.material.opacity = Math.max(0, 1 - day * 2.5);
         E.stars.position.copy(camPos);
@@ -217,6 +316,7 @@
     };
 
     E.advance = function (dt) {
+        E.uTime.value += dt;
         E.time = (E.time + dt / E.dayLen * (E.fastTime ? 12 : 1)) % 1;
     };
 })();

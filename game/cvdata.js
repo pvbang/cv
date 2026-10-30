@@ -1,4 +1,4 @@
-/* CV World — dữ liệu CV của Phan Van Bang (nguồn: index.html) */
+/* CV World — CV data for Phan Van Bang (source: index.html) */
 (function () {
     'use strict';
 
@@ -116,23 +116,23 @@
         ]
     };
 
-    /* 12 viên Knowledge Shard — mỗi viên mở khoá một sự thật thú vị trong CV */
+    /* 12 Knowledge Shards: each one unlocks an interesting fact from the CV */
     CV.shards = [
-        'Tác giả open-source Nexus: ~236K dòng code, 197 MCP tool registrations!',
-        'Nexus có 1.373 test functions (Pytest) — quality là ưu tiên số 1.',
-        'Dreaming Engine: bộ nhớ "ngủ" 3 pha Light → Deep → REM để tự học liên tục.',
-        'Voice AI full-duplex chạy trên chip ESP32, phản hồi dưới 1 giây.',
-        'B. Nexus Quantum: EA MQL5 ~27K dòng, 21 entry modes, 14+ lớp rủi ro.',
-        'M-Auto: studio YouTube AI 10 giai đoạn, render FFmpeg + karaoke captions.',
-        'Đã fine-tune Llama 3.1 8B/70B bằng Unsloth (LoRA/QLoRA).',
-        'Hệ thống chat AI trả lời khách trên 9 kênh cùng lúc.',
-        'Đã xây 50+ dự án AI across 8+ ngành: Legal, Education, Healthcare, Crypto...',
-        'LangGraph repair assistant: 3.320 test functions cho khách hàng.',
-        'Từng dev game Unity 3D RPG 174 file C# với online play qua Firebase.',
-        'mcp-prune cắt 73.8% token tool-schema — tool tối ưu cho LLM context.'
+        'Author of the open-source Nexus platform: ~236K lines of code and 197 MCP tool registrations!',
+        'Nexus ships with 1,373 pytest test functions: quality comes first.',
+        'Dreaming Engine: a 3-phase "sleep" memory (Light, Deep, REM) that keeps the agent learning.',
+        'Full-duplex Voice AI running on an ESP32 chip with sub-second responses.',
+        'B. Nexus Quantum: a ~27K-line MQL5 EA with 21 entry modes and 14+ risk layers.',
+        'M-Auto: a 10-stage AI YouTube studio with FFmpeg rendering and karaoke captions.',
+        'Fine-tuned Llama 3.1 8B/70B with Unsloth (LoRA/QLoRA).',
+        'An AI chat system answering customers across 9 channels at once.',
+        '50+ AI projects across 8+ industries: Legal, Education, Healthcare, Crypto...',
+        'The LangGraph repair assistant for a client has 3,320 test functions.',
+        'Built a Unity 3D RPG with 174 C# files and online play over Firebase.',
+        'mcp-prune cuts MCP tool-schema tokens by 73.8%: a tool built for LLM context budgets.'
     ];
 
-    /* 6 landmark chính trên bản đồ */
+    /* 6 main landmarks on the map */
     CV.landmarks = [
         { id: 'about', name: 'About Tower', sign: 'ABOUT ME', color: 0x00d4ff, x: 0, z: -18, icon: '👤' },
         { id: 'skills', name: 'Skills Garden', sign: 'SKILLS', color: 0x22c55e, x: -26, z: 2, icon: '🧪' },
@@ -142,39 +142,39 @@
         { id: 'contact', name: 'Contact Portal', sign: 'CONTACT', color: 0xec4899, x: 0, z: 34, icon: '📮' }
     ];
 
-    /* Lời thoại NPC */
+    /* NPC dialogue */
     CV.npcs = [
         {
-            id: 'bang', name: 'Bang', role: 'Chủ CV — AI Engineer', x: 2, z: -6, color: 0x00d4ff,
+            id: 'bang', name: 'Bang', role: 'Owner of this CV, AI Engineer', x: 2, z: -6, color: 0x00d4ff,
             lines: [
-                'Chào bạn! Tôi là Bang, chủ nhân của thế giới này. Chào mừng đến CV World!',
-                'Mỗi công trình ở đây kể một phần câu chuyện nghề nghiệp của tôi: About Tower, Skills Garden, Experience Hall, Projects District...',
-                'Hãy thu thập 12 Knowledge Shard lấp lánh quanh map — mỗi viên là một câu chuyện hay về dự án của tôi.',
-                'Nhấn C để mở CV Compendium xem đầy đủ hồ sơ, nhấn E khi đứng gần biển hiệu để xem chi tiết. Chúc bạn chơi vui!'
+                "Hi there! I'm Bang, the owner of this world. Welcome to CV World!",
+                'Every building here tells part of my career story: About Tower, Skills Garden, Experience Hall, Projects District...',
+                'Collect the 12 glowing Knowledge Shards scattered around the map. Each one is a short story about my work.',
+                'Press C for the CV Compendium and H for the full controls guide. Right-click the blue info blocks to read the details. Have fun!'
             ]
         },
         {
             id: 'lead', name: 'Tech Lead', role: 'MekongAI', x: -14, z: 18, color: 0xf59e0b,
             lines: [
-                'Bang từng là AI Engineer của chúng tôi suốt 06/2023 - 07/2026.',
-                'Cậu ấy xây hệ Multi-Agent 190+ MCP tools, Dreaming Engine và pipeline RAG hybrid cho production.',
-                '50+ dự án AI, 8+ ngành kinh doanh — từ Legal tới Healthcare. Rất đáng tin!'
+                'Bang was our AI Engineer from 06/2023 to 07/2026.',
+                'He built the multi-agent system with 190+ MCP tools, the Dreaming Engine and the hybrid RAG pipeline for production.',
+                '50+ AI projects across 8+ industries, from Legal to Healthcare. Very dependable!'
             ]
         },
         {
             id: 'trader', name: 'Merchant', role: 'Trading & Game Dev', x: 22, z: 10, color: 0xa855f7,
             lines: [
-                'Bạn cần EA trading hay game Unity? Bang đều làm được đấy!',
-                'B. Nexus Quantum — EA MQL5 ~27K dòng đang bán trên MQL5 Market, có cả web licensing PayOS.',
-                'Eternal Odyssey — game RPG Unity 174 file C# với online play. Ấn tượng chưa?'
+                'Need a trading EA or a Unity game? Bang does both!',
+                'B. Nexus Quantum is a ~27K-line MQL5 EA, sold on MQL5 Market with a PayOS licensing website.',
+                'Eternal Odyssey is a Unity RPG with 174 C# files and online play. Impressive, right?'
             ]
         },
         {
             id: 'prof', name: 'Professor', role: 'VKU Da Nang', x: 28, z: -6, color: 0x3b82f6,
             lines: [
-                'Bang tốt nghiệp Kỹ sư Công nghệ Thông tin — Trường Đại học CNTT & TT Việt-Hàn (VKU), Đà Nẵng.',
-                'Chuyên môn cậu ấy: Machine Learning, Deep Learning, NLP, Software Engineering.',
-                'Và quan trọng nhất: cậu ấy không bao giờ ngừng tự học. Tinh thần đó rất quý!'
+                'Bang earned his B.Eng. in Information Technology at the Vietnam-Korea University of ICT (VKU) in Da Nang.',
+                'His coursework: Machine Learning, Deep Learning, NLP and Software Engineering.',
+                'Most importantly, he never stops learning. That attitude is rare.'
             ]
         }
     ];

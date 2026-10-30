@@ -1,4 +1,4 @@
-/* CV World — NPC, Knowledge Shard, biển 3D, portal, hạt, mây */
+/* CV World — NPCs, Knowledge Shards, 3D signs, portal, particles, clouds */
 (function () {
     'use strict';
     const W = window.CVW, E = window.CVE, CV = window.CV_DATA;
@@ -7,7 +7,7 @@
 
     function hex(c) { return '#' + c.toString(16).padStart(6, '0'); }
 
-    /* ---------- biển chữ 3D (sprite canvas) ---------- */
+    /* ---------- 3D text signs (canvas sprites) ---------- */
     function makeSign(s) {
         const c = document.createElement('canvas'), g = c.getContext('2d');
         const fs = 56;
@@ -27,7 +27,7 @@
         return spr;
     }
 
-    /* ---------- NPC kiểu Minecraft (hộp) ---------- */
+    /* ---------- Minecraft-style NPCs (boxes) ---------- */
     function box(w, h, d, color, x, y, z) {
         const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), new THREE.MeshBasicMaterial({ color }));
         m.position.set(x, y, z); return m;
@@ -44,10 +44,10 @@
         g.add(armL); g.add(armR);
         g.add(box(0.22, 0.6, 0.22, pants, -0.12, 0.3, 0)); g.add(box(0.22, 0.6, 0.22, pants, 0.12, 0.3, 0));
         g.userData = { armL, armR };
-        // nhãn tên
+        // name label
         const lbl = makeSign({ text: n.name + ' · ' + n.role, x: 0, y: 2.35, z: 0, color: hex(n.color), size: 0.55 });
         g.add(lbl);
-        // dấu "!" nhấp nháy
+        // blinking "!" marker
         const ex = makeSign({ text: '!', x: 0, y: 2.8, z: 0, color: '#ffe14d', size: 0.7 }); g.add(ex); g.userData.ex = ex;
         return g;
     }
@@ -60,7 +60,7 @@
     }
 
     X.init = function () {
-        // biển
+        // signs
         W.signs.forEach(s => { const spr = makeSign(s); E.scene.add(spr); X.signs.push(spr); });
         // NPC
         CV.npcs.forEach(n => {
@@ -74,7 +74,7 @@
             const m = makeShard(); m.position.set(s.x, s.y, s.z); E.scene.add(m);
             X.shards.push({ id: s.id, mesh: m, base: s.y, got: false });
         });
-        // portal (mặt phẳng XY ở landmark contact)
+        // portal (XY plane at the contact landmark)
         const lp = W.landmarks.contact.portal;
         const pg = new THREE.PlaneGeometry(5, 6);
         const pm = new THREE.ShaderMaterial({
@@ -85,16 +85,16 @@
         });
         const pmesh = new THREE.Mesh(pg, pm); pmesh.position.set(lp.x + 0.5, lp.y + 0.2, lp.z + 0.5);
         E.scene.add(pmesh); X.portal = { mesh: pmesh, mat: pm, x: lp.x, y: lp.y, z: lp.z };
-        // mây
+        // clouds
         const mat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85, fog: false });
-        for (let i = 0; i < 16; i++) {
+        for (let i = 0; i < 34; i++) {
             const g = new THREE.Group();
             const n = 3 + (Math.random() * 4 | 0);
             for (let k = 0; k < n; k++) { const b = new THREE.Mesh(new THREE.BoxGeometry(6 + Math.random() * 6, 2, 5 + Math.random() * 5), mat); b.position.set(k * 5 - n * 2.5, Math.random() * 0.6, (Math.random() - 0.5) * 5); g.add(b); }
-            g.position.set((Math.random() - 0.5) * 220, 42 + Math.random() * 6, (Math.random() - 0.5) * 220);
+            g.position.set((Math.random() - 0.5) * 360, 52 + Math.random() * 8, (Math.random() - 0.5) * 360);
             E.scene.add(g); X.clouds.push(g);
         }
-        // hạt (burst pool)
+        // particles (burst pool)
         const geo = new THREE.BufferGeometry(), N = 200;
         geo.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(N * 3).fill(-9999), 3));
         geo.setAttribute('color', new THREE.Float32BufferAttribute(new Float32Array(N * 3), 3));
@@ -120,7 +120,7 @@
     };
 
     X.update = function (dt, t, ppos) {
-        // NPC: nhìn người chơi + vẫy tay
+        // NPC: look at the player + wave
         X.npcs.forEach(n => {
             const dx = ppos.x - n.mesh.position.x, dz = ppos.z - n.mesh.position.z, d = Math.hypot(dx, dz);
             n.dist = d;
@@ -144,9 +144,9 @@
             const q = X.portal;
             if (Math.abs(ppos.x - (q.x + 0.5)) < 2 && Math.abs(ppos.z - (q.z + 0.5)) < 1.2 && ppos.y > q.y - 3 && ppos.y < q.y + 5) { if (X.onPortal) X.onPortal(); }
         }
-        // mây
-        X.clouds.forEach(c => { c.position.x += dt * 1.2; if (c.position.x > 130) c.position.x = -130; });
-        // hạt
+        // clouds
+        X.clouds.forEach(c => { c.position.x += dt * 1.2; if (c.position.x > 190) c.position.x = -190; });
+        // particles
         const pos = X.pts.geometry.attributes.position, col = X.pts.geometry.attributes.color;
         X.pool.forEach((p, i) => {
             if (p.life > 0) {

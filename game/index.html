@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>CV World — Phan Van Bang</title>
-<meta name="description" content="Khám phá CV của Phan Van Bang (AI Engineer) trong một thế giới Minecraft chơi được ngay trên trình duyệt.">
+<meta name="description" content="Explore the CV of Phan Van Bang (AI Engineer) inside a playable Minecraft-style world, right in your browser.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%235fa83a'/%3E%3Crect y='5' width='16' height='11' fill='%2386592d'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,28 +15,28 @@
 <canvas id="gl"></canvas>
 
 <!-- Loading -->
-<div id="loading"><div class="ld-box"><div class="ld-logo">&lt;PVB/&gt;</div><div class="ld-title">CV WORLD</div><div class="ld-bar"><i id="ldBar"></i></div><div id="ldTxt" class="ld-txt">Đang dựng thế giới…</div></div></div>
+<div id="loading"><div class="ld-box"><div class="ld-logo">&lt;PVB/&gt;</div><div class="ld-title">CV WORLD</div><div class="ld-bar"><i id="ldBar"></i></div><div id="ldTxt" class="ld-txt">Building the world…</div></div></div>
 
-<!-- Menu bắt đầu -->
+<!-- Start menu -->
 <div id="menu" class="hidden">
   <div class="menu-card">
     <div class="m-badge">Interactive CV</div>
     <h1>CV <span>WORLD</span></h1>
-    <p class="m-sub">Khám phá hồ sơ của <b>Phan Van Bang</b> — AI Engineer — bằng cách chơi một thế giới Minecraft.</p>
+    <p class="m-sub">Explore the profile of <b>Phan Van Bang</b>, AI Engineer, by playing in a Minecraft-style world.</p>
     <div class="m-goals">
-      <div><i>🏛️</i>6 công trình = 6 phần của CV</div>
-      <div><i>💎</i>12 Knowledge Shard để thu thập</div>
-      <div><i>🗣️</i>4 NPC kể chuyện</div>
-      <div><i>🏆</i>Thành tựu &amp; hộ chiếu CV</div>
+      <div><i>🏛️</i>6 buildings = 6 parts of the CV</div>
+      <div><i>💎</i>12 Knowledge Shards to collect</div>
+      <div><i>🗣️</i>4 NPCs with stories to tell</div>
+      <div><i>🏆</i>Achievements &amp; CV passport</div>
     </div>
-    <button id="btnPlay" class="btn-main">▶ BẮT ĐẦU KHÁM PHÁ</button>
+    <button id="btnPlay" class="btn-main">▶ START EXPLORING</button>
     <div class="m-row">
-      <button id="btnTour" class="btn-ghost">🚀 Tham quan nhanh (tự động bay)</button>
-      <a class="btn-ghost" href="../index.html">📄 Xem CV dạng trang</a>
+      <button id="btnHelpM" class="btn-ghost">❓ Controls guide</button><button id="btnTour" class="btn-ghost">🚀 Quick auto tour</button>
+      <a class="btn-ghost" href="../index.html">📄 View the CV as a page</a>
     </div>
     <div class="m-keys">
-      <span><kbd>W A S D</kbd> di chuyển</span><span><kbd>Space</kbd> nhảy · bấm đúp để bay</span><span><kbd>Chuột trái</kbd> đào</span><span><kbd>Chuột phải</kbd> đặt / tương tác</span>
-      <span><kbd>E</kbd> tương tác</span><span><kbd>C</kbd> CV Compendium</span><span><kbd>M</kbd> bản đồ</span><span><kbd>T</kbd> dịch chuyển nhanh</span><span><kbd>1-9</kbd> chọn khối</span><span><kbd>Esc</kbd> tạm dừng</span>
+      <span><kbd>W A S D</kbd> move</span><span><kbd>Space</kbd> jump · double-tap to fly</span><span><kbd>Left click</kbd> mine / attack</span><span><kbd>Right click</kbd> place / interact</span>
+      <span><kbd>E</kbd> interact</span><span><kbd>C</kbd> CV Compendium</span><span><kbd>M</kbd> map &amp; fast travel</span><span><kbd>1-9</kbd> tools &amp; blocks</span><span><kbd>H</kbd> all controls</span><span><kbd>Esc</kbd> pause</span>
     </div>
   </div>
 </div>
@@ -49,51 +49,105 @@
     <div class="chip" id="timeChip">🕒 <b id="timeTxt">06:00</b></div>
   </div>
   <div id="topRight">
-    <div class="chip prog" title="Hộ chiếu CV: khu vực đã ghé thăm"><span>🧭</span><b id="visitTxt">0/6</b></div>
+    <div class="chip prog" title="CV passport: areas visited"><span>🧭</span><b id="visitTxt">0/6</b></div>
     <div class="chip prog" title="Knowledge Shard"><span>💎</span><b id="shardTxt">0/12</b></div>
     <button id="btnMap" class="chip btn">🗺️ <b>M</b></button>
     <button id="btnCV" class="chip btn">📄 <b>C</b></button>
-    <button id="btnSound" class="chip btn" aria-label="Âm thanh">🔊</button>
+    <button id="btnSound" class="chip btn" aria-label="Sound">🔊</button><button id="btnHelp" class="chip btn" aria-label="Controls guide">❓ <b>H</b></button>
   </div>
-  <div id="questBox"><div class="q-title">NHIỆM VỤ</div><div id="questTxt"></div></div>
+  <div id="questBox"><div class="q-title">QUEST</div><div id="questTxt"></div></div>
   <div id="minimap"><canvas id="mm" width="160" height="160"></canvas><div id="mmN">N</div></div>
   <div id="hint"></div>
   <div id="toasts"></div>
+  <div id="itemName"></div>
   <div id="hotbar"></div>
   <div id="waterOverlay"></div>
+  <div id="debug" class="hidden"></div>
 </div>
 
-<!-- Panel nội dung -->
+<!-- Content panel -->
 <div id="panel" class="hidden" role="dialog" aria-modal="true">
   <div class="pn-card" id="pnCard">
-    <button class="pn-x" id="pnClose" aria-label="Đóng">✕</button>
+    <button class="pn-x" id="pnClose" aria-label="Close">✕</button>
     <div class="pn-head"><div class="pn-ic" id="pnIc"></div><div><div class="pn-kicker" id="pnKicker"></div><h2 id="pnTitle"></h2></div></div>
     <div class="pn-body" id="pnBody"></div>
-    <div class="pn-foot"><span id="pnNav"></span><span class="pn-esc">Nhấn <kbd>Esc</kbd> hoặc <kbd>E</kbd> để đóng</span></div>
+    <div class="pn-foot"><span id="pnNav"></span><span class="pn-esc">Press <kbd>Esc</kbd> or <kbd>E</kbd> to close</span></div>
   </div>
 </div>
 
-<!-- Hội thoại NPC -->
-<div id="dialog" class="hidden"><div class="dl-name" id="dlName"></div><div class="dl-text" id="dlText"></div><div class="dl-next">▼ <kbd>E</kbd> / click để tiếp</div></div>
+<!-- NPC dialogue -->
+<div id="dialog" class="hidden"><div class="dl-name" id="dlName"></div><div class="dl-text" id="dlText"></div><div class="dl-next">▼ <kbd>E</kbd> / click to continue</div></div>
 
-<!-- Bản đồ lớn + Teleport -->
-<div id="bigmap" class="hidden"><div class="bm-card"><button class="pn-x" id="bmClose">✕</button><h3>BẢN ĐỒ &amp; DỊCH CHUYỂN NHANH</h3><canvas id="bmc" width="520" height="520"></canvas><div id="bmList"></div></div></div>
+<!-- Big map + teleport -->
+<div id="bigmap" class="hidden"><div class="bm-card"><button class="pn-x" id="bmClose">✕</button><h3>MAP &amp; FAST TRAVEL</h3><canvas id="bmc" width="520" height="520"></canvas><div id="bmList"></div></div></div>
 
 <!-- Compendium -->
 <div id="compendium" class="hidden"><div class="cp-card"><button class="pn-x" id="cpClose">✕</button>
   <h3>📄 CV COMPENDIUM</h3>
-  <div class="cp-sub">Toàn bộ hồ sơ — mở khoá dần khi bạn khám phá. Bạn cũng có thể tải CV bất cứ lúc nào.</div>
+  <div class="cp-sub">The full profile, unlocked as you explore. You can also download the CV at any time.</div>
   <div id="cpList"></div>
-  <div class="cp-actions"><a class="btn-main sm" href="../files/PhanVanBang_AIEngineer_CV.pdf" target="_blank" rel="noopener">⬇ Tải CV (PDF)</a><a class="btn-ghost" href="mailto:phanvanbang.id@gmail.com">✉ Liên hệ</a></div>
+  <div class="cp-actions"><a class="btn-main sm" href="../files/PhanVanBang_AIEngineer_CV.pdf" target="_blank" rel="noopener">⬇ Download CV (PDF)</a><a class="btn-ghost" href="mailto:phanvanbang.id@gmail.com">✉ Contact</a></div>
+</div></div>
+
+
+<!-- Controls guide -->
+<div id="help" class="hidden"><div class="hp-card"><button class="pn-x" id="hpClose" aria-label="Close">✕</button>
+  <h3>❓ CONTROLS GUIDE</h3>
+  <div class="hp-grid">
+    <section><h4>Movement</h4>
+      <p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / arrows <span>Walk</span></p>
+      <p><kbd>Mouse</kbd> <span>Look around</span></p>
+      <p><kbd>Space</kbd> <span>Jump / swim up</span></p>
+      <p><kbd>Space</kbd>×2 <span>Toggle flight (creative style)</span></p>
+      <p><kbd>Ctrl</kbd> / <kbd>Shift</kbd> <span>Sprint (FOV widens)</span></p>
+      <p><kbd>Shift</kbd> / <kbd>Q</kbd> <span>Descend while flying</span></p>
+    </section>
+    <section><h4>Blocks</h4>
+      <p><kbd>Left click</kbd> <span>Hold to mine (crack animation) · click an animal to hit it</span></p>
+      <p><kbd>Right click</kbd> <span>Place the block in hand, or open an info block</span></p>
+      <p><kbd>Middle click</kbd> <span>Pick the block you are looking at</span></p>
+      <p><kbd>1</kbd>–<kbd>9</kbd> / <kbd>Wheel</kbd> <span>Select hotbar slot (1-4 tools: pickaxe, axe, shovel, sword)</span></p>
+      <p><kbd>Tab</kbd> <span>Open the inventory (tools + blocks)</span></p>
+      <p><kbd>Alt</kbd>+<kbd>Wheel</kbd> <span>Mid-air placement distance (only while holding a block)</span></p>
+      <p class="hp-note">The ghost preview appears only when you hold a block. Right tool = faster mining: pickaxe for stone/ore, axe for wood, shovel for dirt/sand.</p>
+      <p class="hp-note">The cyan "i" blocks are CV info points and cannot be broken.</p>
+    </section>
+    <section><h4>CV exploration</h4>
+      <p><kbd>E</kbd> <span>Talk to a nearby NPC / open an info block / close a panel</span></p>
+      <p><kbd>C</kbd> <span>CV Compendium (everything you unlocked)</span></p>
+      <p><kbd>M</kbd> <span>Big map and fast travel</span></p>
+      <p><kbd>H</kbd> <span>This controls guide</span></p>
+      <p><kbd>Esc</kbd> <span>Pause / close any window</span></p>
+    </section>
+    <section><h4>Extras</h4>
+      <p><kbd>F</kbd> <span>Fast-forward day and night</span></p>
+      <p><kbd>F2</kbd> <span>Save a screenshot (PNG)</span></p>
+      <p><kbd>F3</kbd> <span>Debug screen (coordinates, FPS, time)</span></p>
+      <p><kbd>V</kbd> <span>Zoom (hold)</span></p>
+      <p><kbd>🔊</kbd> <span>Mute / unmute sound</span></p>
+    </section>
+    <section class="wide"><h4>Touch screens</h4>
+      <p><kbd>Left stick</kbd> <span>Move</span> <kbd>Drag</kbd> <span>Look</span> <kbd>⬆</kbd> <span>Jump (double-tap to fly)</span> <kbd>E</kbd> <span>Interact</span> <kbd>⛏</kbd> <span>Break (hold)</span> <kbd>▣</kbd> <span>Place</span> <kbd>☰</kbd> <span>CV Compendium</span></p>
+    </section>
+  </div>
+  <div class="hp-foot">Goal: visit the 6 buildings, talk to the 4 NPCs and collect the 12 Knowledge Shards to complete the CV passport.</div>
+</div></div>
+
+<!-- Block inventory -->
+<div id="inv" class="hidden"><div class="inv-card"><button class="pn-x" id="invClose" aria-label="Close">✕</button>
+  <h3>🧱 BLOCK INVENTORY</h3>
+  <div class="inv-sub">Click an item to put it in the selected hotbar slot. Press <kbd>Tab</kbd> or <kbd>Esc</kbd> to close.</div>
+  <div id="invGrid"></div><div id="invName"></div>
+  <div id="invBar"></div>
 </div></div>
 
 <!-- Pause -->
-<div id="pause" class="hidden"><div class="menu-card sm"><h2>ĐÃ TẠM DỪNG</h2><button id="btnResume" class="btn-main">▶ TIẾP TỤC</button><button id="btnCompendium" class="btn-ghost">📄 CV Compendium</button><button id="btnMapP" class="btn-ghost">🗺️ Bản đồ</button><a class="btn-ghost" href="../index.html">⬅ Về trang CV</a><div class="m-keys small"><span>Nhấn <kbd>Esc</kbd> để tiếp tục</span></div></div></div>
+<div id="pause" class="hidden"><div class="menu-card sm"><h2>PAUSED</h2><button id="btnResume" class="btn-main">▶ RESUME</button><button id="btnCompendium" class="btn-ghost">📄 CV Compendium</button><button id="btnMapP" class="btn-ghost">🗺️ Map</button><button id="btnHelpP" class="btn-ghost">❓ Controls guide</button><a class="btn-ghost" href="../index.html">⬅ Back to the CV page</a><div class="m-keys small"><span>Press <kbd>Esc</kbd> to resume</span></div></div></div>
 
-<!-- Kết thúc / chúc mừng -->
-<div id="finale" class="hidden"><div class="menu-card"><div class="m-badge">🏆 Hoàn thành</div><h1>CẢM ƠN <span>BẠN!</span></h1><p class="m-sub" id="finTxt"></p><div class="fin-actions"><a class="btn-main" href="mailto:phanvanbang.id@gmail.com">✉ Liên hệ Phan Van Bang</a><a class="btn-ghost" href="../files/PhanVanBang_AIEngineer_CV.pdf" target="_blank" rel="noopener">⬇ Tải CV (PDF)</a><button class="btn-ghost" id="btnFinClose">Tiếp tục chơi</button></div></div></div>
+<!-- Finale -->
+<div id="finale" class="hidden"><div class="menu-card"><div class="m-badge">🏆 Complete</div><h1>THANK <span>YOU!</span></h1><p class="m-sub" id="finTxt"></p><div class="fin-actions"><a class="btn-main" href="mailto:phanvanbang.id@gmail.com">✉ Contact Phan Van Bang</a><a class="btn-ghost" href="../files/PhanVanBang_AIEngineer_CV.pdf" target="_blank" rel="noopener">⬇ Download CV (PDF)</a><button class="btn-ghost" id="btnFinClose">Keep playing</button></div></div></div>
 
-<!-- Điều khiển cảm ứng -->
+<!-- Touch controls -->
 <div id="touch" class="hidden">
   <div id="joy"><i id="joyK"></i></div>
   <div id="tBtns"><button id="tJump">⬆</button><button id="tAct">E</button><button id="tBreak">⛏</button><button id="tPlace">▣</button><button id="tMenu">☰</button></div>
@@ -103,8 +157,10 @@
 <script src="cvdata.js"></script>
 <script src="world.js"></script>
 <script src="engine.js"></script>
+<script src="items.js"></script>
 <script src="player.js"></script>
 <script src="entities.js"></script>
+<script src="mobs.js"></script>
 <script src="audio.js"></script>
 <script src="ui.js"></script>
 <script src="main.js"></script>
