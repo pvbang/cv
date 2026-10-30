@@ -125,8 +125,7 @@
         E.setFov(E.camera.fov + (fovT - E.camera.fov) * Math.min(1, 10 * dt));
         // targeting
         P.target = P.canInteract ? E.raycast(P.eye(), P.dir(), REACH) : null;
-        if (P.target) { E.outline.visible = true; E.outline.position.set(P.target.x + 0.5, P.target.y + 0.5, P.target.z + 0.5); }
-        else E.outline.visible = false;
+        E.setOutline(P.target, dt);
         // placement cell: next to the targeted face, or floating in mid-air when nothing is hit
         P.place = null;
         if (P.canInteract) {
@@ -141,7 +140,7 @@
             if (P.holdingBlock() && P.canPlaceAt(x, y, z) && !(t && W.infoMap.has(t.x + ',' + t.y + ',' + t.z))) P.place = { x, y, z, air };
         }
         // the placement preview only exists while a block is in hand (tools and an empty hand show just the target outline)
-        E.setGhost(P.place ? P.place.x : null, P.place ? P.place.y : 0, P.place ? P.place.z : 0, P.place && P.place.air);
+        E.setGhost(P.place ? P.place.x : null, P.place ? P.place.y : 0, P.place ? P.place.z : 0, P.place && P.place.air, dt);
         // held item in the first-person hand
         const held = P.held(); if (P.handItem !== held) { P.handItem = held; E.setHand(held); }
         if (P.attackCd > 0) P.attackCd -= dt;
@@ -153,7 +152,7 @@
             const total = P.breakTime(P.target.id), t = P.target;
             if (P.breakT >= total) { P.breakT = 0; P.breaking = null; E.setCrack(0, 0, 0, -1); P.breakBlock(); }
             else E.setCrack(t.x, t.y, t.z, Math.floor(P.breakT / total * 10));
-            if (P.swing <= 0) P.swing = 0.32;                      // keep swinging while mining
+            if (P.swing <= 0.02) P.swing = 0.32;                   // keep swinging smoothly while mining
         } else { P.breaking = null; P.breakT = 0; E.setCrack(0, 0, 0, -1); }
         if (P.swing > 0) P.swing = Math.max(0, P.swing - dt);
         E.updateHand(dt, P.swing / 0.32, Math.hypot(P.vel.x, P.vel.z) > 1 && P.onGround ? 1 : 0);

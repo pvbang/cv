@@ -160,8 +160,12 @@
 
         // outline of the targeted block
         const eg = new THREE.EdgesGeometry(new THREE.BoxGeometry(1.002, 1.002, 1.002));
-        E.outline = new THREE.LineSegments(eg, new THREE.LineBasicMaterial({ color: 0x00ffff }));
+        E.outline = new THREE.Group();
+        E.outlineEdge = new THREE.LineSegments(eg, new THREE.LineBasicMaterial({ color: 0x00ffff, transparent: true, opacity: 0.95 }));
+        E.outlineFill = new THREE.Mesh(new THREE.BoxGeometry(1.003, 1.003, 1.003), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.1, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }));
+        E.outline.add(E.outlineFill); E.outline.add(E.outlineEdge);
         E.outline.visible = false; E.scene.add(E.outline);
+        E.pop = 0;
 
         // block-breaking crack overlay (10 stages in one strip texture)
         const cc = document.createElement('canvas'); cc.width = 160; cc.height = 16;
@@ -214,6 +218,7 @@
     const handMat = (map, o) => new THREE.MeshBasicMaterial(Object.assign({ map, transparent: true, alphaTest: 0.5, depthTest: false, fog: false, side: THREE.DoubleSide }, o || {}));
     E.setHand = function (item) {
         const H = E.hand; while (H.children.length) { const m = H.children[0]; H.remove(m); m.geometry.dispose(); }
+        E.handBase = null; return;                      // first-person hand item disabled (flat sprite looked off); hotbar still shows the selection
         const I = window.CVI; let mesh;
         if (I && I.isTool(item)) {
             const tx = new THREE.CanvasTexture(I.icon(item)); tx.magFilter = THREE.NearestFilter; tx.minFilter = THREE.NearestFilter; tx.generateMipmaps = false;
@@ -229,14 +234,30 @@
         }
         mesh.renderOrder = 999; mesh.frustumCulled = false; H.add(mesh);
         E.handBase = mesh.userData.base;
+        E.equipT = 1;                                   // raise the new item from below
     };
     /* sw = swing progress 1 -> 0, walk = 1 while walking (gentle bob) */
     E.updateHand = function (dt, sw, walk) {
         const m = E.hand && E.hand.children[0]; if (!m || !E.handBase) return;
-        E.handBob = (E.handBob || 0) + dt * (walk ? 9 : 1.6);
-        const b = E.handBase, s = Math.sin((1 - sw) * Math.PI) * (sw > 0 ? 1 : 0), bob = Math.sin(E.handBob) * (walk ? 0.018 : 0.006);
-        m.position.set(b.p[0] - s * 0.12, b.p[1] + bob - s * 0.08, b.p[2] - s * 0.1);
-        m.rotation.set(b.r[0] - s * 1.0, b.r[1], b.r[2] - s * 0.35);
+        const b = E.handBase, c = E.camera.rotation;
+        // walk cycle: figure-eight bob that fades in/out smoothly
+        E.walkAmt = (E.walkAmt || 0) + ((walk ? 1 : 0) - (E.walkAmt || 0)) * (1 - Math.exp(-8 * dt));
+        E.handBob = (E.handBob || 0) + dt * (1.6 + E.walkAmt * 8);
+        const bobY = Math.sin(E.handBob * 2) * (0.006 + E.walkAmt * 0.012), bobX = Math.cos(E.handBob) * (0.003 + E.walkAmt * 0.012);
+        // lag behind camera rotation (inertia)
+        let dy = c.y - (E.lastYaw === undefined ? c.y : E.lastYaw), dp = c.x - (E.lastPitch === undefined ? c.x : E.lastPitch);
+        E.lastYaw = c.y; E.lastPitch = c.x;
+        if (dy > Math.PI) dy -= Math.PI * 2; else if (dy < -Math.PI) dy += Math.PI * 2;
+        const lim = (v, a) => Math.max(-a, Math.min(a, v));
+        E.swayY = (E.swayY || 0) + (lim(-dy * 1.6, 0.12) - (E.swayY || 0)) * (1 - Math.exp(-12 * dt));
+        E.swayX = (E.swayX || 0) + (lim(dp * 1.6, 0.1) - (E.swayX || 0)) * (1 - Math.exp(-12 * dt));
+        // equip animation (ease-out)
+        E.equipT = Math.max(0, (E.equipT || 0) - dt * 4.5);
+        const eq = E.equipT * E.equipT;
+        // swing: smooth arc (down-forward then back), sqrt phase gives a fast strike and a slower return
+        const p = 1 - sw, s = sw > 0 ? Math.sin(Math.sqrt(p) * Math.PI) : 0, s2 = sw > 0 ? Math.sin(p * Math.PI) : 0;
+        m.position.set(b.p[0] + bobX + E.swayY * 0.5 - s * 0.14, b.p[1] + bobY + E.swayX * 0.5 - s * 0.1 - eq * 0.5, b.p[2] - s2 * 0.12);
+        m.rotation.set(b.r[0] - s * 1.05 - eq * 0.8 + E.swayX, b.r[1] + E.swayY, b.r[2] - s * 0.4);
     };
 
     /* crack overlay: stage 0..9, or -1 to hide */
@@ -245,11 +266,30 @@
         E.crackTex.offset.x = Math.min(9, stage) * 0.1;
         E.crack.position.set(x + 0.5, y + 0.5, z + 0.5); E.crack.visible = true;
     };
-    /* placement preview: show at cell (x,y,z); air=true when floating (no supporting block) */
-    E.setGhost = function (x, y, z, air) {
-        if (x === null) { E.ghost.visible = false; return; }
-        E.ghost.visible = true; E.ghost.position.set(x + 0.5, y + 0.5, z + 0.5);
+    /* targeted-block outline: snaps to the block, with a small pop-in when the target changes and a soft pulse */
+    E.setOutline = function (t, dt) {
+        if (!t) { E.outline.visible = false; E.outlineKey = null; return; }
+        const k = t.x + ',' + t.y + ',' + t.z;
+        if (k !== E.outlineKey) { E.outlineKey = k; E.pop = 1; }
+        E.pop = Math.max(0, E.pop - dt * 7);
+        const e = E.pop * E.pop, pulse = 0.5 + 0.5 * Math.sin(E.uTime.value * 4);
+        E.outline.visible = true; E.outline.position.set(t.x + 0.5, t.y + 0.5, t.z + 0.5);
+        E.outline.scale.setScalar(1 + e * 0.07);
+        E.outlineFill.material.opacity = 0.06 + pulse * 0.07 + e * 0.12;
+        E.outlineEdge.material.opacity = 0.7 + pulse * 0.3;
+    };
+    /* placement preview: show at cell (x,y,z); air=true when floating (no supporting block).
+       The ghost glides between cells and breathes slightly instead of teleporting. */
+    E.setGhost = function (x, y, z, air, dt) {
+        if (x === null) { E.ghost.visible = false; E.ghostShown = false; return; }
+        const g = E.ghost, tx = x + 0.5, ty = y + 0.5, tz = z + 0.5;
+        if (!E.ghostShown) { g.position.set(tx, ty, tz); g.scale.setScalar(0.6); E.ghostShown = true; }
+        else { const k = 1 - Math.exp(-28 * (dt || 0.016)); g.position.x += (tx - g.position.x) * k; g.position.y += (ty - g.position.y) * k; g.position.z += (tz - g.position.z) * k; }
+        const sc = g.scale.x, tgt = 1 + Math.sin(E.uTime.value * 5) * 0.012;
+        g.scale.setScalar(sc + (tgt - sc) * (1 - Math.exp(-18 * (dt || 0.016))));
+        g.visible = true;
         E.ghostFill.material.color.setHex(air ? 0x7fb2ff : 0x66ffcc);
+        E.ghostFill.material.opacity = 0.2 + Math.sin(E.uTime.value * 5) * 0.06;
         E.ghostEdge.material.color.setHex(air ? 0xbfd8ff : 0xffffff);
     };
     E.fov = 72;

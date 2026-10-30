@@ -19,6 +19,7 @@
 <br/>
 
 [![CV Online](https://img.shields.io/badge/📄_CV_Online-View_Here-6C63FF?style=for-the-badge)](https://pvbang.github.io/cv/index.html)
+[![Play CV World](https://img.shields.io/badge/🎮_Play-CV_World-4ADE80?style=for-the-badge)](https://pvbang.github.io/cv/game/index.html)
 [![CV AI Engineer](https://img.shields.io/badge/📥_AI_Engineer-PDF-FF6B6B?style=for-the-badge)](https://pvbang.github.io/cv/files/PhanVanBang_AIEngineer_CV.pdf)
 [![CV Game Developer](https://img.shields.io/badge/📥_Game_Developer-PDF-8B5CF6?style=for-the-badge)](https://pvbang.github.io/cv/files/PhanVanBang_GameDeveloper_CV.pdf)
 [![CV Trading Systems](https://img.shields.io/badge/📥_Trading_Systems-PDF-10B981?style=for-the-badge)](https://pvbang.github.io/cv/files/PhanVanBang_TradingDeveloper_CV.pdf)
@@ -27,6 +28,38 @@
 </div>
 
 <!-- Animated Divider -->
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">
+
+## 🎮 Play My CV: CV World
+
+<div align="center">
+
+[![Play CV World](https://img.shields.io/badge/▶_PLAY_NOW-pvbang.github.io%2Fcv%2Fgame-4ADE80?style=for-the-badge&logo=threedotjs&logoColor=white)](https://pvbang.github.io/cv/game/index.html)
+
+</div>
+
+An interactive CV you can walk through: a Minecraft-style 3D world that runs in the browser (Three.js, no install, desktop and mobile).
+
+- 🏛️ **6 buildings** = 6 parts of the CV (experience, projects, skills, ...)
+- 💎 **12 Knowledge Shards** to collect
+- 🗣️ **4 NPCs** with stories to tell
+- 🏆 **Achievements** and a CV passport
+
+| Key | Action |
+|---|---|
+| `W` `A` `S` `D` | Move |
+| `Space` | Jump (double-tap to fly) |
+| Left click | Mine / attack |
+| Right click | Place block / interact |
+| `E` | Interact / talk |
+| `C` | CV Compendium |
+| `M` | Map and fast travel |
+| `1`-`9` | Pick tools and blocks |
+| `H` | All controls |
+| `Esc` | Pause |
+
+Prefer a quick look? Pick **Quick auto tour** on the start screen. Run locally: `python -m http.server` in this folder, then open `http://localhost:8000/game/`.
+
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">
 
 ## 🧑‍💻 About Me

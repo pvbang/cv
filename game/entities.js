@@ -114,9 +114,13 @@
     };
     X.blockBurst = function (x, y, z, id) {
         const d = W.DEF[id]; const t = d ? d.side : 3;
-        const px = (t % W.COLS) * W.TILE + 8, py = Math.floor(t / W.COLS) * W.TILE + 8;
-        const dt = E.atlas.getContext('2d').getImageData(px, py, 1, 1).data;
-        X.burst(x + 0.5, y + 0.5, z + 0.5, (dt[0] << 16) | (dt[1] << 8) | dt[2], 10, 4);
+        const ctx = E.atlas.getContext('2d');
+        // sample 4 pixels of the block texture so the debris shows its real colours
+        for (let k = 0; k < 4; k++) {
+            const px = (t % W.COLS) * W.TILE + 3 + ((k * 7) % (W.TILE - 5)), py = Math.floor(t / W.COLS) * W.TILE + 3 + ((k * 5) % (W.TILE - 5));
+            const dt = ctx.getImageData(px, py, 1, 1).data;
+            X.burst(x + 0.5, y + 0.5, z + 0.5, (dt[0] << 16) | (dt[1] << 8) | dt[2], 5, 4.5);
+        }
     };
 
     X.update = function (dt, t, ppos) {
