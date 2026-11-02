@@ -117,7 +117,7 @@
 
     <section>
       <h2>Summary</h2>
-      <p>AI Engineer with 3+ years building LLM products end to end (FastAPI, React, Docker, AWS): multi-agent systems, hybrid RAG and GraphRAG, voice AI, computer vision and LLM fine-tuning. Full-time at MekongAI (2023&ndash;2026), now freelancing for clients. Author of the open-source <a href="https://github.com/pvbang/nexus">Nexus</a> multi-agent platform: ~236K lines of first-party code, 197 MCP tool registrations across 66 modules, 1,373 test functions. Also shipped a LangGraph repair assistant with 3,300+ test functions and an AI video studio with a self-correcting quality critic.</p>
+      <p>AI Engineer with 3+ years building LLM products end to end (FastAPI, React, Docker, AWS): multi-agent systems, hybrid RAG and GraphRAG, voice AI, computer vision and LLM fine-tuning. Full-time at MekongAI (2023&ndash;2026), now freelancing for clients. Author of the open-source <a href="https://github.com/pvbang/nexus">Nexus</a> multi-agent platform (192 registered MCP tools across 68 modules), a LangGraph vehicle-repair assistant for a client, and a multi-channel AI video studio.</p>
     </section>
 
     <section>
@@ -134,7 +134,7 @@
         <dt>Frontend</dt>
         <dd>React 19, TypeScript, Vite, Tailwind CSS, Zustand, Streamlit (agent, chat and analysis UIs)</dd>
         <dt>DevOps &amp; QA</dt>
-        <dd>Docker Compose, AWS (EC2, S3), Nginx, RunPod (GPU serverless), Prometheus-style metrics, Pytest, Ruff, mypy, Vitest</dd>
+        <dd>Docker Compose, AWS (EC2, S3), Linux VPS administration (Nginx, service monitoring, zero-downtime restarts), RunPod (GPU serverless), Pytest, Ruff, mypy, Vitest</dd>
       </dl>
     </section>
 
@@ -147,7 +147,7 @@
           <span class="date">08/2026 &ndash; Present</span>
         </div>
         <ul>
-          <li>Build AI products for clients end to end: a LangGraph diagnostic assistant for automotive repair (hybrid RAG, SSE streaming, S3 backup and restore) and <b>M-Auto</b>, an AI YouTube video studio with a self-correcting quality critic.</li>
+          <li>Build AI products for clients end to end: a LangGraph diagnostic assistant for automotive repair (hybrid RAG, SSE streaming, backup and restore) and <b>M-Auto Studio</b>, a multi-channel AI YouTube studio with a self-correcting quality critic.</li>
           <li>Open-sourced <a href="https://github.com/pvbang/nexus">Nexus</a> and published LLM tooling (<a href="https://github.com/pvbang/mcp-prune">mcp-prune</a>, <a href="https://github.com/pvbang/sentinel-scan">sentinel-scan</a>).</li>
         </ul>
       </div>
@@ -162,7 +162,7 @@
           <li>Shipped <b>Knowlympic</b> (PaddleOCR + LLM question generation, cut content-creation time for 3 English language centers) and <b>MetaHuman</b> (Whisper STT, streaming TTS, VAD, 3-tier personality memory, ESP32 voice bots over MCP and MQTT).</li>
           <li>Built early customer-service RAG chatbots (LangChain, LlamaIndex, Chroma) with Messenger integration, intent-routed prompt chains and per-tenant knowledge bases; later TikVault, an AI recruitment platform and an AI content generator.</li>
           <li>Delivered vision and GenAI services (20+ ComfyUI workflows, face-similarity API, SAM3, PaddleOCR-VL on RunPod) and fine-tuned Llama 3.1 (8B/70B) with LoRA/QLoRA.</li>
-          <li>Delivered AI solutions across Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media and Content Generation.</li>
+          <li>Projects span Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media and Content Generation.</li>
         </ul>
       </div>
     </section>
@@ -175,9 +175,9 @@
         <ul>
           <li><b>Orchestration:</b> Planning &rarr; Think &rarr; Discuss &rarr; Execute &rarr; Report pipeline; agents run structured debate (challenge, rebuttal, synthesis), a beam-search tree planner with LLM-as-judge scoring, goal decomposition and verification, self-reflection checkpoints and a stuck detector.</li>
           <li><b>Memory &amp; RAG:</b> 4-layer memory (capture, atoms, scenes, persona) with a sleep-style consolidation engine; retrieval fuses vector, full-text and graph results with RRF (k=60) plus a cross-encoder reranker that degrades gracefully; experience-based continual learning (XSkill).</li>
-          <li><b>MCP:</b> client and JSON-RPC server with OAuth 2.1 + PKCE; 197 tool registrations across 66 modules in 29 toolsets, OpenAI-compatible API, 9 chat channels (Telegram, Discord, Slack, WhatsApp, Email, ...).</li>
+          <li><b>MCP:</b> client and JSON-RPC server with OAuth 2.1 + PKCE; 192 registered tools across 68 self-registering modules, OpenAI-compatible API, 9 chat channels (Telegram, Discord, Slack, WhatsApp, Email, ...).</li>
           <li><b>Reliability &amp; security:</b> circuit breaker + provider fallback chain across 10+ LLM providers, task checkpoint and auto-resume, SSRF and exfiltration guards, prompt-injection data marking, Redis rate limiting, authorization gate for offensive-security tools.</li>
-          <li><b>Scale:</b> ~150K lines Python + ~64K lines TypeScript (React 19, 20 routes), 25 REST endpoint modules, 19 Alembic migrations, 12-service Docker Compose, 219 test files / 1,373 test functions.</li>
+          <li><b>System:</b> Python + TypeScript (React 19), 25 REST endpoint modules, 19 Alembic migrations, multi-service Docker Compose, 219 test files / 1,373 test functions.</li>
         </ul>
         <p class="tech"><span>Python 3.12</span><span>FastAPI</span><span>React 19</span><span>TypeScript</span><span>PostgreSQL + pgvector</span><span>Redis</span><span>LiteLLM</span><span>Docker</span></p>
       </div>
@@ -185,20 +185,21 @@
       <div class="proj">
         <div class="row"><span class="title">AI Vehicle-Repair Assistant <span style="font-weight:500;color:var(--muted)">(client project)</span></span></div>
         <ul>
-          <li>LangGraph agent with 6 nodes (reasoning, search, evaluation, rerank, answer, verification) and conditional loops: 16-intent classifier, multi-DTC extraction, a coverage check that re-searches, and a verifier that retries the answer up to twice.</li>
-          <li>Hybrid retrieval in Qdrant (1536-d dense + server-side IDF BM25 sparse vectors) with an LLM reranker that fills gaps via a tool loop; inline citations only for numbered references.</li>
-          <li>12 vehicle-data categories (specs, procedures, TSBs, wiring, labor times, ...) plus a 282-case repair-experience corpus; a separate bulk-LLM lane for a 250K-item background queue keeps chat latency and cost isolated.</li>
-          <li>SSE streaming of every pipeline step, 264 API routes, per-user token and cost ledger, Streamlit admin UI; MongoDB backup to S3 with SHA-256 manifest and staging-first restore. 105K lines of source, 398 test files / 3,320 test functions.</li>
+          <li>LangGraph ReAct agent (agent &rarr; tool &rarr; answer &rarr; verify, with a conditional re-search loop), intent classification with clarification questions, bilingual EN/VI answers with inline citations.</li>
+          <li>Hybrid retrieval in Qdrant (dense + sparse) with a BGE reranker (ONNX) and 3-level caching (LRU / Redis / MongoDB); 12 vehicle-data categories (specs, procedures, TSBs, wiring, labor times, ...) plus a repair-experience pipeline (crawl &rarr; classify &rarr; validate &rarr; index) with confirmed-fix filtering and 45K-component matching.</li>
+          <li>Structured repair estimates and diagnosis workflows (Investigation / Decision / Reasoning with an append-only timeline), VIN decoding (NHTSA) and Motor API data, SSE streaming of every pipeline step.</li>
+          <li>Three frontends (Streamlit WebUI + two React 19 SPAs for estimates and diagnosis) over a FastAPI backend: 17 routers / ~95 endpoints, Docker Compose, regression test suite.</li>
         </ul>
-        <p class="tech"><span>LangGraph</span><span>FastAPI</span><span>MongoDB</span><span>Qdrant</span><span>Redis</span><span>AWS S3</span><span>Streamlit</span><span>Docker</span></p>
+        <p class="tech"><span>LangGraph</span><span>FastAPI</span><span>MongoDB</span><span>Qdrant</span><span>Redis</span><span>React 19</span><span>Streamlit</span><span>Docker</span></p>
       </div>
 
       <div class="proj">
-        <div class="row"><span class="title">M-Auto &ndash; AI YouTube video studio</span></div>
+        <div class="row"><span class="title">M-Auto Studio &ndash; multi-channel AI YouTube studio</span></div>
         <ul>
-          <li>10-stage pipeline (topic, script, scenes, images, audio, video, metadata, quality, publish) with dependency-aware invalidation; LLM client with provider and model fallback and truncated-JSON repair.</li>
+          <li>10-stage idea-to-publish pipeline (topic research, script, storyboard, images, voice, optional AI video, render, captions, metadata, upload) with resumable checkpoints and downstream stage invalidation; multi-provider LLM gateway with fallback.</li>
           <li><b>AI quality critic</b> scores script, visual diversity, A/V sync and captions, then re-runs the weakest stage; deterministic guardrails for claims, language policy and clip duration.</li>
-          <li>FFmpeg render engine (sub-pixel Ken Burns, xfade chains, karaoke captions from word-level Whisper timestamps, BGM ducking, 4 aspect ratios), DepthFlow 2.5D parallax, YouTube resumable upload with crash recovery, MCP bridge so agents can drive the editor. 49K lines Python, 825 test functions.</li>
+          <li>FFmpeg render engine (Ken Burns motion, xfade chains, karaoke captions from word-level Whisper timestamps, BGM ducking, 4 aspect ratios), DepthFlow 2.5D parallax, long-video-to-Shorts repurposing, YouTube resumable upload with scheduling, MCP bridge so agents can drive the editor.</li>
+          <li>Multi-channel by design: channel templates with persona, voice, image style and branding; 7 channels, 16 personas, 101 voices and 40 music tracks ship as seed data. Backed by a comprehensive pytest suite.</li>
         </ul>
         <p class="tech"><span>Python</span><span>Streamlit</span><span>FFmpeg</span><span>faster-whisper</span><span>Edge-TTS</span><span>YouTube Data API</span><span>MCP</span></p>
       </div>

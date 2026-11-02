@@ -6,7 +6,7 @@
 <br/>
 
 <!-- Subtitle -->
-<img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=500&size=18&duration=4000&pause=1000&color=A8A8A8&center=true&vCenter=true&random=false&width=700&height=30&lines=Open-source+multi-agent+platform%3A+236K+lines%2C+197+MCP+tool+registrations+%26+1%2C373+tests" alt="Subtitle" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Inter&weight=500&size=18&duration=4000&pause=1000&color=A8A8A8&center=true&vCenter=true&random=false&width=700&height=30&lines=Open-source+multi-agent+platform%3A+192+MCP+tools+%26+1%2C373+tests" alt="Subtitle" />
 
 <br/><br/>
 
@@ -80,11 +80,11 @@ specialization:
   - Computer Vision & NLP
 
 highlights:
-  - Open-source multi-agent platform (github.com/pvbang/nexus): ~236K lines, 197 MCP tool registrations, 1,373 test functions
+  - Open-source multi-agent platform (github.com/pvbang/nexus): 192 registered MCP tools, 1,373 test functions
   - Hybrid RAG + GraphRAG (vector + full-text + graph, RRF fusion, cross-encoder rerank)
-  - LangGraph repair assistant for a client: 6-node pipeline, hybrid dense + BM25, 3,320 test functions
-  - AI video studio M-Auto (49K lines) with a self-correcting quality critic
-  - Also: Unity online RPG, ~27K-line MQL5 trading EA with licensing website, AI copy and video production
+  - LangGraph vehicle-repair assistant for a client: ReAct + verify loop, hybrid retrieval
+  - M-Auto Studio: multi-channel AI YouTube studio with a self-correcting quality critic
+  - Also: Unity online RPG, commercial MQL5 trading EA with licensing website (live copy-trading masters since 09/2026), AI copy and video production
 ```
 
 <!-- Animated Divider -->
@@ -371,7 +371,7 @@ highlights:
 
 `MQL5` `Next.js` `Prisma` `PayOS` `Vercel`
 
-- ~27K lines in 11 modules, 21 entry modes, 18-layer scoring
+- 11 modules, 21 entry modes, 18-layer scoring
 - 5-tier DCA, dual cycles, Smart Trim, adaptive recovery, 14+ risk layers
 - Licensing and payment website with HMAC-verified webhook
 - [Website](https://b-nexus-quantum.vercel.app)
@@ -386,23 +386,23 @@ highlights:
 
 `LangGraph` `FastAPI` `MongoDB` `Qdrant` `AWS S3`
 
-- 6-node pipeline with 16-intent classifier and verifier retry loop
-- Hybrid dense + BM25 retrieval, LLM rerank, cited answers over SSE
-- Separate bulk-LLM lane for a 250K-item queue
-- S3 backup with SHA-256 manifest, 3,320 test functions
+- ReAct agent with a verify-and-research loop and clarification questions
+- Hybrid dense + sparse retrieval (Qdrant), BGE reranker, 3-level caching
+- Repair estimates + structured diagnosis (Investigation / Decision / Reasoning)
+- 3 frontends (Streamlit + 2 React 19 SPAs), ~95 API endpoints
 
 </td>
 <td width="50%">
 
-### 🎬 M-Auto
-**AI YouTube Video Studio**
+### 🎬 M-Auto Studio
+**Multi-channel AI YouTube Studio**
 
 `Python` `Streamlit` `FFmpeg` `faster-whisper` `YouTube API`
 
-- 10-stage idea-to-upload pipeline, 11 niche profiles, 12 personas
-- Ken Burns, xfade, word-level karaoke captions, Shorts crop
-- AI quality critic re-runs the weakest stage
-- MCP bridge so agents can drive the editor
+- 10-stage idea-to-publish pipeline with resumable checkpoints
+- 7 channel templates, 16 personas, 101 voices, 40 BGM tracks
+- Ken Burns, xfade, word-level karaoke captions, Shorts repurposing
+- AI quality critic re-runs the weakest stage; MCP bridge for agents
 
 </td>
 </tr>
@@ -414,8 +414,8 @@ highlights:
 
 `Unity` `C#` `NavMesh` `Firebase Realtime DB`
 
-- 174 first-party C# files, custom Firebase online sync
-- NavMesh enemy AI, 7-skill combos, inventory and quests
+- 178 first-party C# scripts, custom Firebase online sync
+- Enemy combat AI with 7-skill combos, inventory and quests
 - In-game AI lore assistant streamed over SSE
 
 </td>
@@ -432,30 +432,6 @@ highlights:
 </td>
 </tr>
 </table>
-
-<!-- Animated Divider -->
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">
-
-## 📊 Engineering Facts (verifiable in the open-source repo)
-
-<div align="center">
-
-| Fact | Value |
-|------|-------|
-| 🛠️ MCP tool registrations in Nexus | **197** across 66 modules (29 toolsets) |
-| 📦 First-party code in Nexus | **~236K lines** (150K Python + 64K TypeScript + 20K tests) |
-| 🧪 Nexus tests | **219 files / 1,373 functions** |
-| 🔌 REST endpoint modules | **25** |
-| 🗃️ DB migrations | **19** |
-| 💬 Chat channels | **9** |
-| 🤖 LLM providers with fallback chain | **10+ named providers** |
-| 🚗 Repair assistant (LangGraph) | **398 test files / 3,320 test functions**, 264 API routes |
-| 🎬 M-Auto video studio | **49K lines Python**, 825 test functions |
-| 📈 B. Nexus Quantum EA | **~27K lines MQL5**, 11 modules, 21 entry modes |
-| 🎮 Eternal Odyssey (Unity) | **174 first-party C# files** |
-| 📉 mcp-prune token reduction | **-73.8%** (bundled fixture) |
-
-</div>
 
 <!-- Animated Divider -->
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">

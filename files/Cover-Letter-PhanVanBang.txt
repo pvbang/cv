@@ -12,7 +12,7 @@ Over the past three years, I have built 50+ projects across AI, games, mobile, w
 
 At MekongAI (06/2023 - 07/2026) I designed and delivered end-to-end AI solutions, and I now work as a freelance AI and software engineer. Highlights:
 
-- Built an open-source Multi-Agent Orchestration platform (github.com/pvbang/nexus) with 190+ MCP tools, 9 chat channels, circuit breaker with provider fallback across 8+ LLM backends, and 218 automated test files.
+- Built an open-source Multi-Agent Orchestration platform (github.com/pvbang/nexus) with 192 registered MCP tools, 9 chat channels, circuit breaker with provider fallback across 10+ LLM providers, and 1,373 automated tests.
 - Designed hybrid RAG pipelines (vector + full-text + graph, RRF fusion) with a GraphRAG memory layer, evaluated against a vector-only baseline.
 - Developed Voice AI systems (Whisper STT, streaming TTS, VAD) with sub-second response, deployed across multi-channel infrastructure.
 - Fine-tuned Llama 3.1 models with LoRA and QLoRA, and built ComfyUI image workflows plus content tooling that cut authoring time for 3 English language centers.

@@ -16,13 +16,13 @@
         },
         about: [
             'AI Engineer with 3+ years of professional experience and 50+ projects spanning Multi-Agent Systems, RAG pipelines, Voice AI, IoT, Computer Vision, Game Development, Trading Automation and AI Video Production.',
-            'Author of the open-source Nexus multi-agent platform: ~236K lines of first-party code, 197 MCP tool registrations, structured agent debate, hybrid RAG + GraphRAG and continual learning, plus a LangGraph repair assistant with 3,300+ test functions.'
+            'Author of the open-source Nexus multi-agent platform: 192 registered MCP tools, structured agent debate, hybrid RAG + GraphRAG and continual learning — plus a LangGraph vehicle-repair assistant for a client and a multi-channel AI video studio.'
         ],
         stats: [
             { value: '3+', label: 'Years Experience' },
-            { value: '236K', label: 'Lines in Nexus (OSS)' },
-            { value: '9', label: 'Chat Channels' },
-            { value: '50+', label: 'AI Projects' }
+            { value: '192', label: 'MCP Tools (OSS)' },
+            { value: '1,373', label: 'Test Functions' },
+            { value: '50+', label: 'Projects' }
         ],
         goals: {
             short: 'Contribute as an AI Engineer at a product-driven company, applying Multi-Agent Systems and RAG expertise to build scalable AI solutions.',
@@ -30,7 +30,7 @@
         },
         skills: [
             { cat: 'Languages', items: ['Python', 'TypeScript/JavaScript', 'C#', 'Java', 'Go', 'Rust', 'C++', 'C'] },
-            { cat: 'AI & LLM', items: ['LLM', 'Context Engineering', 'Fine-tuning (LoRA, QLoRA)', 'RAG & GraphRAG', 'Multi-Agent Orchestration', 'Structured Agent Debate', 'Agentic Reasoning Loop', 'Self-Reflection & Critic Agent', 'Autonomous Goal Engine', 'Smart Model Routing', 'Dreaming Engine', 'Tree Search Planning', 'Continual Learning (XSkill)', 'MCP Protocol (197 tools)'] },
+            { cat: 'AI & LLM', items: ['LLM', 'Context Engineering', 'Fine-tuning (LoRA, QLoRA)', 'RAG & GraphRAG', 'Multi-Agent Orchestration', 'Structured Agent Debate', 'Agentic Reasoning Loop', 'Self-Reflection & Critic Agent', 'Autonomous Goal Engine', 'Smart Model Routing', 'Dreaming Engine', 'Tree Search Planning', 'Continual Learning (XSkill)', 'MCP Protocol (192 tools)'] },
             { cat: 'Voice AI', items: ['OpenAI Whisper STT', 'TTS (OpenAI/Fish/ElevenLabs)', 'VAD', 'Full-Duplex Voice Chat'] },
             { cat: 'Computer Vision', items: ['Face Similarity API', 'PaddleOCR-VL', 'SAM3', 'Stable Diffusion', 'ComfyUI', 'Face Fusion'] },
             { cat: 'NLP', items: ['spaCy (VI + EN)', 'BGE Embeddings', 'Tesseract Vietnamese OCR', 'Text Chunking Strategies'] },
@@ -49,10 +49,10 @@
                 org: 'Self-employed',
                 period: '08/2026 - Present',
                 bullets: [
-                    'Built an AI vehicle-repair assistant: 6-node LangGraph agent, 16-intent classifier, hybrid dense + BM25 retrieval in Qdrant, cited answers over SSE, 398 test files.',
-                    'Built M-Auto, an AI YouTube studio (49K lines Python): 10-stage pipeline, FFmpeg rendering (Ken Burns, karaoke captions), YouTube resumable upload, AI quality critic.',
-                    'Developed and sell B. Nexus Quantum, a ~27K-line MQL5 trading EA (11 modules, 21 entry modes) with a Next.js + Prisma + PayOS licensing website.',
-                    'Open-sourced the Nexus multi-agent platform and dev tools (mcp-prune, sentinel-scan, rail-probe) plus a Next.js AI SaaS starter kit.'
+                    'Built an AI vehicle-repair assistant: LangGraph ReAct agent with a verify-and-research loop, hybrid dense + sparse retrieval in Qdrant, cited answers over SSE, bilingual EN/VI, structured estimates and diagnosis.',
+                    'Built M-Auto Studio, a multi-channel AI YouTube studio: 10-stage pipeline, FFmpeg rendering (Ken Burns, karaoke captions), YouTube upload with scheduling, AI quality critic.',
+                    'Developed and sell B. Nexus Quantum, a commercial MQL5 trading EA (11 modules, 21 entry modes) with a Next.js + Prisma + PayOS licensing website; also run single-entry scalping EAs as live copy-trading masters since 09/2026.',
+                    'Open-sourced the Nexus multi-agent platform and dev tools (mcp-prune, sentinel-scan) plus a Next.js AI SaaS starter kit.'
                 ]
             },
             {
@@ -61,7 +61,7 @@
                 period: '06/2023 - 07/2026',
                 bullets: [
                     'Built and maintained 50+ AI projects across 8+ business domains (Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media, Content).',
-                    'Architected a Multi-Agent Orchestration System with 190+ MCP tools, structured debate, XSkill continual learning — 9 chat channels.',
+                    'Architected a Multi-Agent Orchestration System with 192 registered MCP tools, structured debate, XSkill continual learning — 9 chat channels.',
                     'Developed Nexus core agent system: Planning → Think → Discuss → Execute → Report pipeline, self-reflection, goal engine, beam-search tree planning.',
                     'Implemented Dreaming Engine with 3-phase background memory promotion (Light → Deep → REM) for continual knowledge consolidation.',
                     'Production RAG pipeline: hybrid search + reranking, GraphRAG, multi-modal document processing over large internal knowledge bases.',
@@ -75,7 +75,7 @@
             }
         ],
         projects: [
-            { n: '01', cat: 'Multi-Agent System', name: 'MekongAI Nexus', sub: 'Multi-Agent Orchestration System', desc: 'Open-source multi-agent platform: structured debate, 4-layer memory, hybrid RAG with RRF and reranking, OAuth 2.1 MCP, circuit breaker + provider fallback. ~236K lines, 197 tool registrations, 1,373 test functions.', tech: ['Python', 'FastAPI', 'LangChain', 'MCP', 'Redis', 'Docker'] },
+            { n: '01', cat: 'Multi-Agent System', name: 'Nexus', sub: 'Multi-Agent Orchestration Platform (open source)', desc: 'Structured debate, 4-layer memory, hybrid RAG with RRF and reranking, OAuth 2.1 MCP, circuit breaker + provider fallback. 192 registered MCP tools across 68 modules, 1,373 test functions.', tech: ['Python', 'FastAPI', 'React 19', 'MCP', 'Redis', 'Docker'] },
             { n: '02', cat: 'AI Content Platform', name: 'MekongAI Knowlympic', sub: 'AI Learning Content Platform', desc: 'Automated educational content generation using ComfyUI workflows and LLM pipelines — large question banks with RAG-powered retrieval and quality validation.', tech: ['Python', 'ComfyUI', 'RAG', 'LLM', 'PostgreSQL'] },
             { n: '03', cat: 'AI Personality', name: 'MekongAI MetaHuman', sub: 'AI Personality Platform', desc: 'AI personality system with customizable personas, voice cloning, multi-modal interactions, and context-persistent memory.', tech: ['Python', 'TTS', 'LLM', 'WebSocket', 'React'] },
             { n: '04', cat: 'IoT + AI', name: 'ESP32 AI Bot', sub: 'IoT Voice Assistant', desc: 'Hardware voice assistant on ESP32 with real-time STT/TTS, LLM over WebSocket, VAD, sub-second end-to-end response.', tech: ['ESP32', 'Whisper', 'WebSocket', 'FastAPI', 'VAD'] },
@@ -83,11 +83,11 @@
             { n: '06', cat: 'Multi-Agent Content', name: 'AI Content Generator', sub: 'Multi-Platform Content', desc: 'Agents auto-generate Facebook, Instagram, TikTok content with RAG-based brand voice learning. Pipeline: Research → Write → Edit → Publish.', tech: ['CrewAI', 'Streamlit', 'Qdrant', 'RAG'] },
             { n: '07', cat: 'Video/Photo Analysis', name: 'MekongAI TikVault', sub: 'AI Video/Photo Analysis', desc: 'Video/photo analysis with Google Gemini: categorization, trend detection, engagement prediction.', tech: ['FastAPI', 'React 19', 'MongoDB', 'Gemini'] },
             { n: '08', cat: 'Crypto Trading', name: 'Real-time Crypto Monitor', sub: 'Trading Signal System', desc: 'Real-time crypto monitoring with MA crossover signals, automated Telegram alerts, multi-exchange aggregation.', tech: ['Streamlit', 'Binance API', 'Telegram Bot', 'TA'] },
-            { n: '09', cat: 'Client Project', name: 'AI Vehicle-Repair Assistant', sub: 'LangGraph Diagnostic Agent', desc: '6-node LangGraph pipeline for multi-DTC repair queries: hybrid dense + BM25, LLM reranking, cited SSE streaming, 264 API routes, S3 backups, 3,320 tests.', tech: ['LangGraph', 'FastAPI', 'MongoDB', 'Qdrant', 'S3'] },
-            { n: '10', cat: 'AI Video', name: 'M-Auto', sub: 'AI YouTube Video Studio', desc: 'Idea-to-upload pipeline: 11 niches, 12 personas, AI images, TTS, FFmpeg (Ken Burns, xfade, karaoke captions), Shorts cropping, AI quality critic.', tech: ['Python', 'Streamlit', 'FFmpeg', 'Edge-TTS'] },
-            { n: '11', cat: 'Trading', name: 'B. Nexus Quantum', sub: 'MetaTrader 5 Expert Advisor', desc: 'Commercial ~27K-line MQL5 EA: 21 entry modes, 18-layer scoring, 5-tier DCA, Smart Trim, adaptive recovery, 14+ risk layers. Sold on MQL5 Market + PayOS site.', tech: ['MQL5', 'Risk Mgmt', 'Next.js', 'PayOS'] },
+            { n: '09', cat: 'Client Project', name: 'AI Vehicle-Repair Assistant', sub: 'LangGraph Diagnostic Agent', desc: 'ReAct agent with verify-and-research loop: hybrid dense + sparse retrieval, BGE reranker, cited SSE streaming, repair estimates and structured diagnosis. 3 frontends (Streamlit + 2 React SPAs), ~95 endpoints.', tech: ['LangGraph', 'FastAPI', 'MongoDB', 'Qdrant', 'React 19'] },
+            { n: '10', cat: 'AI Video', name: 'M-Auto Studio', sub: 'Multi-channel AI YouTube Studio', desc: 'Idea-to-publish pipeline: 7 channel templates, 16 personas, 101 voices, AI images, TTS, optional AI video, FFmpeg rendering (Ken Burns, karaoke captions), Shorts repurposing, AI quality critic, scheduled upload.', tech: ['Python', 'Streamlit', 'FFmpeg', 'faster-whisper'] },
+            { n: '11', cat: 'Trading', name: 'B. Nexus Quantum', sub: 'MetaTrader 5 Expert Advisor', desc: 'Commercial MQL5 EA: 11 modules, 21 entry modes, 18-layer scoring, 5-tier DCA, Smart Trim, adaptive recovery, 14+ risk layers. Sold on MQL5 Market with a Next.js + PayOS licensing site; live copy-trading master accounts running since 09/2026.', tech: ['MQL5', 'Risk Mgmt', 'Next.js', 'PayOS'] },
             { n: '12', cat: 'Open Source', name: 'mcp-prune / sentinel-scan / rail-probe', sub: 'Developer Tools', desc: 'mcp-prune cuts MCP tool-schema tokens 73.8%; sentinel-scan zero-dep JS/TS security scanner; rail-probe classifies API liveness.', tech: ['Node.js', 'CLI', 'npm'] },
-            { n: '13', cat: 'Game Dev', name: 'Eternal Odyssey', sub: 'Unity 3D Action RPG', desc: 'Team-of-two Unity RPG (174 C# files): custom Firebase Realtime online play, NavMesh AI with 7-skill combos, drag-drop inventory, quests, in-game AI lore assistant. Plus 2D platformer and C++/OpenGL racing game.', tech: ['Unity', 'C#', 'C++', 'OpenGL'] },
+            { n: '13', cat: 'Game Dev', name: 'Eternal Odyssey', sub: 'Unity 3D Action RPG', desc: 'Team-of-two Unity RPG (178 first-party C# scripts): custom Firebase Realtime online play, enemy AI with 7-skill combos, drag-drop inventory, quests, in-game AI lore assistant. Plus 2D platformer and C++/OpenGL racing game.', tech: ['Unity', 'C#', 'Firebase', 'OpenGL'] },
             { n: '14', cat: 'Mobile', name: 'Android Chat & React Native Apps', sub: 'Messaging, Learning & Voice', desc: 'Android chat with media + Jitsi calls (Firebase); Vocab Master learning app with OpenAI; TransVoiceHub speech-to-text/translate/TTS.', tech: ['Java', 'Firebase', 'React Native'] },
             { n: '15', cat: 'Web', name: 'Laravel, Java & Blockchain Web Apps', sub: 'Shop, Restaurant, Meeting, Blockchain', desc: 'Laravel shoe shop & restaurant manager, Java meeting app with screen sharing, Angular + Truffle + IPFS blockchain demo.', tech: ['Laravel', 'PHP', 'Java', 'Angular', 'Truffle'] },
             { n: '16', cat: 'Content & Copywriting', name: 'AI Copywriting & Social Content', sub: 'Brand-Voice Content Systems', desc: 'Multi-agent pipelines researching, writing, editing, publishing in a learned brand voice; TikTok/YouTube analysis with Gemini.', tech: ['CrewAI', 'Gemini', 'RAG', 'Copywriting'] }
@@ -118,17 +118,17 @@
 
     /* 12 Knowledge Shards: each one unlocks an interesting fact from the CV */
     CV.shards = [
-        'Author of the open-source Nexus platform: ~236K lines of code and 197 MCP tool registrations!',
+        'Author of the open-source Nexus platform: 192 registered MCP tools across 68 modules.',
         'Nexus ships with 1,373 pytest test functions: quality comes first.',
         'Dreaming Engine: a 3-phase "sleep" memory (Light, Deep, REM) that keeps the agent learning.',
         'Full-duplex Voice AI running on an ESP32 chip with sub-second responses.',
-        'B. Nexus Quantum: a ~27K-line MQL5 EA with 21 entry modes and 14+ risk layers.',
-        'M-Auto: a 10-stage AI YouTube studio with FFmpeg rendering and karaoke captions.',
+        'B. Nexus Quantum: a 21-entry-mode MQL5 EA on MQL5 Market, with live copy-trading masters since 09/2026.',
+        'M-Auto Studio: a 10-stage AI YouTube pipeline — 7 channels, 16 personas, 101 voices as seed data.',
         'Fine-tuned Llama 3.1 8B/70B with Unsloth (LoRA/QLoRA).',
         'An AI chat system answering customers across 9 channels at once.',
-        '50+ AI projects across 8+ industries: Legal, Education, Healthcare, Crypto...',
-        'The LangGraph repair assistant for a client has 3,320 test functions.',
-        'Built a Unity 3D RPG with 174 C# files and online play over Firebase.',
+        '50+ projects across 8+ industries: Legal, Education, Healthcare, Crypto...',
+        'The LangGraph repair assistant for a client: bilingual EN/VI answers with citations and a verify loop.',
+        'Built a Unity 3D RPG with 178 first-party C# files and online play over Firebase.',
         'mcp-prune cuts MCP tool-schema tokens by 73.8%: a tool built for LLM context budgets.'
     ];
 
@@ -157,16 +157,16 @@
             id: 'lead', name: 'Tech Lead', role: 'MekongAI', x: -14, z: 18, color: 0xf59e0b,
             lines: [
                 'Bang was our AI Engineer from 06/2023 to 07/2026.',
-                'He built the multi-agent system with 190+ MCP tools, the Dreaming Engine and the hybrid RAG pipeline for production.',
-                '50+ AI projects across 8+ industries, from Legal to Healthcare. Very dependable!'
+                'He built the multi-agent system with 192 registered MCP tools, the Dreaming Engine and the hybrid RAG pipeline for production.',
+                '50+ projects across 8+ industries, from Legal to Healthcare. Very dependable!'
             ]
         },
         {
             id: 'trader', name: 'Merchant', role: 'Trading & Game Dev', x: 22, z: 10, color: 0xa855f7,
             lines: [
                 'Need a trading EA or a Unity game? Bang does both!',
-                'B. Nexus Quantum is a ~27K-line MQL5 EA, sold on MQL5 Market with a PayOS licensing website.',
-                'Eternal Odyssey is a Unity RPG with 174 C# files and online play. Impressive, right?'
+                'B. Nexus Quantum is a commercial MQL5 EA on MQL5 Market, and he runs single-entry scalping EAs as live copy-trading masters.',
+                'Eternal Odyssey is a Unity RPG with 178 first-party C# files and online play. Impressive, right?'
             ]
         },
         {

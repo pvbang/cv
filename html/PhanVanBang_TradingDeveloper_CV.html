@@ -94,10 +94,11 @@
     li.note::before { background: var(--muted); }
     .page-break { break-before: page; }
 
-    .one-page { font-size: 8.6pt; line-height: 1.36; }
-    .one-page section { margin-top: 9px; }
+    .one-page { font-size: 8.4pt; line-height: 1.32; }
+    .one-page section { margin-top: 7px; }
     .one-page .skills { gap: 2px 12px; }
-    .one-page .proj { margin-bottom: 6px; }
+    .one-page .proj { margin-bottom: 5px; }
+    .one-page .job { margin-bottom: 8px; }
 
     @media print {
       body { background: #fff; }
@@ -124,7 +125,7 @@
 
     <section>
       <h2>Summary</h2>
-      <p>Software engineer who designs and ships algorithmic trading systems end to end. Built <b>B. Nexus Quantum</b>, a commercial MetaTrader 5 Expert Advisor of ~27,000 lines of MQL5 in 11 modules with 21 entry modes, an 18-layer scoring engine and 14+ layers of risk control, plus its licensing and payment website (Next.js, Prisma, PayOS). Comfortable moving between MQL5, Python (Binance API, Telegram bots, TA signals) and full-stack web.</p>
+      <p>Software engineer who designs and ships algorithmic trading systems end to end. Built <b>B. Nexus Quantum</b>, a commercial MetaTrader 5 Expert Advisor: 11 modules, 21 entry modes, an 18-layer scoring engine and 14+ risk-control layers, plus its licensing and payment website (Next.js, Prisma, PayOS). Also runs single-entry scalping EAs as live copy-trading masters (since 09/2026) and researches strategies in Pine Script. Comfortable moving between MQL5, Python (Binance API, Telegram bots, TA signals) and full-stack web.</p>
     </section>
 
     <section>
@@ -132,8 +133,10 @@
       <dl class="skills">
         <dt>Trading</dt>
         <dd>MQL5 Expert Advisors and indicators (.ex5 resources), MetaTrader 5 Strategy Tester, hedging accounts, DCA / grid recovery, hedge-on-reversal, equity-curve trading, ATR / regime-adaptive sizing, XAUUSD, Forex, indices, crypto</dd>
+        <dt>Research</dt>
+        <dd>Pine Script (TradingView) strategies and indicators, systematic variant testing (A/B parameter and rule ablations), backtest journals and trading-knowledge notebooks, copy-trading master operation</dd>
         <dt>Signals &amp; TA</dt>
-        <dd>SuperTrend, ADX, RSI, MACD, Bollinger / squeeze, Ichimoku, Stochastic, Donchian, smart-money concepts (BOS, order block, FVG), volume-spread analysis, multi-timeframe confirmation</dd>
+        <dd>SuperTrend, ADX, RSI, MACD, Bollinger / squeeze, Ichimoku, Stochastic, Donchian, smart-money concepts (BOS, order block, FVG), VSA, multi-timeframe confirmation</dd>
         <dt>Risk</dt>
         <dd>Virtual balance, max-drawdown stop, profit lock, margin guard, spread-spike block, net-exposure cap, daily limits, consecutive-loss pause, persistent state across restarts</dd>
         <dt>Python</dt>
@@ -151,7 +154,8 @@
           <span class="date">2026 &ndash; Present</span>
         </div>
         <ul>
-          <li>Develop, document and sell <b>B. Nexus Quantum</b> (v3.47) with a listing on MQL5 Market, a public website, community channels (Telegram, Zalo) and demo accounts tracked on MyFxBook. Runs the whole loop alone: strategy and risk engine, licensing, payments, guides, presets and support.</li>
+          <li>Develop, document and sell <b>B. Nexus Quantum</b> (v3.47) with a listing on MQL5 Market, a public website, community channels (Telegram, Zalo) and demo accounts tracked on MyFxBook. Handle the full product loop: strategy and risk engine, licensing, payments, guides, presets and support.</li>
+          <li>Build single-entry scalping EAs and run them live as public copy-trading master accounts since 09/2026 (steady results to date); maintain a Pine Script research loop with systematic variant testing.</li>
         </ul>
       </div>
     </section>
@@ -162,12 +166,10 @@
       <div class="proj">
         <div class="row"><span class="title">B. Nexus Quantum &ndash; MetaTrader 5 Expert Advisor</span><span class="date"><a href="https://b-nexus-quantum.vercel.app">b-nexus-quantum.vercel.app</a></span></div>
         <ul>
-          <li><b>Architecture:</b> 11 MQL5 modules (signals, entry and DCA, position management, smart trim, adaptive recovery, equity curve, dashboard, time and news filters, utilities, scoring), ~27K lines, 500+ configurable inputs, 3 proprietary indicators embedded as resources.</li>
-          <li><b>Signal engine:</b> 21 entry modes plus up to 3 entry and 3 DCA confirmation layers; <b>SmartTrend</b> scores 18 weighted layers (multi-timeframe, trend quality, momentum, zones, market structure, volume) against an adaptive threshold with severity veto, fakeout filter and breakout detection.</li>
-          <li><b>Position logic:</b> 5-tier DCA with 8 trigger modes and 4 lot modes, two independent BUY/SELL cycles with persisted state, hedge-on-reversal, zone recovery, 15 take-profit mechanisms (trailing, momentum burst, session- and regime-aware).</li>
-          <li><b>Smart Trim and Adaptive Recovery:</b> pairs BUY and SELL positions to cut drawdown at positive net profit (multi-match, partial closes, emergency mode); a 6-component sideways-market controller brakes DCA and caps net exposure.</li>
-          <li><b>Adaptivity:</b> 4-state volatility regime classifier with 3-bar confirmation, London/NY/Asia session scaling, ATR auto-scaling of TP, DCA and SL, automatic symbol-category detection (gold, forex, JPY pairs, indices, crypto, silver, oil) with digit-normalisation safeguards.</li>
-          <li><b>Operations:</b> on-chart dashboard and control panel, heartbeat monitor, account- and expiry-bound licence check, MQL5 Market DRM compatibility.</li>
+          <li><b>Architecture:</b> 11 MQL5 modules (signals, entry and DCA, position management, smart trim, adaptive recovery, equity curve, dashboard, time and news filters, utilities, scoring), 574 configurable inputs, 3 proprietary indicators embedded as resources; on-chart dashboard, heartbeat monitor, account- and expiry-bound licence check, MQL5 Market DRM compatibility.</li>
+          <li><b>Signal engine:</b> 21 entry modes plus up to 3 entry and 3 DCA confirmation layers; <b>SmartTrend</b> scores 18 weighted layers (multi-timeframe, trend quality, momentum, zones, market structure, volume) with severity veto, fakeout filter and breakout detection.</li>
+          <li><b>Position logic:</b> 5-tier DCA with 8 trigger modes, two independent BUY/SELL cycles with persisted state, hedge-on-reversal, zone recovery, 15 take-profit mechanisms (trailing, momentum burst, session- and regime-aware).</li>
+          <li><b>Smart Trim and Adaptive Recovery:</b> pairs BUY and SELL positions to cut drawdown at positive net profit; a 6-component sideways-market controller brakes DCA and caps net exposure. 4-state volatility regime classifier with session scaling, ATR auto-scaling of TP/DCA/SL and automatic symbol-category detection (gold, forex, indices, crypto, silver, oil).</li>
         </ul>
         <p class="tech"><span>MQL5</span><span>MetaTrader 5</span><span>XAUUSD</span><span>Strategy Tester</span></p>
       </div>
@@ -175,10 +177,17 @@
       <div class="proj">
         <div class="row"><span class="title">B. Nexus Quantum website &ndash; licensing, payments and docs</span></div>
         <ul>
-          <li>Next.js 15 / React 19 app (~19.5K lines TypeScript) with 12 Prisma models: users, orders, licences, linked trading accounts, trial requests, downloads, pricing plans, backtest images, payment webhooks and guide articles.</li>
-          <li>PayOS payment webhook verified with HMAC-SHA256 that auto-issues licence keys; account link / unlink / change API, admin dashboards for orders, licences, users and pricing, public guides, backtest gallery and pricing pages.</li>
+          <li>Next.js 15 / React 19 app with 12 Prisma models; PayOS webhook verified with HMAC-SHA256 that auto-issues licence keys, account link/unlink API, admin dashboards, public guides and backtest gallery.</li>
         </ul>
         <p class="tech"><span>Next.js 15</span><span>React 19</span><span>Prisma</span><span>NextAuth</span><span>Zod</span><span>Vercel</span></p>
+      </div>
+
+      <div class="proj">
+        <div class="row"><span class="title">Single-entry scalping EAs &ndash; live copy-trading masters</span><span class="date">since 09/2026</span></div>
+        <ul>
+          <li>Single-entry-at-a-time scalping EAs (XAUUSD focus) for low exposure per trade, running live as public master accounts that others can copy, with presets per risk profile (prop-firm, small account, fund).</li>
+        </ul>
+        <p class="tech"><span>MQL5</span><span>MetaTrader 5</span><span>Pine Script</span><span>Copy Trading</span></p>
       </div>
     </section>
 
