@@ -282,6 +282,7 @@ highlights:
 - 9 chat channels, circuit breaker + provider fallback, 219 test files / 1,373 test functions
 - Multi-channel: WebSocket, Telegram, Discord, Slack, WhatsApp, Email
 
+ㅤ
 </td>
 <td width="50%">
 
@@ -295,6 +296,7 @@ highlights:
 - RAG-powered intelligent Q&A generation
 - Scalable async processing with Celery
 
+ㅤ
 </td>
 </tr>
 <tr>
@@ -310,6 +312,7 @@ highlights:
 - VAD + streaming TTS pipeline
 - Multi-persona management
 
+ㅤ
 </td>
 <td width="50%">
 
@@ -323,6 +326,7 @@ highlights:
 - Low-latency voice interaction on ESP32
 - Multi-LLM routing for task optimization
 
+ㅤ
 </td>
 </tr>
 <tr>
@@ -338,6 +342,7 @@ highlights:
 - spaCy Vietnamese + English dual NLP
 - Automated skill extraction & ranking
 
+ㅤ
 </td>
 <td width="50%">
 
@@ -351,6 +356,7 @@ highlights:
 - Auto-generate for Facebook, Instagram, TikTok
 - Content quality scoring & optimization
 
+ㅤ
 </td>
 </tr>
 <tr>
@@ -366,6 +372,7 @@ highlights:
 - Engagement prediction for social media
 - Multi-modal content understanding
 
+ㅤ
 </td>
 <td width="50%">
 
@@ -379,6 +386,7 @@ highlights:
 - Licensing and payment website with HMAC-verified webhook
 - [Website](https://b-nexus-quantum.vercel.app)
 
+ㅤ
 </td>
 </tr>
 <tr>
@@ -394,6 +402,7 @@ highlights:
 - Repair estimates + structured diagnosis (Investigation / Decision / Reasoning)
 - 3 frontends (Streamlit + 2 React 19 SPAs), ~95 API endpoints
 
+ㅤ
 </td>
 <td width="50%">
 
@@ -407,6 +416,7 @@ highlights:
 - Ken Burns, xfade, word-level karaoke captions, Shorts repurposing
 - AI quality critic re-runs the weakest stage; MCP bridge for agents
 
+ㅤ
 </td>
 </tr>
 <tr>
@@ -422,6 +432,7 @@ highlights:
 - [Open-source repository](https://github.com/pvbang/unity3d-game-eternal-odyssey)
 - In-game AI lore assistant streamed over SSE
 
+ㅤ
 </td>
 <td width="50%">
 
@@ -433,6 +444,7 @@ highlights:
 - Mobile and desktop platformer with double jump, dash, skills, enemies, traps and boss flow
 - [Open-source repository](https://github.com/pvbang/unity2d-platformer-no-than)
 
+ㅤ
 </td>
 </tr>
 <tr>
@@ -446,6 +458,7 @@ highlights:
 - Gifts and comments trigger lanterns, wish ribbons, viewer names/avatars, rankings and festival events
 - TikTok bridge, queueing, Vietnamese TTS, streamer control panel and mock mode for testing
 
+ㅤ
 </td>
 <td width="50%">
 
@@ -457,6 +470,7 @@ highlights:
 - [mcp-prune](https://github.com/pvbang/mcp-prune): -73.8% MCP schema tokens on its fixture
 - [sentinel-scan](https://github.com/pvbang/sentinel-scan): zero-dependency JS/TS security scanner
 
+ㅤ
 </td>
 </tr>
 </table>
