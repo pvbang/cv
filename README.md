@@ -270,8 +270,8 @@ highlights:
 <tr>
 <td width="50%">
 
-### 🌐 MekongAI Nexus
-**Multi-Agent Orchestration System**
+### 🌐 [Nexus](https://github.com/pvbang/nexus)
+**Open-source Multi-Agent Orchestration System**
 
 `FastAPI` `React` `PostgreSQL + pgvector` `Redis` `Docker`
 
@@ -285,7 +285,7 @@ highlights:
 </td>
 <td width="50%">
 
-### 📚 MekongAI Knowlympic
+### 📚 Knowlympic
 **AI Learning Content Platform**
 
 `FastAPI` `React` `Celery + Redis` `Qdrant` `PaddleOCR`
@@ -300,7 +300,7 @@ highlights:
 <tr>
 <td width="50%">
 
-### 🧬 MekongAI MetaHuman
+### 🧬 MetaHuman
 **AI Personality & Voice Platform**
 
 `FastAPI` `React` `PostgreSQL` `Whisper STT` `Fish Audio`
@@ -356,7 +356,7 @@ highlights:
 <tr>
 <td width="50%">
 
-### 🎬 MekongAI TikVault
+### 🎬 TikVault
 **AI Video/Photo Analysis Platform**
 
 `FastAPI` `React 19` `MongoDB` `Gemini AI`
