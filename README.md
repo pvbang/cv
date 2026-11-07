@@ -77,14 +77,17 @@ specialization:
   - Voice AI (STT, streaming TTS, VAD)
   - IoT Integration with MCP Protocol
   - Continual Learning Systems (XSkill)
-  - Computer Vision & NLP
+  - Computer Vision, ComfyUI & AI Image Workflows
+  - n8n Automation, Chatbots & Production Operations
+  - ESP32, Linux/Windows VPS, Docker & DevOps
 
 highlights:
   - Open-source multi-agent platform (github.com/pvbang/nexus): 192 registered MCP tools, 1,373 test functions
-  - Hybrid RAG + GraphRAG (vector + full-text + graph, RRF fusion, cross-encoder rerank)
+  - Hybrid RAG + GraphRAG, voice AI, chatbots and automation across multiple product domains
+  - Coordinated a 7-person AI team while contributing to delivery, technical direction and system operations
   - LangGraph vehicle-repair assistant for a client: ReAct + verify loop, hybrid retrieval
-  - M-Auto Studio: multi-channel AI YouTube studio with a self-correcting quality critic
-  - Also: Unity online RPG, commercial MQL5 trading EA with licensing website (live copy-trading masters since 09/2026), AI copy and video production
+  - M-Auto Studio and Google Flow experiments for AI image/video production and YouTube automation
+  - Also: Unity online RPG, Unity 2D platformer, commercial MQL5 trading EA and interactive TikTok Live game
 ```
 
 <!-- Animated Divider -->
@@ -416,7 +419,32 @@ highlights:
 
 - 178 first-party C# scripts, custom Firebase online sync
 - Enemy combat AI with 7-skill combos, inventory and quests
+- [Open-source repository](https://github.com/pvbang/unity3d-game-eternal-odyssey)
 - In-game AI lore assistant streamed over SSE
+
+</td>
+<td width="50%">
+
+### 🎮 No Than
+**Unity 2D Platformer**
+
+`Unity 2D` `C#` `Cinemachine`
+
+- Mobile and desktop platformer with double jump, dash, skills, enemies, traps and boss flow
+- [Open-source repository](https://github.com/pvbang/unity2d-platformer-no-than)
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🏮 Nguyện Ước Dòng Sông
+**Interactive TikTok Live Game**
+
+`Python` `TikTokLive` `WebSocket` `Canvas 2D` `OBS`
+
+- Gifts and comments trigger lanterns, wish ribbons, viewer names/avatars, rankings and festival events
+- TikTok bridge, queueing, Vietnamese TTS, streamer control panel and mock mode for testing
 
 </td>
 <td width="50%">
