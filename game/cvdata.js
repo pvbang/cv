@@ -5,8 +5,8 @@
     const CV = {
         name: 'PHAN VAN BANG',
         title: 'AI Engineer',
-        tagline: 'Multi-Agent Systems • RAG Pipelines • Voice AI • IoT',
-        status: 'Open to full-time roles & freelance projects',
+        tagline: 'AI Agents • Automation • RAG • Voice • AI Media',
+        status: 'Open to AI Engineer and AI Automation roles',
         contact: {
             email: 'phanvanbang.id@gmail.com',
             phone: '+84 329 958 001',
@@ -15,8 +15,8 @@
             cvPdf: '../files/PhanVanBang_AIEngineer_CV.pdf'
         },
         about: [
-            'AI Engineer with 3+ years of professional experience and 50+ projects spanning Multi-Agent Systems, RAG pipelines, Voice AI, IoT, Computer Vision, Game Development, Trading Automation and AI Video Production.',
-            'Author of the open-source Nexus multi-agent platform: 192 registered MCP tools, structured agent debate, hybrid RAG + GraphRAG and continual learning — plus a LangGraph vehicle-repair assistant for a client and a multi-channel AI video studio.'
+            'AI Engineer with 3+ years of hands-on product experience across AI agents, n8n automation, chatbots, RAG, voice, computer vision, ComfyUI image workflows, ESP32 prototypes and production operations.',
+            'The journey started with student web, mobile and Unity projects, moved through practical AI delivery at MekongAI — including coordination of a 7-person AI team — and continues through independent research in trading automation, AI video and small software products.'
         ],
         stats: [
             { value: '3+', label: 'Years Experience' },
@@ -26,7 +26,7 @@
         ],
         goals: {
             short: 'Contribute as an AI Engineer at a product-driven company, applying Multi-Agent Systems and RAG expertise to build scalable AI solutions.',
-            long: 'Grow into a Senior AI Engineer / Tech Lead role, driving AI architecture decisions, mentoring teammates, and publishing open-source AI tooling.'
+            long: 'Grow into a Senior AI Engineer / Tech Lead role, driving practical AI architecture, mentoring teammates and turning useful experiments into reliable products.'
         },
         skills: [
             { cat: 'Languages', items: ['Python', 'TypeScript/JavaScript', 'C#', 'Java', 'Go', 'Rust', 'C++', 'C'] },
@@ -39,8 +39,9 @@
             { cat: 'Architecture', items: ['Microservices', 'RESTful API', 'WebSocket', 'SSE Streaming', 'Docker Compose', 'Celery + Redis', 'MCP (OAuth 2.1 PKCE)', 'MQTT (IoT)'] },
             { cat: 'DevOps & Cloud', items: ['AWS (S3, EC2)', 'Docker Hub', 'Cloudflare', 'GitHub Actions', 'Vercel', 'VPS & Nginx', 'RunPod GPU', "Let's Encrypt SSL"] },
             { cat: 'Game & Mobile', items: ['Unity 3D / 2D', 'C#', 'C++ / OpenGL', 'React Native', 'Android (Java)', 'Flutter', 'Firebase'] },
-            { cat: 'Trading & Automation', items: ['MQL5 Expert Advisors', 'Risk Management Design', 'Binance API', 'TA Signals', 'N8N', 'Chrome Extensions'] },
-            { cat: 'Content & Video', items: ['AI Video Production', 'Scriptwriting', 'Copywriting & Brand Voice', 'FFmpeg', 'CapCut', 'TTS / Voiceover'] },
+            { cat: 'Trading & Automation', items: ['MQL5 Expert Advisors', 'Risk Management Design', 'Binance API', 'TA Signals', 'n8n Workflows', 'Telegram Bots', 'Chrome Extensions'] },
+            { cat: 'Infrastructure & Operations', items: ['Linux VPS', 'Windows VPS', 'Nginx', 'Docker', 'Monitoring', 'Service Operations', 'CI/CD'] },
+            { cat: 'Content & Video', items: ['AI Video Production', 'Google Flow', 'Scriptwriting', 'Copywriting & Brand Voice', 'FFmpeg', 'CapCut', 'TTS / Voiceover', 'AI Image Workflows'] },
             { cat: 'AI Dev Tools', items: ['Cursor', 'Claude Code', 'Codex', 'Roo Code', 'Git', 'Playwright', 'Pytest'] }
         ],
         experience: [
@@ -60,6 +61,7 @@
                 org: 'MekongAI',
                 period: '06/2023 - 07/2026',
                 bullets: [
+                    'Coordinated a 7-person AI team: helped break down work, review implementation and keep technical delivery aligned with product needs.',
                     'Built and maintained 50+ AI projects across 8+ business domains (Legal, Education, Recruitment, POS, Healthcare, Crypto, Social Media, Content).',
                     'Architected a Multi-Agent Orchestration System with 192 registered MCP tools, structured debate, XSkill continual learning — 9 chat channels.',
                     'Developed Nexus core agent system: Planning → Think → Discuss → Execute → Report pipeline, self-reflection, goal engine, beam-search tree planning.',
@@ -87,10 +89,12 @@
             { n: '10', cat: 'AI Video', name: 'M-Auto Studio', sub: 'Multi-channel AI YouTube Studio', desc: 'Idea-to-publish pipeline: 7 channel templates, 16 personas, 101 voices, AI images, TTS, optional AI video, FFmpeg rendering (Ken Burns, karaoke captions), Shorts repurposing, AI quality critic, scheduled upload.', tech: ['Python', 'Streamlit', 'FFmpeg', 'faster-whisper'] },
             { n: '11', cat: 'Trading', name: 'B. Nexus Quantum', sub: 'MetaTrader 5 Expert Advisor', desc: 'Commercial MQL5 EA: 11 modules, 21 entry modes, 18-layer scoring, 5-tier DCA, Smart Trim, adaptive recovery, 14+ risk layers. Sold on MQL5 Market with a Next.js + PayOS licensing site; live copy-trading master accounts running since 09/2026.', tech: ['MQL5', 'Risk Mgmt', 'Next.js', 'PayOS'] },
             { n: '12', cat: 'Open Source', name: 'mcp-prune / sentinel-scan / rail-probe', sub: 'Developer Tools', desc: 'mcp-prune cuts MCP tool-schema tokens 73.8%; sentinel-scan zero-dep JS/TS security scanner; rail-probe classifies API liveness.', tech: ['Node.js', 'CLI', 'npm'] },
-            { n: '13', cat: 'Game Dev', name: 'Eternal Odyssey', sub: 'Unity 3D Action RPG', desc: 'Team-of-two Unity RPG (178 first-party C# scripts): custom Firebase Realtime online play, enemy AI with 7-skill combos, drag-drop inventory, quests, in-game AI lore assistant. Plus 2D platformer and C++/OpenGL racing game.', tech: ['Unity', 'C#', 'Firebase', 'OpenGL'] },
-            { n: '14', cat: 'Mobile', name: 'Android Chat & React Native Apps', sub: 'Messaging, Learning & Voice', desc: 'Android chat with media + Jitsi calls (Firebase); Vocab Master learning app with OpenAI; TransVoiceHub speech-to-text/translate/TTS.', tech: ['Java', 'Firebase', 'React Native'] },
-            { n: '15', cat: 'Web', name: 'Laravel, Java & Blockchain Web Apps', sub: 'Shop, Restaurant, Meeting, Blockchain', desc: 'Laravel shoe shop & restaurant manager, Java meeting app with screen sharing, Angular + Truffle + IPFS blockchain demo.', tech: ['Laravel', 'PHP', 'Java', 'Angular', 'Truffle'] },
-            { n: '16', cat: 'Content & Copywriting', name: 'AI Copywriting & Social Content', sub: 'Brand-Voice Content Systems', desc: 'Multi-agent pipelines researching, writing, editing, publishing in a learned brand voice; TikTok/YouTube analysis with Gemini.', tech: ['CrewAI', 'Gemini', 'RAG', 'Copywriting'] }
+            { n: '13', cat: 'Game Dev', name: 'Eternal Odyssey', sub: 'Unity 3D Action RPG', desc: 'Team-of-two Unity RPG (178 first-party C# scripts): custom Firebase Realtime online play, enemy AI with 7-skill combos, drag-drop inventory, quests and an in-game AI lore assistant. Open-source repository.', url: 'https://github.com/pvbang/unity3d-game-eternal-odyssey', tech: ['Unity', 'C#', 'Firebase'] },
+            { n: '14', cat: 'Game Dev', name: 'No Than', sub: 'Unity 2D Platformer', desc: 'Mobile and desktop platformer with physics movement, double jump, dash, player skills, enemies, traps, rewards, NPC dialogue, boss flow and scene transitions. Open-source repository.', url: 'https://github.com/pvbang/unity2d-platformer-no-than', tech: ['Unity 2D', 'C#', 'Cinemachine'] },
+            { n: '15', cat: 'TikTok Live Game', name: 'Nguyện Ước Dòng Sông', sub: 'Interactive livestream game', desc: 'A vertical 1080×1920 Canvas game for TikTok Live: gifts and comments trigger lanterns, wish ribbons, viewer names/avatars, rankings and festival events. Includes a TikTokLive bridge, WebSocket broadcast, queueing, Vietnamese TTS, streamer control panel and mock mode.', tech: ['Python', 'TikTokLive', 'WebSocket', 'Canvas 2D', 'OBS'] },
+            { n: '16', cat: 'Mobile', name: 'Android Chat & React Native Apps', sub: 'Messaging, Learning & Voice', desc: 'Android chat with media + Jitsi calls (Firebase); Vocab Master learning app with OpenAI; TransVoiceHub speech-to-text/translate/TTS.', tech: ['Java', 'Firebase', 'React Native'] },
+            { n: '17', cat: 'Web', name: 'Laravel, Java & Blockchain Web Apps', sub: 'Shop, Restaurant, Meeting, Blockchain', desc: 'Laravel shoe shop & restaurant manager, Java meeting app with screen sharing, Angular + Truffle + IPFS blockchain demo.', tech: ['Laravel', 'PHP', 'Java', 'Angular', 'Truffle'] },
+            { n: '18', cat: 'Content & Copywriting', name: 'AI Copywriting & Social Content', sub: 'Brand-Voice Content Systems', desc: 'Multi-agent pipelines researching, writing, editing, publishing in a learned brand voice; TikTok/YouTube analysis with Gemini.', tech: ['CrewAI', 'Gemini', 'RAG', 'Copywriting'] }
         ],
         education: {
             degree: 'B.Eng. in Information Technology',
@@ -148,7 +152,7 @@
             id: 'bang', name: 'Bang', role: 'Owner of this CV, AI Engineer', x: 2, z: -6, color: 0x00d4ff,
             lines: [
                 "Hi there! I'm Bang, the owner of this world. Welcome to CV World!",
-                'Every building here tells part of my career story: About Tower, Skills Garden, Experience Hall, Projects District...',
+                'Every stop here tells part of my career journey: student foundations, AI delivery, practical systems, side research and the next chapter in Huế.',
                 'Collect the 12 glowing Knowledge Shards scattered around the map. Each one is a short story about my work.',
                 'Press C for the CV Compendium and H for the full controls guide. Right-click the blue info blocks to read the details. Have fun!'
             ]
@@ -156,13 +160,13 @@
         {
             id: 'lead', name: 'Tech Lead', role: 'MekongAI', x: -14, z: 18, color: 0xf59e0b,
             lines: [
-                'Bang was our AI Engineer from 06/2023 to 07/2026.',
-                'He built the multi-agent system with 192 registered MCP tools, the Dreaming Engine and the hybrid RAG pipeline for production.',
-                '50+ projects across 8+ industries, from Legal to Healthcare. Very dependable!'
+                'Bang was our AI Engineer from 06/2023 to 07/2026 and coordinated a 7-person AI team.',
+                'He worked across agents, n8n automation, chatbots, hybrid RAG, voice, ComfyUI, ESP32 and the operations needed to keep systems running.',
+                'The work covered 50+ projects across 8+ industries, from Legal to Healthcare, with a practical focus on shipping and learning.'
             ]
         },
         {
-            id: 'trader', name: 'Merchant', role: 'Trading & Game Dev', x: 22, z: 10, color: 0xa855f7,
+            id: 'trader', name: 'Builder', role: 'Trading, Games & Side Projects', x: 22, z: 10, color: 0xa855f7,
             lines: [
                 'Need a trading EA or a Unity game? Bang does both!',
                 'B. Nexus Quantum is a commercial MQL5 EA on MQL5 Market, and he runs single-entry scalping EAs as live copy-trading masters.',

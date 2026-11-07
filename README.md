@@ -40,7 +40,7 @@
 
 An interactive CV you can walk through: a Minecraft-style 3D world that runs in the browser (Three.js, no install, desktop and mobile).
 
-- 🏛️ **6 buildings** = 6 parts of the CV (experience, projects, skills, ...)
+- 🏛️ **6 stops** = 6 parts of the CV and career journey
 - 💎 **12 Knowledge Shards** to collect
 - 🗣️ **4 NPCs** with stories to tell
 - 🏆 **Achievements** and a CV passport
@@ -67,7 +67,7 @@ Prefer a quick look? Pick **Quick auto tour** on the start screen. Run locally: 
 ```yaml
 name: Phan Van Bang
 role: AI Engineer
-location: Da Nang, Vietnam
+location: Phú An, Phú Vang, Huế, Vietnam
 experience: 3+ years professional
 company: Freelance (previously MekongAI, 06/2023 - 07/2026)
 
@@ -451,7 +451,7 @@ highlights:
 
 **Bachelor of Engineering in Information Technology**  
 Vietnam-Korea University of Information and Communication Technology (VKU)  
-📍 Da Nang, Vietnam | 🗓️ 2020 - 2025
+📍 Based in Phú An, Phú Vang, Huế | 🗓️ 2020 - 2025 (VKU, Đà Nẵng)
 
 <!-- Animated Divider -->
 <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%">
