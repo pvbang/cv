@@ -138,27 +138,27 @@
 
     /* 6 main landmarks on the map */
     CV.landmarks = [
-        { id: 'about', name: 'About Tower', sign: 'ABOUT ME', color: 0x00d4ff, x: 0, z: -18, icon: '👤' },
-        { id: 'skills', name: 'Skills Garden', sign: 'SKILLS', color: 0x22c55e, x: -26, z: 2, icon: '🧪' },
-        { id: 'experience', name: 'Experience Hall', sign: 'EXPERIENCE', color: 0xf59e0b, x: -14, z: 24, icon: '💼' },
-        { id: 'projects', name: 'Projects District', sign: 'PROJECTS', color: 0xa855f7, x: 22, z: 16, icon: '🏗️' },
-        { id: 'education', name: 'VKU Campus', sign: 'EDUCATION', color: 0x3b82f6, x: 28, z: -12, icon: '🎓' },
-        { id: 'contact', name: 'Contact Portal', sign: 'CONTACT', color: 0xec4899, x: 0, z: 34, icon: '📮' }
+        { id: 'about', name: 'About Tower', sign: 'ABOUT ME', color: 0x00d4ff, x: 0, z: -22, icon: '👤' },
+        { id: 'skills', name: 'Skills Garden', sign: 'SKILLS', color: 0x22c55e, x: -28, z: 0, icon: '🧪' },
+        { id: 'experience', name: 'Experience Hall', sign: 'EXPERIENCE', color: 0xf59e0b, x: -18, z: 28, icon: '💼' },
+        { id: 'projects', name: 'Projects District', sign: 'PROJECTS', color: 0xa855f7, x: 30, z: 16, icon: '🏗️' },
+        { id: 'education', name: 'VKU Campus', sign: 'EDUCATION', color: 0x3b82f6, x: 30, z: -18, icon: '🎓' },
+        { id: 'contact', name: 'Contact Portal', sign: 'CONTACT', color: 0xec4899, x: 0, z: 44, icon: '📮' }
     ];
 
     /* NPC dialogue */
     CV.npcs = [
         {
-            id: 'bang', name: 'Bang', role: 'Owner of this CV, AI Engineer', x: 2, z: -6, color: 0x00d4ff,
+            id: 'bang', name: 'Bang', role: 'Owner of this CV, AI Engineer', x: 3, z: -5, color: 0x00d4ff,
             lines: [
                 "Hi there! I'm Bang, the owner of this world. Welcome to CV World!",
                 'Every stop here tells part of my career journey: student foundations, AI delivery, practical systems, side research and the next chapter in Huế.',
-                'Collect the 12 glowing Knowledge Shards scattered around the map. Each one is a short story about my work.',
-                'Press C for the CV Compendium and H for the full controls guide. Right-click the blue info blocks to read the details. Have fun!'
+                'Collect the 12 glowing Knowledge Shards scattered around the map, explore caves, volcanic portals, cherry groves and dungeons!',
+                'Press C for the CV Compendium, M for Fast Travel, F5 for 3rd-person view, and H for full controls. Right-click blue info blocks to read details!'
             ]
         },
         {
-            id: 'lead', name: 'Tech Lead', role: 'MekongAI', x: -14, z: 18, color: 0xf59e0b,
+            id: 'lead', name: 'Tech Lead', role: 'MekongAI', x: -18, z: 19, color: 0xf59e0b,
             lines: [
                 'Bang was our AI Engineer from 06/2023 to 07/2026 and coordinated a 7-person AI team.',
                 'He worked across agents, n8n automation, chatbots, hybrid RAG, voice, ComfyUI, ESP32 and the operations needed to keep systems running.',
@@ -166,7 +166,7 @@
             ]
         },
         {
-            id: 'trader', name: 'Builder', role: 'Trading, Games & Side Projects', x: 22, z: 10, color: 0xa855f7,
+            id: 'trader', name: 'Builder', role: 'Trading, Games & Side Projects', x: 14, z: 16, color: 0xa855f7,
             lines: [
                 'Need a trading EA or a Unity game? Bang does both!',
                 'B. Nexus Quantum is a commercial MQL5 EA on MQL5 Market, and he runs single-entry scalping EAs as live copy-trading masters.',
@@ -174,7 +174,7 @@
             ]
         },
         {
-            id: 'prof', name: 'Professor', role: 'VKU Da Nang', x: 28, z: -6, color: 0x3b82f6,
+            id: 'prof', name: 'Professor', role: 'VKU Da Nang', x: 22, z: -18, color: 0x3b82f6,
             lines: [
                 'Bang earned his B.Eng. in Information Technology at the Vietnam-Korea University of ICT (VKU) in Da Nang.',
                 'His coursework: Machine Learning, Deep Learning, NLP and Software Engineering.',

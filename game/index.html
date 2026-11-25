@@ -4,39 +4,53 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>CV World — Phan Van Bang</title>
-<meta name="description" content="Explore the CV of Phan Van Bang (AI Engineer) inside a playable Minecraft-style world, right in your browser.">
+<meta name="description" content="Explore the CV of Phan Van Bang (AI Engineer) inside a playable Minecraft-style voxel world, right in your browser.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%235fa83a'/%3E%3Crect y='5' width='16' height='11' fill='%2386592d'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <canvas id="gl"></canvas>
 
 <!-- Loading -->
-<div id="loading"><div class="ld-box"><div class="ld-logo">&lt;PVB/&gt;</div><div class="ld-title">CV WORLD</div><div class="ld-bar"><i id="ldBar"></i></div><div id="ldTxt" class="ld-txt">Building the world…</div></div></div>
+<div id="loading">
+  <div class="ld-box">
+    <div class="ld-logo">&lt;PVB/&gt;</div>
+    <div class="ld-title">CV WORLD</div>
+    <div class="ld-bar"><i id="ldBar"></i></div>
+    <div id="ldTxt" class="ld-txt">Building the voxel world…</div>
+  </div>
+</div>
 
 <!-- Start menu -->
 <div id="menu" class="hidden">
   <div class="menu-card">
-    <div class="m-badge">Interactive CV</div>
+    <div class="m-badge">Interactive 3D Voxel CV</div>
     <h1>CV <span>WORLD</span></h1>
-    <p class="m-sub">Walk through the career journey of <b>Phan Van Bang</b> — from student projects in web, mobile and games to 3+ years building practical AI systems.</p>
+    <p class="m-sub">Walk through the career journey of <b>Phan Van Bang</b> — explore 6 CV districts across an alpine voxel island and step through dimensional portals into <b>The Nether, Sky Islands, The Cosmos &amp; Abyssal Dungeon</b>.</p>
     <div class="m-goals">
-      <div><i>🧭</i>6 stops in a hands-on career journey</div>
-      <div><i>💎</i>12 Knowledge Shards from real projects</div>
-      <div><i>🗣️</i>4 guides with different chapters</div>
-      <div><i>🏆</i>Achievements &amp; CV passport</div>
+      <div><i>🧭</i>6 CV districts &amp; 18 project pavilions</div>
+      <div><i>🌀</i>5 Portal Realms: Overworld, Nether, Aether, Cosmos, Dungeon</div>
+      <div><i>💎</i>12 Knowledge Shards &amp; 21 achievements</div>
+      <div><i>⚔️</i>Custom realm mobs, low-gravity realms &amp; 3rd-person view</div>
     </div>
     <button id="btnPlay" class="btn-main">▶ START EXPLORING</button>
     <div class="m-row">
-      <button id="btnHelpM" class="btn-ghost">❓ Controls guide</button><button id="btnTour" class="btn-ghost">🚀 Quick auto tour</button>
-      <a class="btn-ghost" href="../index.html">📄 View the CV as a page</a>
+      <button id="btnTour" class="btn-ghost">🚀 Scenic Auto Tour</button>
+      <button id="btnHelpM" class="btn-ghost">⚙️ Controls &amp; Settings</button>
+      <a class="btn-ghost" href="../index.html">📄 Classic CV Page</a>
     </div>
     <div class="m-keys">
-      <span><kbd>W A S D</kbd> move</span><span><kbd>Space</kbd> jump · double-tap to fly</span><span><kbd>Left click</kbd> mine / attack</span><span><kbd>Right click</kbd> place / interact</span>
-      <span><kbd>E</kbd> interact</span><span><kbd>C</kbd> CV Compendium</span><span><kbd>M</kbd> map &amp; fast travel</span><span><kbd>1-9</kbd> tools &amp; blocks</span><span><kbd>H</kbd> all controls</span><span><kbd>Esc</kbd> pause</span>
+      <span><kbd>WASD</kbd> move</span>
+      <span><kbd>Space</kbd>×2 fly</span>
+      <span><kbd>E</kbd> talk / inspect</span>
+      <span><kbd>F5</kbd> 1st/3rd cam</span>
+      <span><kbd>Tab</kbd> inventory</span>
+      <span><kbd>M</kbd> map &amp; warp</span>
+      <span><kbd>C</kbd> CV &amp; achievements</span>
+      <span><kbd>U</kbd> rain/snow</span>
     </div>
   </div>
 </div>
@@ -45,112 +59,217 @@
 <div id="hud" class="hidden">
   <div id="crosshair"></div>
   <div id="topLeft">
-    <div class="chip" id="locChip">📍 <b id="locName">Spawn Plaza</b></div>
-    <div class="chip" id="timeChip">🕒 <b id="timeTxt">06:00</b></div>
+    <div class="hud-row">
+      <div class="chip" id="locChip">📍 <b id="locName">Spawn Plaza</b></div>
+      <div class="chip" id="timeChip">🕒 <b id="timeTxt">08:00 ☀️</b></div>
+    </div>
+    <div id="questBox"><div class="q-title">ACTIVE QUEST</div><div id="questTxt"></div></div>
   </div>
   <div id="topRight">
-    <div class="chip prog" title="CV passport: areas visited"><span>🧭</span><b id="visitTxt">0/6</b></div>
-    <div class="chip prog" title="Knowledge Shard"><span>💎</span><b id="shardTxt">0/12</b></div>
-    <button id="btnMap" class="chip btn">🗺️ <b>M</b></button>
-    <button id="btnCV" class="chip btn">📄 <b>C</b></button>
-    <button id="btnSound" class="chip btn" aria-label="Sound">🔊</button><button id="btnHelp" class="chip btn" aria-label="Controls guide">❓ <b>H</b></button>
+    <div class="chip prog" title="CV districts visited"><span>🧭</span><b id="visitTxt">0/6</b></div>
+    <div class="chip prog" title="Knowledge Shards collected"><span>💎</span><b id="shardTxt">0/12</b></div>
+    <button id="btnCam" class="chip btn" title="Cycle Camera (F5 / R)">🎥</button>
+    <button id="btnWeather" class="chip btn" title="Toggle Rain / Snow (U)">☀️</button>
+    <button id="btnPeace" class="chip btn" title="Toggle Peaceful / Monsters (G)">⚔️</button>
+    <button id="btnMap" class="chip btn" title="World Map & Fast Travel (M)">🗺️ <b>M</b></button>
+    <button id="btnCV" class="chip btn" title="CV Compendium & Achievements (C)">📄 <b>C</b></button>
+    <button id="btnSound" class="chip btn" title="Mute / Unmute Sound" aria-label="Sound">🔊</button>
+    <button id="btnHelp" class="chip btn" title="Controls & World Settings (H)">⚙️ <b>H</b></button>
+    <button id="btnPauseHud" class="chip btn" title="Pause (Esc)" aria-label="Pause">⏸</button>
   </div>
-  <div id="questBox"><div class="q-title">QUEST</div><div id="questTxt"></div></div>
-  <div id="minimap"><canvas id="mm" width="160" height="160"></canvas><div id="mmN">N</div></div>
+
+  <div id="minimap">
+    <canvas id="mm" width="160" height="160"></canvas>
+    <div id="mmN">N</div>
+  </div>
+
+  <div id="lockTip" class="hidden">Click world for mouse look · Drag to look · <kbd>Esc</kbd> pause</div>
   <div id="hint"></div>
   <div id="toasts"></div>
-  <div id="itemName"></div>
-  <div id="hotbar"></div>
+
+  <!-- Bottom Survival Status + Hotbar -->
+  <div id="bottomHud">
+    <div id="itemName"></div>
+    <div id="statusBars">
+      <div id="hearts" aria-label="Health"></div>
+      <div id="xpWrap">
+        <span id="xpLvl">1</span>
+        <div id="xpBar"><i id="xpFill"></i></div>
+      </div>
+    </div>
+    <div id="hotbar"></div>
+  </div>
+
   <div id="waterOverlay"></div>
+  <div id="lavaOverlay"></div>
+  <div id="hurtOverlay"></div>
+  <div id="warpOverlay"></div>
   <div id="debug" class="hidden"></div>
 </div>
 
-<!-- Content panel -->
+<!-- CV Content Panel -->
 <div id="panel" class="hidden" role="dialog" aria-modal="true">
   <div class="pn-card" id="pnCard">
     <button class="pn-x" id="pnClose" aria-label="Close">✕</button>
-    <div class="pn-head"><div class="pn-ic" id="pnIc"></div><div><div class="pn-kicker" id="pnKicker"></div><h2 id="pnTitle"></h2></div></div>
+    <div class="pn-head">
+      <div class="pn-ic" id="pnIc"></div>
+      <div><div class="pn-kicker" id="pnKicker"></div><h2 id="pnTitle"></h2></div>
+    </div>
     <div class="pn-body" id="pnBody"></div>
     <div class="pn-foot"><span id="pnNav"></span><span class="pn-esc">Press <kbd>Esc</kbd> or <kbd>E</kbd> to close</span></div>
   </div>
 </div>
 
-<!-- NPC dialogue -->
-<div id="dialog" class="hidden"><div class="dl-name" id="dlName"></div><div class="dl-text" id="dlText"></div><div class="dl-next">▼ <kbd>E</kbd> / click to continue</div></div>
+<!-- NPC Dialogue -->
+<div id="dialog" class="hidden">
+  <div class="dl-name" id="dlName"></div>
+  <div class="dl-text" id="dlText"></div>
+  <div class="dl-next">▼ <kbd>E</kbd> / click to continue</div>
+</div>
 
-<!-- Big map + teleport -->
-<div id="bigmap" class="hidden"><div class="bm-card"><button class="pn-x" id="bmClose">✕</button><h3>MAP &amp; FAST TRAVEL</h3><canvas id="bmc" width="520" height="520"></canvas><div id="bmList"></div></div></div>
-
-<!-- Compendium -->
-<div id="compendium" class="hidden"><div class="cp-card"><button class="pn-x" id="cpClose">✕</button>
-  <h3>📄 CAREER COMPENDIUM</h3>
-  <div class="cp-sub">A practical career journey: professional AI work, team leadership, side research and the student projects that built the foundation. Unlock it as you explore.</div>
-  <div id="cpList"></div>
-  <div class="cp-actions"><a class="btn-main sm" href="../files/PhanVanBang_AIEngineer_CV.pdf" target="_blank" rel="noopener">⬇ Download CV (PDF)</a><a class="btn-ghost" href="mailto:phanvanbang.id@gmail.com">✉ Contact</a></div>
-</div></div>
-
-
-<!-- Controls guide -->
-<div id="help" class="hidden"><div class="hp-card"><button class="pn-x" id="hpClose" aria-label="Close">✕</button>
-  <h3>❓ CONTROLS GUIDE</h3>
-  <div class="hp-grid">
-    <section><h4>Movement</h4>
-      <p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / arrows <span>Walk</span></p>
-      <p><kbd>Mouse</kbd> <span>Look around</span></p>
-      <p><kbd>Space</kbd> <span>Jump / swim up</span></p>
-      <p><kbd>Space</kbd>×2 <span>Toggle flight (creative style)</span></p>
-      <p><kbd>Ctrl</kbd> / <kbd>Shift</kbd> <span>Sprint (FOV widens)</span></p>
-      <p><kbd>Shift</kbd> / <kbd>Q</kbd> <span>Descend while flying</span></p>
-    </section>
-    <section><h4>Blocks</h4>
-      <p><kbd>Left click</kbd> <span>Hold to mine (crack animation) · click an animal to hit it</span></p>
-      <p><kbd>Right click</kbd> <span>Place the block in hand, or open an info block</span></p>
-      <p><kbd>Middle click</kbd> <span>Pick the block you are looking at</span></p>
-      <p><kbd>1</kbd>–<kbd>9</kbd> / <kbd>Wheel</kbd> <span>Select hotbar slot (1-4 tools: pickaxe, axe, shovel, sword)</span></p>
-      <p><kbd>Tab</kbd> <span>Open the inventory (tools + blocks)</span></p>
-      <p><kbd>Alt</kbd>+<kbd>Wheel</kbd> <span>Mid-air placement distance (only while holding a block)</span></p>
-      <p class="hp-note">The ghost preview appears only when you hold a block. Right tool = faster mining: pickaxe for stone/ore, axe for wood, shovel for dirt/sand.</p>
-      <p class="hp-note">The cyan "i" blocks are CV info points and cannot be broken.</p>
-    </section>
-    <section><h4>CV exploration</h4>
-      <p><kbd>E</kbd> <span>Talk to a nearby NPC / open an info block / close a panel</span></p>
-      <p><kbd>C</kbd> <span>CV Compendium (everything you unlocked)</span></p>
-      <p><kbd>M</kbd> <span>Big map and fast travel</span></p>
-      <p><kbd>H</kbd> <span>This controls guide</span></p>
-      <p><kbd>Esc</kbd> <span>Pause / close any window</span></p>
-    </section>
-    <section><h4>Extras</h4>
-      <p><kbd>F</kbd> <span>Fast-forward day and night</span></p>
-      <p><kbd>F2</kbd> <span>Save a screenshot (PNG)</span></p>
-      <p><kbd>F3</kbd> <span>Debug screen (coordinates, FPS, time)</span></p>
-      <p><kbd>V</kbd> <span>Zoom (hold)</span></p>
-      <p><kbd>🔊</kbd> <span>Mute / unmute sound</span></p>
-    </section>
-    <section class="wide"><h4>Touch screens</h4>
-      <p><kbd>Left stick</kbd> <span>Move</span> <kbd>Drag</kbd> <span>Look</span> <kbd>⬆</kbd> <span>Jump (double-tap to fly)</span> <kbd>E</kbd> <span>Interact</span> <kbd>⛏</kbd> <span>Break (hold)</span> <kbd>▣</kbd> <span>Place</span> <kbd>☰</kbd> <span>CV Compendium</span></p>
-    </section>
+<!-- Big Map + Realm Travel -->
+<div id="bigmap" class="hidden">
+  <div class="bm-card">
+    <button class="pn-x" id="bmClose" aria-label="Close">✕</button>
+    <h3>WORLD MAP &amp; DIMENSIONAL TRAVEL</h3>
+    <div id="bmDims" class="tab-bar"></div>
+    <canvas id="bmc" width="520" height="520"></canvas>
+    <div id="bmList"></div>
   </div>
-  <div class="hp-foot">Goal: visit the 6 buildings, talk to the 4 NPCs and collect the 12 Knowledge Shards to complete the CV passport.</div>
-</div></div>
+</div>
 
-<!-- Block inventory -->
-<div id="inv" class="hidden"><div class="inv-card"><button class="pn-x" id="invClose" aria-label="Close">✕</button>
-  <h3>🧱 BLOCK INVENTORY</h3>
-  <div class="inv-sub">Click an item to put it in the selected hotbar slot. Press <kbd>Tab</kbd> or <kbd>Esc</kbd> to close.</div>
-  <div id="invGrid"></div><div id="invName"></div>
-  <div id="invBar"></div>
-</div></div>
+<!-- Compendium (CV Passport + Achievements) -->
+<div id="compendium" class="hidden">
+  <div class="cp-card">
+    <button class="pn-x" id="cpClose" aria-label="Close">✕</button>
+    <h3>CAREER COMPENDIUM</h3>
+    <div class="cp-sub">Unlock Phan Van Bang's CV sections and world achievements as you explore.</div>
+    <div id="cpTabs" class="tab-bar">
+      <button class="tab-btn active" data-tab="cv">📄 CV Passport</button>
+      <button class="tab-btn" data-tab="achv">🏆 Achievements <span id="cpAchvCount" class="tab-badge">0/21</span></button>
+    </div>
+    <div id="cpList"></div>
+    <div class="cp-actions">
+      <a class="btn-main sm" href="../files/PhanVanBang_AIEngineer_CV.pdf" target="_blank" rel="noopener">⬇ Download CV (PDF)</a>
+      <a class="btn-ghost" href="mailto:phanvanbang.id@gmail.com">✉ Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- Controls Guide & World Settings -->
+<div id="help" class="hidden">
+  <div class="hp-card">
+    <button class="pn-x" id="hpClose" aria-label="Close">✕</button>
+    <h3>CONTROLS &amp; WORLD SETTINGS</h3>
+
+    <div class="set-box">
+      <h4>Live World Settings</h4>
+      <div class="set-grid">
+        <div class="set-row"><span>Peaceful Mode <kbd>G</kbd></span><button id="setPeaceful" class="set-btn">OFF (Monsters Active)</button></div>
+        <div class="set-row"><span>Weather <kbd>U</kbd></span><button id="setWeather" class="set-btn">Clear Sky</button></div>
+        <div class="set-row"><span>Day/Night Cycle <kbd>F</kbd></span><button id="setFastTime" class="set-btn">Normal (1x)</button></div>
+        <div class="set-row"><span>Camera View <kbd>F5</kbd></span><button id="setCam" class="set-btn">1st Person</button></div>
+        <div class="set-row"><span>Render Distance (<b id="setFogVal">145m</b>)</span><input id="setFog" type="range" min="80" max="200" step="5" value="145"></div>
+        <div class="set-row"><span>Mouse Sensitivity (<b id="setSensVal">2.2</b>)</span><input id="setSens" type="range" min="10" max="45" step="1" value="22"></div>
+      </div>
+    </div>
+
+    <div class="hp-grid">
+      <section><h4>Movement &amp; Camera</h4>
+        <p><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> / arrows <span>Walk &amp; swim</span></p>
+        <p><kbd>Space</kbd> <span>Jump / swim upward</span></p>
+        <p><kbd>Space</kbd>×2 <span>Toggle creative flight</span></p>
+        <p><kbd>Ctrl</kbd> / <kbd>Shift</kbd> <span>Sprint · Descend in flight (<kbd>Shift</kbd>/<kbd>Q</kbd>)</span></p>
+        <p><kbd>F5</kbd> / <kbd>R</kbd> <span>Cycle 1st Person / 3rd Person Back / Front</span></p>
+        <p><kbd>V</kbd> <span>Hold to spyglass zoom</span></p>
+      </section>
+      <section><h4>Mining, Building &amp; Combat</h4>
+        <p><kbd>Left click</kbd> <span>Mine blocks (10-stage crack) or attack mobs</span></p>
+        <p><kbd>Right click</kbd> <span>Place held block or inspect CV info block</span></p>
+        <p><kbd>Middle click</kbd> <span>Pick block under crosshair</span></p>
+        <p><kbd>1</kbd>–<kbd>9</kbd> / <kbd>Wheel</kbd> <span>Hotbar slots (hold Torch for dynamic cave light!)</span></p>
+        <p><kbd>Tab</kbd> <span>Open categorized Block &amp; Tool Inventory</span></p>
+        <p><kbd>Alt</kbd>+<kbd>Wheel</kbd> <span>Adjust mid-air placement reach</span></p>
+      </section>
+      <section><h4>Exploration &amp; CV</h4>
+        <p><kbd>E</kbd> <span>Talk to NPC / inspect CV info block / close panel</span></p>
+        <p><kbd>M</kbd> <span>Full-island Map &amp; Fast Travel</span></p>
+        <p><kbd>C</kbd> <span>CV Passport &amp; Achievements tracker</span></p>
+        <p><kbd>F</kbd> <span>Fast-forward day/night cycle</span></p>
+        <p><kbd>U</kbd> <span>Toggle Rain &amp; Alpine Snowfall</span></p>
+        <p><kbd>G</kbd> <span>Toggle Peaceful Mode (hide/show monsters)</span></p>
+      </section>
+      <section><h4>Shortcuts &amp; Tools</h4>
+        <p><kbd>F2</kbd> <span>Save PNG screenshot</span></p>
+        <p><kbd>F3</kbd> <span>Debug HUD (FPS, XYZ, Biome, Light levels)</span></p>
+        <p><kbd>Esc</kbd> <span>Close window or Pause</span></p>
+        <p class="hp-note">Tip: Visit the Dimensional Gateways right beside Spawn Plaza (or press M) to enter The Nether, Aether Sky Islands, The Cosmos, and Abyssal Dungeon!</p>
+      </section>
+    </div>
+    <div class="hp-foot">
+      <span>Goal: Visit all 6 CV districts, talk to the 4 guides, and collect 12 Knowledge Shards.</span>
+      <button id="btnResetProg" class="btn-danger">Reset Saved Progress</button>
+    </div>
+  </div>
+</div>
+
+<!-- Categorized Block Inventory -->
+<div id="inv" class="hidden">
+  <div class="inv-card">
+    <button class="pn-x" id="invClose" aria-label="Close">✕</button>
+    <h3>BLOCK &amp; TOOL INVENTORY</h3>
+    <div class="inv-sub">Click any tool or block to equip it into the active hotbar slot. Hold Torches, Lanterns, or Glowstone in caves for real-time dynamic light!</div>
+    <div id="invTabs" class="tab-bar">
+      <button class="tab-btn active" data-cat="all">All</button>
+      <button class="tab-btn" data-cat="tools">Tools</button>
+      <button class="tab-btn" data-cat="building">Building</button>
+      <button class="tab-btn" data-cat="nature">Nature</button>
+      <button class="tab-btn" data-cat="light">Lights</button>
+      <button class="tab-btn" data-cat="decor">Decor</button>
+    </div>
+    <div id="invGrid"></div>
+    <div id="invName"></div>
+    <div id="invBar"></div>
+  </div>
+</div>
 
 <!-- Pause -->
-<div id="pause" class="hidden"><div class="menu-card sm"><h2>PAUSED</h2><button id="btnResume" class="btn-main">▶ RESUME</button><button id="btnCompendium" class="btn-ghost">📄 CV Compendium</button><button id="btnMapP" class="btn-ghost">🗺️ Map</button><button id="btnHelpP" class="btn-ghost">❓ Controls guide</button><a class="btn-ghost" href="../index.html">⬅ Back to the CV page</a><div class="m-keys small"><span>Press <kbd>Esc</kbd> to resume</span></div></div></div>
+<div id="pause" class="hidden">
+  <div class="menu-card sm">
+    <h2>PAUSED</h2>
+    <button id="btnResume" class="btn-main">▶ RESUME</button>
+    <button id="btnCompendium" class="btn-ghost">📄 CV &amp; Achievements</button>
+    <button id="btnMapP" class="btn-ghost">🗺️ Map &amp; Fast Travel</button>
+    <button id="btnHelpP" class="btn-ghost">⚙️ Controls &amp; Settings</button>
+    <a class="btn-ghost" href="../index.html">⬅ Back to Classic CV</a>
+    <div class="m-keys small"><span>Press <kbd>Esc</kbd> to resume</span></div>
+  </div>
+</div>
 
 <!-- Finale -->
-<div id="finale" class="hidden"><div class="menu-card"><div class="m-badge">🏆 Complete</div><h1>THANK <span>YOU!</span></h1><p class="m-sub" id="finTxt"></p><div class="fin-actions"><a class="btn-main" href="mailto:phanvanbang.id@gmail.com">✉ Contact Phan Van Bang</a><a class="btn-ghost" href="../files/PhanVanBang_AIEngineer_CV.pdf" target="_blank" rel="noopener">⬇ Download CV (PDF)</a><button class="btn-ghost" id="btnFinClose">Keep playing</button></div></div></div>
+<div id="finale" class="hidden">
+  <div class="menu-card">
+    <div class="m-badge">🏆 Journey Complete</div>
+    <h1>THANK <span>YOU!</span></h1>
+    <p class="m-sub" id="finTxt"></p>
+    <div class="fin-actions">
+      <a class="btn-main" href="mailto:phanvanbang.id@gmail.com">✉ Contact Phan Van Bang</a>
+      <a class="btn-ghost" href="../files/PhanVanBang_AIEngineer_CV.pdf" target="_blank" rel="noopener">⬇ Download CV (PDF)</a>
+      <button class="btn-ghost" id="btnFinClose">Keep Exploring</button>
+    </div>
+  </div>
+</div>
 
-<!-- Touch controls -->
+<!-- Touch Controls -->
 <div id="touch" class="hidden">
   <div id="joy"><i id="joyK"></i></div>
-  <div id="tBtns"><button id="tJump">⬆</button><button id="tAct">E</button><button id="tBreak">⛏</button><button id="tPlace">▣</button><button id="tMenu">☰</button></div>
+  <div id="tBtns">
+    <button id="tJump">⬆</button>
+    <button id="tAct">E</button>
+    <button id="tBreak">⛏</button>
+    <button id="tPlace">▣</button>
+    <button id="tMenu">☰</button>
+  </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
